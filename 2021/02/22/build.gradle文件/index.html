@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, lss">
+    <meta name="keywords" content="build.gradle文件.md, lss">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | lss</title>
+    <title>build.gradle文件.md | lss</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -206,12 +206,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">categories</h1>
+                    <h1 class="description center-align post-title">build.gradle文件.md</h1>
                 </div>
             </div>
         </div>
@@ -332,6 +332,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/android/" class="post-category">
+                                android
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -353,7 +362,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    426
                 </div>
                 
 
@@ -380,7 +389,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="bulid-gradle文件"><a href="#bulid-gradle文件" class="headerlink" title="bulid.gradle文件"></a>bulid.gradle文件</h2><h3 id="最外层的bulid-gradle文件"><a href="#最外层的bulid-gradle文件" class="headerlink" title="最外层的bulid.gradle文件"></a>最外层的bulid.gradle文件</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">buildscript {</span><br><span class="line">    ext.kotlin_version = <span class="string">"1.3.72"</span></span><br><span class="line">    repositories {</span><br><span class="line">        <span class="comment">// 代码仓库，声明后可以使用其中的依赖库</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">    dependencies {</span><br><span class="line">        <span class="comment">// 声明gradle插件，用于构建Android项目</span></span><br><span class="line">        classpath <span class="string">"com.android.tools.build:gradle:4.0.1"</span></span><br><span class="line">        <span class="comment">// kotlin插件，表明当前项目是由kotlin进行开发的</span></span><br><span class="line">        classpath <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">allprojects {</span><br><span class="line">    repositories {</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="app目录下的bulid-gradle文件"><a href="#app目录下的bulid-gradle文件" class="headerlink" title="app目录下的bulid.gradle文件"></a>app目录下的bulid.gradle文件</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">'com.android.application'</span>   <span class="comment">// 表示这是一个应用程序模块</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'kotlin-android'</span>   <span class="comment">// 使用kotlin开发android项目</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'kotlin-android-extensions'</span>    <span class="comment">// kotlin扩展功能</span></span><br><span class="line"></span><br><span class="line">android {</span><br><span class="line">    compileSdkVersion <span class="number">29</span>    <span class="comment">// 项目编译的版本，这里是Android 10.0系统的SDK编译</span></span><br><span class="line">    buildToolsVersion <span class="string">"30.0.1"</span>    <span class="comment">// 项目构建工具的版本</span></span><br><span class="line"></span><br><span class="line">    defaultConfig {</span><br><span class="line">        <span class="comment">// 每个应用的唯一标识，不能重复。默认是包名</span></span><br><span class="line">        applicationId <span class="string">"com.example.myapplication"</span>   </span><br><span class="line">        minSdkVersion <span class="number">21</span>    <span class="comment">// 项目最低兼容的Android版本，这里是5.0</span></span><br><span class="line">        targetSdkVersion <span class="number">29</span></span><br><span class="line">        versionCode <span class="number">1</span>    <span class="comment">// 指定项目的版本号</span></span><br><span class="line">        versionName <span class="string">"1.0"</span>    <span class="comment">// 指定项目的版本名</span></span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner <span class="string">"androidx.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    buildTypes {</span><br><span class="line">        release {</span><br><span class="line">            </span><br><span class="line">            minifyEnabled <span class="literal">false</span>   <span class="comment">// 是否对项目的代码进行混淆</span></span><br><span class="line">            <span class="comment">// 混淆时的规则文件</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android-optimize.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定当前项目的依赖关系</span></span><br><span class="line">dependencies {</span><br><span class="line">    <span class="comment">// 本地依赖声明，表示将libs目录下的所有.jar后缀的文件添加到项目的构建路径中。</span></span><br><span class="line">    implementation fileTree(<span class="attr">dir:</span> <span class="string">"libs"</span>, <span class="attr">include:</span> [<span class="string">"*.jar"</span>])</span><br><span class="line">    <span class="comment">// 远程依赖声明</span></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span></span><br><span class="line">    implementation <span class="string">'androidx.core:core-ktx:1.3.1'</span></span><br><span class="line">    implementation <span class="string">'androidx.appcompat:appcompat:1.2.0'</span></span><br><span class="line">    implementation <span class="string">'androidx.constraintlayout:constraintlayout:1.1.3'</span></span><br><span class="line">    testImplementation <span class="string">'junit:junit:4.12'</span></span><br><span class="line">    androidTestImplementation <span class="string">'androidx.test.ext:junit:1.1.1'</span></span><br><span class="line">    androidTestImplementation <span class="string">'androidx.test.espresso:espresso-core:3.2.0'</span></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>第一行有两种选择：<ul>
+<li>**’com.android.application’ **  :表示这是一个应用程序模块，可以直接运行</li>
+<li><strong>‘com.android.library’</strong> ：表示这是一个库模块，要依赖于别的应用模块运行</li>
+</ul>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -406,7 +426,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/lishushuai/lishushuai/categories/index.html">https://gitee.com/lishushuai/lishushuai/categories/index.html</a>
+                    <a href="https://gitee.com/lishushuai/lishushuai/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/">https://gitee.com/lishushuai/lishushuai/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -487,18 +507,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2021/02/22/github%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="github不能访问">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">github不能访问</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -508,9 +527,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -519,7 +538,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -527,16 +553,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="hexo和gitee建立自己的博客">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">hexo和gitee建立自己的博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -557,7 +583,18 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/gitee/">
+                        <span class="chip bg-color">gitee</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
