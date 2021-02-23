@@ -361,7 +361,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    639
+                    653
                 </div>
                 
 
@@ -453,6 +453,11 @@
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改deploy字段，git@gitee.com:lishushuai/lishushuai.git改成自己的</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@gitee.com:lishushuai/lishushuai.git</span></span><br><span class="line">  <span class="attr">bransh:</span> <span class="string">master</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 改url（仓库名和gitee名称不一样的这里不一样，可以看gitee上的介绍：https://gitee.com/help/articles/4136）</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://gitee.com/lishushuai/lishushuai</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="推送博客到gitee"><a href="#推送博客到gitee" class="headerlink" title="推送博客到gitee"></a>推送博客到gitee</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 部署网站</span></span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>出现Deployer not found: git，执行：</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="部署自己的博客"><a href="#部署自己的博客" class="headerlink" title="部署自己的博客"></a>部署自己的博客</h2><ul>
 <li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下 –》更新（部署网站）</li>

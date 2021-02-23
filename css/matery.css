@@ -241,7 +241,8 @@ mark {
 }
 
 .bg-color {
-    background-image: url("https://gitee.com/lishushuai/img/raw/master/5e1640f2cc60624c29fe4e08760e6a43a11aefe5.png@1320w_880h.webp")
+    /* background-image: url("https://gitee.com/lishushuai/img/raw/master/a57f1647f17b5d7f09f87b58f171f6a1.jpg"); */
+    background-image: linear-gradient(to right, rgb(140, 181, 204, 0.8), rgb(75, 169, 212, 0.8));
     /* linear-gradient(to right, #6391f7 0%, #4097e9 100%); */
 }
 
