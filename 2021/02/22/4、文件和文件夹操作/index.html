@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="京东评论.md, lss">
+    <meta name="keywords" content="4、文件和文件夹操作.md, lss">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>京东评论.md | lss</title>
+    <title>4、文件和文件夹操作.md | lss</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -206,12 +206,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">京东评论.md</h1>
+                    <h1 class="description center-align post-title">4、文件和文件夹操作.md</h1>
                 </div>
             </div>
         </div>
@@ -325,13 +325,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/scrapy/">
-                                <span class="chip bg-color">scrapy</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -339,8 +335,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/linux/" class="post-category">
+                                linux
                             </a>
                         
                     </div>
@@ -366,14 +362,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    269
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -393,34 +389,262 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="评论获取"><a href="#评论获取" class="headerlink" title="评论获取"></a>评论获取</h3><p>爬取商品：<a target="_blank" rel="noopener" href="https://item.jd.com/11943853.html">https://item.jd.com/11943853.html</a></p>
-<h4 id="一、评论查找"><a href="#一、评论查找" class="headerlink" title="一、评论查找"></a>一、评论查找</h4><p>源代码查找</p>
-<p>随便复制一个评论的评论人：名字。在源代码中搜索，没有找到。</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094252.png"></p>
-<p>那就在加载的数据中查找</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094221.png" alt="image-20200524094219681"></p>
-<p>在这个里面有：</p>
+                <h1 id="Linux目录和文件命令"><a href="#Linux目录和文件命令" class="headerlink" title="Linux目录和文件命令"></a>Linux目录和文件命令</h1><h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><ul>
+<li>常用命令：mkdir [选项] 文件夹</li>
+</ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1">https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
+<p>常用选项</p>
+<ul>
+<li>-p：创建多级目录</li>
+</ul>
 </blockquote>
-<p>看看是不是评论：</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094519.png" alt="image-20200524094518225"></p>
-<p>有评论的内容。</p>
-<h3 id="二、评论内容获取。"><a href="#二、评论内容获取。" class="headerlink" title="二、评论内容获取。"></a>二、评论内容获取。</h3><p>请求得到数据, 数据格式：</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524095853.png"></p>
-<p>使用正则，再使用json.loads把数据转化为字典类型：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resp = requests.get(url, headers=headers)</span><br><span class="line">   <span class="keyword">if</span> resp.status_code == <span class="number">200</span>:</span><br><span class="line">       text = resp.text</span><br><span class="line">       pattern = re.<span class="built_in">compile</span>(<span class="string">r'fetchJSON_comment98\((.*?)\);'</span>, re.S)</span><br><span class="line">       t_data = pattern.search(text).group(<span class="number">1</span>)</span><br><span class="line">       t_json = json.loads(t_data)</span><br><span class="line">       pprint(t_json)</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>实例</p>
+<ul>
+<li>创建单级目录/aa</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir aa</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524101010.png"></p>
-<p>评论在comments的content里面：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> comment <span class="keyword">in</span> t_json[<span class="string">'comments'</span>]:</span><br><span class="line">	print(comment[<span class="string">'content'</span>])</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>创建多级目录aa/bb</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkidr -p aa/bb</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20200524101255131.png">三、全部评论获取</p>
+</li>
+</ul>
+<h3 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h3><ul>
+<li>常用命令：<ul>
+<li>rm -rf 文件夹（使用要小心，文件夹里面内容全部删除）</li>
+<li>rmdir [选项] 文件夹（只能删除空文件夹）</li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1">https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
+<p>常用选项</p>
+<ul>
+<li>-p ：当子目录被删除后使它也成为空目录的话，则顺便一并删除。</li>
+</ul>
 </blockquote>
-<p>在这个地址了page参数代表页码：改变page的值可以获取不同页码的评论。</p>
-<p>还有一个productId代表每个商品。</p>
+<ul>
+<li><p>实例</p>
+<ul>
+<li>删除文件夹aa（空文件夹）</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir aa</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>删除aa下的文件夹bb（aa文件夹下只有bb的情况下，aa文件夹也会一并删除）</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir -p aa/bb</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>删除文件夹aa（非空）</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf aa</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><ul>
+<li>常用命令：touch [选项] 文件名</li>
+</ul>
+<blockquote>
+<p>常用选项</p>
+<ul>
+<li>-c：不建立任何文档</li>
+<li>-d：使用指定的日期时间，而非现在的时间</li>
+<li>-r ：更新前者的时间戳，使其与后者的时间戳一样</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>实例：</p>
+<ul>
+<li>创建文件a.txt</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch a.txt</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h3><ul>
+<li>常用命令：cp [选项] 源文件 移动到的位置</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-a</code></td>
+<td align="left">此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpt参数组合。</td>
+</tr>
+<tr>
+<td align="left"><code>-d</code></td>
+<td align="left">复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。</td>
+</tr>
+<tr>
+<td align="left"><code>-f</code></td>
+<td align="left">覆盖已经存在的目标文件而不给出提示。</td>
+</tr>
+<tr>
+<td align="left"><code>-i</code></td>
+<td align="left">与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答”y”时目标文件将被覆盖。</td>
+</tr>
+<tr>
+<td align="left"><code>-p</code></td>
+<td align="left">除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</td>
+</tr>
+<tr>
+<td align="left"><code>-r</code></td>
+<td align="left">若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</td>
+</tr>
+<tr>
+<td align="left"><code>-l</code></td>
+<td align="left">不复制文件，只是生成链接文件(快捷方式)。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li><p>实例</p>
+<ul>
+<li>拷贝a.txt文件到文件夹bb中</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp a.txt bb/</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h3><ul>
+<li><p>常用命令：mv 旧文件名 新文件名</p>
+</li>
+<li><p>实例：</p>
+<ul>
+<li>a.txt 重命名位b.txt</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv a.txt b.txt</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="移动文件或目录"><a href="#移动文件或目录" class="headerlink" title="移动文件或目录"></a>移动文件或目录</h3><ul>
+<li>常用命令：mv [选项] 源文件或目录 位置</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b</code></td>
+<td align="left">当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td align="left">如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td align="left">如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td align="left">不要覆盖任何已存在的文件或目录</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td align="left">当源文件比目标文件新或者目标文件不存在时，才执行移动操作</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li><p>实例:</p>
+<ul>
+<li>移动a.txt 到文件夹bb中</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv a.txt bb\</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h3><ol>
+<li>cat  [选项] 文件名</li>
+</ol>
+<blockquote>
+<p>选项</p>
+<ul>
+<li>-n：显示行号</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>more  [选项] 文件名</li>
+</ol>
+<blockquote>
+<p>Linux more 命令类似 cat ，不过会以<code>一页一页</code>的形式显示，更方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似），使用中的说明文件，请按 h 。</p>
+</blockquote>
+<ol start="3">
+<li>less [选项] 文件名</li>
+</ol>
+<blockquote>
+<p>less和more类似，但更加强大，在显示内容时不是一次性加载，而是根据显示的内容加载，一点一点的读，<code>对大型文件具有较高的效率</code></p>
+</blockquote>
+<ol start="4">
+<li>tail</li>
+</ol>
+<p>命令：</p>
+<ul>
+<li>tail 文件 （查看文件尾10行内容）</li>
+<li>tail -n 5 文件 （查看文件尾部5行内容）</li>
+<li><code>tail -f 文件</code>（实时监控文件的所有更新）</li>
+</ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>命令：rm [选项] 目录或文件</p>
+<blockquote>
+<p> <strong><code>rm</code></strong> (remove)命令可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-f</code></td>
+<td>强制删除文件或目录</td>
+</tr>
+<tr>
+<td align="center"><code>-i</code></td>
+<td>删除已有文件或目录之前先询问用户</td>
+</tr>
+<tr>
+<td align="center"><code>-r</code></td>
+<td>递归处理， 将指定目录下的所有文件与子目录一并处理</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/</code></td>
+<td>在Linux中表示根目录</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>所有文件</td>
+</tr>
+<tr>
+<td><code>/*</code></td>
+<td>根目录下的所有文件</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li>实例：rm -rf</li>
+</ul>
+<p><strong><code>文件一旦通过rm命令删除，则无法恢复，所以必须格外小心地使用该命令。</code></strong></p>
 
                 
             </div>
@@ -447,7 +671,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/lishushuai/lishushuai/2021/02/22/%E4%BA%AC%E4%B8%9C%E8%AF%84%E8%AE%BA/">https://gitee.com/lishushuai/lishushuai/2021/02/22/%E4%BA%AC%E4%B8%9C%E8%AF%84%E8%AE%BA/</a>
+                    <a href="https://gitee.com/lishushuai/lishushuai/2021/02/22/4%E3%80%81%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/">https://gitee.com/lishushuai/lishushuai/2021/02/22/4%E3%80%81%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -484,11 +708,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/scrapy/">
-                                    <span class="chip bg-color">scrapy</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -536,6 +756,51 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2021/02/22/github%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="github不能访问">
+                        
+                        <span class="card-title">github不能访问</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            lss
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/">
                     <div class="card-image">
                         
@@ -552,9 +817,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -566,55 +831,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="hexo和gitee建立自己的博客">
-                        
-                        <span class="card-title">hexo和gitee建立自己的博客</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            lss
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/gitee/">
-                        <span class="chip bg-color">gitee</span>
-                    </a>
-                    
                 </div>
                 
             </div>
