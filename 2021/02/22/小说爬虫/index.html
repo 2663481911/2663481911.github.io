@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+  <link rel="mask-icon" href="/images/logo.png" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -17,15 +17,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"2663481911.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"2663481911.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="目标：爬取零点看书网 一本小说 1、爬取小说目录地址爬取小说地址：https:&#x2F;&#x2F;www.lingdiankanshu.co&#x2F;258400&#x2F; 查看网页源代码   小说楔子在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面 用xpath来获取 1a_list &#x3D; html.xpath(&#39;&#x2F;&#x2F;div[@id&#x3D;&quot;list&quot;]&#x2F;dl&#x2F;dt[2]&#x2F;following-sibling">
+  <meta name="description" content="目标：爬取零点看书网 一本小说 1、爬取小说目录地址爬取小说地址：https:&#x2F;&#x2F;www.lingdiankanshu.co&#x2F;258400&#x2F; 查看网页源代码   小说楔子在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小说爬虫.md">
 <meta property="og:url" content="http://2663481911.github.io/2021/02/22/%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/index.html">
 <meta property="og:site_name" content="lss">
-<meta property="og:description" content="目标：爬取零点看书网 一本小说 1、爬取小说目录地址爬取小说地址：https:&#x2F;&#x2F;www.lingdiankanshu.co&#x2F;258400&#x2F; 查看网页源代码   小说楔子在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面 用xpath来获取 1a_list &#x3D; html.xpath(&#39;&#x2F;&#x2F;div[@id&#x3D;&quot;list&quot;]&#x2F;dl&#x2F;dt[2]&#x2F;following-sibling">
+<meta property="og:description" content="目标：爬取零点看书网 一本小说 1、爬取小说目录地址爬取小说地址：https:&#x2F;&#x2F;www.lingdiankanshu.co&#x2F;258400&#x2F; 查看网页源代码   小说楔子在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/2663481911/picGo_img/master/20200513103935.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/2663481911/picGo_img/master/20200513091311.png">
@@ -235,6 +235,8 @@
 <img src="https://raw.githubusercontent.com/2663481911/picGo_img/master/20200513103935.png" alt="image-20200512181300489">
 
 <p>小说<code>楔子</code>在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面</p>
+<span id="more"></span>
+
 <p>用xpath来获取</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a_list = html.xpath(<span class="string">'//div[@id="list"]/dl/dt[2]/following-sibling::dd/a'</span>)</span><br></pre></td></tr></tbody></table></figure>
 
