@@ -272,15 +272,19 @@
 <h2 id="配置anaconda"><a href="#配置anaconda" class="headerlink" title="配置anaconda"></a>配置anaconda</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"># 在最后添加export PATH=$PATH:你的anaconda位置/bin</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="添加多个"><a href="#添加多个" class="headerlink" title="添加多个"></a>添加多个</h2><p>添加anaconda和java环境变量</p>
-<ol>
-<li><pre><code class="shell">vim ~/.bashrc
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">- 在最后添加</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></tbody></table></figure>
-</code></pre>
-</li>
-<li><pre><code>source ~/.bashrc
-</code></pre>
-</li>
-</ol>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>在最后添加</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>生效</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
+
+
 <blockquote>
 <p>注意: $PATH  代表前面添加的PATH，没有$PATH前面的会失效，在这里最后没有$PATH则anaconda不起作用</p>
 </blockquote>
