@@ -164,6 +164,340 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/27/Linux-tee/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lss">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lss">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/27/Linux-tee/" class="post-title-link" itemprop="url">Linux-tee</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-27 14:21:46 / 修改时间：14:31:15" itemprop="dateCreated datePublished" datetime="2021-02-27T14:21:46+08:00">2021-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote>
+<p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p>
+<p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p>
+</blockquote>
+<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
+<li>命令：tee [选项] 文件</li>
+<li>选项</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code></td>
+<td>追加，默认覆盖保存</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（追加保存）</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227143112.png" alt="image-20210227143112062"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lss">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lss">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/" class="post-title-link" itemprop="url">Linux-uniq：处理重复行</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-27 14:06:05 / 修改时间：14:14:17" itemprop="dateCreated datePublished" datetime="2021-02-27T14:06:05+08:00">2021-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-uniq"><a href="#Linux-uniq" class="headerlink" title="Linux uniq"></a>Linux uniq</h1><blockquote>
+<p>用于处理文件的重复行</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lss">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lss">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">Linux-sort：排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-27 13:35:35 / 修改时间：14:13:51" itemprop="dateCreated datePublished" datetime="2021-02-27T13:35:35+08:00">2021-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-sort"><a href="#Linux-sort" class="headerlink" title="Linux sort"></a>Linux sort</h1><blockquote>
+<p>用于排序；它将文件的每一行作为一个单位，从首字符开始，按ASCll 码值进行比较，然后按升序输出</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lss">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lss">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/" class="post-title-link" itemprop="url">Linux-cut:提取文件片段</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-27 12:41:39 / 修改时间：14:13:58" itemprop="dateCreated datePublished" datetime="2021-02-27T12:41:39+08:00">2021-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-cut"><a href="#Linux-cut" class="headerlink" title="Linux cut"></a>Linux cut</h1><blockquote>
+<p>对文件的行进行分析，并按照指定规则截取文件</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,10 +521,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-26 14:02:52 / 修改时间：23:44:34" itemprop="dateCreated datePublished" datetime="2021-02-26T14:02:52+08:00">2021-02-26</time>
+              <time title="创建时间：2021-02-26 14:02:52" itemprop="dateCreated datePublished" datetime="2021-02-26T14:02:52+08:00">2021-02-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-27 14:07:41" itemprop="dateModified" datetime="2021-02-27T14:07:41+08:00">2021-02-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -265,10 +605,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-26 13:33:36 / 修改时间：23:44:39" itemprop="dateCreated datePublished" datetime="2021-02-26T13:33:36+08:00">2021-02-26</time>
+              <time title="创建时间：2021-02-26 13:33:36" itemprop="dateCreated datePublished" datetime="2021-02-26T13:33:36+08:00">2021-02-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-27 14:07:50" itemprop="dateModified" datetime="2021-02-27T14:07:50+08:00">2021-02-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -556,6 +902,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lss">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lss">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">build.gradle文件.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-22 15:51:13" itemprop="dateCreated datePublished" datetime="2021-02-22T15:51:13+08:00">2021-02-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>android gradle配置文件</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/Linux%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -725,432 +1145,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="lss">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lss">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/22/%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">小说爬虫.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-22 15:51:13" itemprop="dateCreated datePublished" datetime="2021-02-22T15:51:13+08:00">2021-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="目标：爬取零点看书网"><a href="#目标：爬取零点看书网" class="headerlink" title="目标：爬取零点看书网"></a>目标：爬取零点看书网</h3><p> 一本小说</p>
-<h3 id="1、爬取小说目录地址"><a href="#1、爬取小说目录地址" class="headerlink" title="1、爬取小说目录地址"></a>1、爬取小说目录地址</h3><p>爬取小说地址：<a target="_blank" rel="noopener" href="https://www.lingdiankanshu.co/258400/">https://www.lingdiankanshu.co/258400/</a></p>
-<p>查看网页源代码</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204725455.png" alt="image-20210226204725455"></p>
-<p>小说<code>楔子</code>在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/22/%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="lss">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lss">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">hexo和gitee建立自己的博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-22 15:51:13" itemprop="dateCreated datePublished" datetime="2021-02-22T15:51:13+08:00">2021-02-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用hexo和gitee建立博客"><a href="#使用hexo和gitee建立博客" class="headerlink" title="使用hexo和gitee建立博客"></a>使用hexo和gitee建立博客</h1><blockquote>
-<p>使用Hexo 建立网站，然后把网站部署到gitee中</p>
-</blockquote>
-<h2 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h2><ol>
-<li>新建一个仓库，仓库名和gitee名字一样（不一样也行，只是后面要配置多一点），其他默认，比如：<a target="_blank" rel="noopener" href="https://gitee.com/lishushuai/lishushuai">https://gitee.com/lishushuai/lishushuai</a></li>
-</ol>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222162017066.png" alt="image-20210222162017066"></p>
-<ol start="2">
-<li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下可以部署自己的博客</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="lss">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lss">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">build.gradle文件.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-22 15:51:13" itemprop="dateCreated datePublished" datetime="2021-02-22T15:51:13+08:00">2021-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>android gradle配置文件</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/Linux%E6%9D%83%E9%99%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="lss">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lss">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/22/Linux%E6%9D%83%E9%99%90/" class="post-title-link" itemprop="url">Linux权限</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-22 03:24:04" itemprop="dateCreated datePublished" datetime="2021-02-22T03:24:04+08:00">2021-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
-<li><p>r：代表可读，查看</p>
-</li>
-<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
-</li>
-<li><p>x：可执行</p>
-<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
-<li><p>r：可以读取，ls查看目录内容</p>
-</li>
-<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
-</li>
-<li><p>x：可执行，可以cd进入改目录</p>
-</li>
-</ul>
-<p>例子：</p>
-<ul>
-<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
-<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/22/Linux%E6%9D%83%E9%99%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/viw%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="lss">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lss">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/22/viw%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">viw的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-22 01:53:12" itemprop="dateCreated datePublished" datetime="2021-02-22T01:53:12+08:00">2021-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="vim的使用"><a href="#vim的使用" class="headerlink" title="vim的使用"></a>vim的使用</h1><h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><h3 id="一般模式"><a href="#一般模式" class="headerlink" title="一般模式"></a>一般模式</h3><blockquote>
-<p>在终端输入vim xxx，进入就是一般模式</p>
-</blockquote>
-<h4 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h4><ul>
-<li><p>编辑模式 按<code>ESC</code>键 切换到一般模式</p>
-</li>
-<li><p>可视模式切换到一般模式</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>描述</th>
-<th>助记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>y</code></td>
-<td>复制当前选择区域，并退出可视模式</td>
-<td>yank</td>
-</tr>
-<tr>
-<td><code>Y</code></td>
-<td>复制当前选择区域（按行），并退出可视模式</td>
-<td>Yank</td>
-</tr>
-<tr>
-<td><code>ESC</code></td>
-<td>直接退出可视模式</td>
-<td></td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/22/viw%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1215,7 +1214,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

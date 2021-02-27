@@ -6,7 +6,7 @@
   <link href="http://2663481911.github.io/atom.xml" rel="self"/>
   
   <link href="http://2663481911.github.io/"/>
-  <updated>2021-02-26T15:44:34.741Z</updated>
+  <updated>2021-02-27T06:31:15.772Z</updated>
   <id>http://2663481911.github.io/</id>
   
   <author>
@@ -17,11 +17,107 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux-tee</title>
+    <link href="http://2663481911.github.io/2021/02/27/Linux-tee/"/>
+    <id>http://2663481911.github.io/2021/02/27/Linux-tee/</id>
+    <published>2021-02-27T06:21:46.000Z</published>
+    <updated>2021-02-27T06:31:15.772Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote><p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p><p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p></blockquote><h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul><li>命令：tee [选项] 文件</li><li>选项</li></ul><table><thead><tr><th>选项</th><th>用途</th></tr></thead><tbody><tr><td><code>-a</code></td><td>追加，默认覆盖保存</td></tr></tbody></table><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul><li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li></ul><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></tbody></table></figure><ul><li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li></ul><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></tbody></table></figure><ul><li>将<strong>echo</strong>输出写入文件t中（追加保存）</li></ul><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227143112.png" alt="image-20210227143112062"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux-tee&quot;&gt;&lt;a href=&quot;#Linux-tee&quot; class=&quot;headerlink&quot; title=&quot;Linux tee&quot;&gt;&lt;/a&gt;Linux tee&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;tee命令用于读取标准输入的数据，并将其内容输出成文件。&lt;</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-uniq：处理重复行</title>
+    <link href="http://2663481911.github.io/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/"/>
+    <id>http://2663481911.github.io/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/</id>
+    <published>2021-02-27T06:06:05.000Z</published>
+    <updated>2021-02-27T06:14:17.120Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-uniq"><a href="#Linux-uniq" class="headerlink" title="Linux uniq"></a>Linux uniq</h1><blockquote><p>用于处理文件的重复行</p></blockquote><span id="more"></span><h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul><li><p>命令：<code>uniq [选项] 文件</code></p></li><li><p>选项</p></li></ul><table><thead><tr><th>选项</th><th>用途</th></tr></thead><tbody><tr><td><code>-i</code></td><td>忽略大小写</td></tr><tr><td><code>-c</code></td><td>统计重复行次数</td></tr><tr><td><code>-d</code></td><td>只显示重复行</td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Linux-uniq&quot;&gt;&lt;a href=&quot;#Linux-uniq&quot; class=&quot;headerlink&quot; title=&quot;Linux uniq&quot;&gt;&lt;/a&gt;Linux uniq&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;用于处理文件的重复行&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-sort：排序</title>
+    <link href="http://2663481911.github.io/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/"/>
+    <id>http://2663481911.github.io/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/</id>
+    <published>2021-02-27T05:35:35.000Z</published>
+    <updated>2021-02-27T06:13:51.546Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-sort"><a href="#Linux-sort" class="headerlink" title="Linux sort"></a>Linux sort</h1><blockquote><p>用于排序；它将文件的每一行作为一个单位，从首字符开始，按ASCll 码值进行比较，然后按升序输出</p></blockquote><span id="more"></span><h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><ul><li>语法：<code>sort [选项 ]文件</code></li></ul><table><thead><tr><th>选项</th><th>用途</th></tr></thead><tbody><tr><td><code>-u</code></td><td>去掉重复行</td></tr><tr><td><code>-r</code></td><td>降序排序，默认为升序</td></tr><tr><td><code>-o</code></td><td>将排序结果输出到文件中，类似重定向符号&gt;</td></tr><tr><td><code>-n</code></td><td>以数字排序，默认按字符排序</td></tr><tr><td><code>-t</code></td><td>分隔符，和<code>-k</code>一起使用（和cut -d -f类似）</td></tr><tr><td><code>-k</code></td><td>第n个，后面数字代表第几个（-k4）</td></tr><tr><td><code>-b</code></td><td>忽略前面空格</td></tr><tr><td><code>-R</code></td><td>随机排列</td></tr></tbody></table><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul><li>passwd文件</li></ul><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227130720.png" alt="image-20210227130521435"></p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以:为分隔符，按第四个降序排序</span></span><br><span class="line">sort -t: -k4 -r passwd</span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227135507.png" alt="image-20210227135507755"></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Linux-sort&quot;&gt;&lt;a href=&quot;#Linux-sort&quot; class=&quot;headerlink&quot; title=&quot;Linux sort&quot;&gt;&lt;/a&gt;Linux sort&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;用于排序；它将文件的每一行作为一个单位，从首字符开始，按ASCll 码值进行比较，然后按升序输出&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
+    
+    <category term="工具" scheme="http://2663481911.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-cut:提取文件片段</title>
+    <link href="http://2663481911.github.io/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/"/>
+    <id>http://2663481911.github.io/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/</id>
+    <published>2021-02-27T04:41:39.000Z</published>
+    <updated>2021-02-27T06:13:58.976Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-cut"><a href="#Linux-cut" class="headerlink" title="Linux cut"></a>Linux cut</h1><blockquote><p>对文件的行进行分析，并按照指定规则截取文件</p></blockquote><span id="more"></span><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul><li><p>命令：<code>cut [选项 ]文件名</code></p></li><li><p>常用选项</p></li></ul><table><thead><tr><th>选项</th><th>用途</th></tr></thead><tbody><tr><td><code>-c</code></td><td>以字符为单位进行截取</td></tr><tr><td><code>-d</code></td><td>自定义分隔符，默认为制表符(\t)</td></tr><tr><td><code>-f</code></td><td>与<code>-d</code>一起使用指定截取那个区域</td></tr></tbody></table><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul><li>对于当前文件夹下的passwd文件，文件内容如下</li></ul><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227130720.png" alt="image-20210227130521435"></p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第一个</span></span><br><span class="line">cut -d: -f1 passwd</span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131016.png" alt="image-20210227131016476"></p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第1、6、7个</span></span><br><span class="line">cut -d: -f1,6,7 passwd</span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131141.png" alt="image-20210227131141681"></p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取第四个字符</span></span><br><span class="line">cut -c4 passwd</span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131408.png" alt="image-20210227131408170"></p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取1-4的字符</span></span><br><span class="line">cut -c1-4 passwd</span><br><span class="line"><span class="meta">#</span><span class="bash"> 从第五个字符开始截取全部字符</span></span><br><span class="line">cut -c5- passwd</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Linux-cut&quot;&gt;&lt;a href=&quot;#Linux-cut&quot; class=&quot;headerlink&quot; title=&quot;Linux cut&quot;&gt;&lt;/a&gt;Linux cut&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;对文件的行进行分析，并按照指定规则截取文件&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux alias: 设置指令的别名</title>
     <link href="http://2663481911.github.io/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/"/>
     <id>http://2663481911.github.io/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/</id>
     <published>2021-02-26T06:02:52.000Z</published>
-    <updated>2021-02-26T15:44:34.741Z</updated>
+    <updated>2021-02-27T06:07:41.742Z</updated>
     
     <content type="html"><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><blockquote><p>Linux alias命令用于设置指令的别名。</p><p>有时候在Linux下执行一条命令过长，挺麻烦的，我们可以使用alias对命令设置简短的别名，相当于缩短命令，方便操作。</p></blockquote><span id="more"></span><h2 id="查看当前设置的别名"><a href="#查看当前设置的别名" class="headerlink" title="查看当前设置的别名"></a>查看当前设置的别名</h2><ul><li>查看当前全部别名：<code>alias</code></li></ul><p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226141603937.png" alt="image-20210226141603937"></p><ul><li>查看指定别名：<code>alias ll</code></li></ul><p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226142334508.png" alt="image-20210226142334508"></p><h2 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h2><ul><li>当前终端有效，在终端输入命令：<code>alias 别名=命令</code><ul><li>示例：<code>alias l='ls -lah'</code></li></ul></li></ul><p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226142022283.png" alt="image-20210226142022283"></p><ul><li>当前用户有效：修改对应的rc（zsh：<del>/.zshrc，bash：</del>/.bashrc）文件，比如我的添加python别名：</li></ul><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">alias python=/home/lss/miniconda3/bin/python</span><br></pre></td></tr></tbody></table></figure>]]></content>
     
@@ -36,7 +132,7 @@
     <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://2663481911.github.io/tags/Linux/"/>
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
     
   </entry>
   
@@ -45,7 +141,7 @@
     <link href="http://2663481911.github.io/2021/02/26/Linux-grep-%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2/"/>
     <id>http://2663481911.github.io/2021/02/26/Linux-grep-%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2/</id>
     <published>2021-02-26T05:33:36.000Z</published>
-    <updated>2021-02-26T15:44:39.294Z</updated>
+    <updated>2021-02-27T06:07:50.790Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Linux-grep"><a href="#Linux-grep" class="headerlink" title="Linux grep"></a>Linux grep</h1><blockquote><p>grep （缩写来自Globally search a Regular Expression and Print）是一种强大的文本搜索工具，它能使用特定模式匹配（包括<strong>正则表达式</strong>）搜索文本，并默认输出匹配行。</p></blockquote><span id="more"></span><h2 id="用法"><a href="#用法" class="headerlink" title="用法:"></a>用法:</h2><blockquote><p>grep [选项]… 模式 [文件]…</p></blockquote><ul><li><p>常用选项：</p><table><thead><tr><th>选项</th><th>用途</th></tr></thead><tbody><tr><td><code>-i</code></td><td>不区分大小写</td></tr><tr><td><code>-v</code></td><td>查找不包括指定的行</td></tr><tr><td><code>-w</code></td><td>按单词搜索</td></tr><tr><td><code>-o</code></td><td>打印匹配关键字</td></tr><tr><td><code>-c</code></td><td>统计匹配次数</td></tr><tr><td><code>-n</code></td><td>显示行号</td></tr><tr><td><code>-r</code></td><td>逐层遍历目录查找</td></tr><tr><td><code>-A</code></td><td>显示匹配行及后面多少行</td></tr><tr><td><code>-E</code></td><td>使用扩展正则匹配</td></tr><tr><td><code>-e</code></td><td>使用正则匹配</td></tr></tbody></table></li><li><p>常用模式</p></li></ul><blockquote><p><code>^key</code>：以关键字开头</p><p><code>key$</code>：以关键字结尾</p><p><code>^$</code>：匹配空行</p><p><code>--color=auto</code>：可以将找到的关键词部分加上颜色的显示（一般默认了）</p></blockquote><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul><li>查找当前用户目录下的<code>.zshrc</code>文件里面的python环境</li></ul><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep python ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span> python=/home/lss/miniconda3/bin/python</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示行号</span></span><br><span class="line">grep -n python ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 115:<span class="built_in">alias</span> python=/home/lss/miniconda3/bin/python</span></span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226141030720.png" alt="image-20210226141030720"></p>]]></content>
     
@@ -59,7 +155,7 @@
     <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://2663481911.github.io/tags/Linux/"/>
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
     
   </entry>
   
@@ -83,7 +179,7 @@
     <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://2663481911.github.io/tags/Linux/"/>
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
     
   </entry>
   
@@ -136,6 +232,25 @@
   </entry>
   
   <entry>
+    <title>build.gradle文件.md</title>
+    <link href="http://2663481911.github.io/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/"/>
+    <id>http://2663481911.github.io/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/</id>
+    <published>2021-02-22T07:51:13.000Z</published>
+    <updated>2021-02-22T07:51:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="bulid-gradle文件"><a href="#bulid-gradle文件" class="headerlink" title="bulid.gradle文件"></a>bulid.gradle文件</h2><h3 id="最外层的bulid-gradle文件"><a href="#最外层的bulid-gradle文件" class="headerlink" title="最外层的bulid.gradle文件"></a>最外层的bulid.gradle文件</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">buildscript {</span><br><span class="line">    ext.kotlin_version = <span class="string">"1.3.72"</span></span><br><span class="line">    repositories {</span><br><span class="line">        <span class="comment">// 代码仓库，声明后可以使用其中的依赖库</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">    dependencies {</span><br><span class="line">        <span class="comment">// 声明gradle插件，用于构建Android项目</span></span><br><span class="line">        classpath <span class="string">"com.android.tools.build:gradle:4.0.1"</span></span><br><span class="line">        <span class="comment">// kotlin插件，表明当前项目是由kotlin进行开发的</span></span><br><span class="line">        classpath <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">allprojects {</span><br><span class="line">    repositories {</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="app目录下的bulid-gradle文件"><a href="#app目录下的bulid-gradle文件" class="headerlink" title="app目录下的bulid.gradle文件"></a>app目录下的bulid.gradle文件</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">'com.android.application'</span>   <span class="comment">// 表示这是一个应用程序模块</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'kotlin-android'</span>   <span class="comment">// 使用kotlin开发android项目</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'kotlin-android-extensions'</span>    <span class="comment">// kotlin扩展功能</span></span><br><span class="line"></span><br><span class="line">android {</span><br><span class="line">    compileSdkVersion <span class="number">29</span>    <span class="comment">// 项目编译的版本，这里是Android 10.0系统的SDK编译</span></span><br><span class="line">    buildToolsVersion <span class="string">"30.0.1"</span>    <span class="comment">// 项目构建工具的版本</span></span><br><span class="line"></span><br><span class="line">    defaultConfig {</span><br><span class="line">        <span class="comment">// 每个应用的唯一标识，不能重复。默认是包名</span></span><br><span class="line">        applicationId <span class="string">"com.example.myapplication"</span>   </span><br><span class="line">        minSdkVersion <span class="number">21</span>    <span class="comment">// 项目最低兼容的Android版本，这里是5.0</span></span><br><span class="line">        targetSdkVersion <span class="number">29</span></span><br><span class="line">        versionCode <span class="number">1</span>    <span class="comment">// 指定项目的版本号</span></span><br><span class="line">        versionName <span class="string">"1.0"</span>    <span class="comment">// 指定项目的版本名</span></span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner <span class="string">"androidx.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    buildTypes {</span><br><span class="line">        release {</span><br><span class="line">            </span><br><span class="line">            minifyEnabled <span class="literal">false</span>   <span class="comment">// 是否对项目的代码进行混淆</span></span><br><span class="line">            <span class="comment">// 混淆时的规则文件</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android-optimize.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定当前项目的依赖关系</span></span><br><span class="line">dependencies {</span><br><span class="line">    <span class="comment">// 本地依赖声明，表示将libs目录下的所有.jar后缀的文件添加到项目的构建路径中。</span></span><br><span class="line">    implementation fileTree(<span class="attr">dir:</span> <span class="string">"libs"</span>, <span class="attr">include:</span> [<span class="string">"*.jar"</span>])</span><br><span class="line">    <span class="comment">// 远程依赖声明</span></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span></span><br><span class="line">    implementation <span class="string">'androidx.core:core-ktx:1.3.1'</span></span><br><span class="line">    implementation <span class="string">'androidx.appcompat:appcompat:1.2.0'</span></span><br><span class="line">    implementation <span class="string">'androidx.constraintlayout:constraintlayout:1.1.3'</span></span><br><span class="line">    testImplementation <span class="string">'junit:junit:4.12'</span></span><br><span class="line">    androidTestImplementation <span class="string">'androidx.test.ext:junit:1.1.1'</span></span><br><span class="line">    androidTestImplementation <span class="string">'androidx.test.espresso:espresso-core:3.2.0'</span></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><ul><li>第一行有两种选择：<ul><li>**’com.android.application’ **  :表示这是一个应用程序模块，可以直接运行</li><li><strong>‘com.android.library’</strong> ：表示这是一个库模块，要依赖于别的应用模块运行</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">android gradle配置文件</summary>
+    
+    
+    
+    <category term="android" scheme="http://2663481911.github.io/categories/android/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Linux文件和文件夹操作.md</title>
     <link href="http://2663481911.github.io/2021/02/22/Linux%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/"/>
     <id>http://2663481911.github.io/2021/02/22/Linux%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</id>
@@ -174,7 +289,7 @@
     <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://2663481911.github.io/tags/Linux/"/>
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
     
   </entry>
   
@@ -256,25 +371,6 @@
   </entry>
   
   <entry>
-    <title>build.gradle文件.md</title>
-    <link href="http://2663481911.github.io/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/"/>
-    <id>http://2663481911.github.io/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/</id>
-    <published>2021-02-22T07:51:13.000Z</published>
-    <updated>2021-02-22T07:51:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="bulid-gradle文件"><a href="#bulid-gradle文件" class="headerlink" title="bulid.gradle文件"></a>bulid.gradle文件</h2><h3 id="最外层的bulid-gradle文件"><a href="#最外层的bulid-gradle文件" class="headerlink" title="最外层的bulid.gradle文件"></a>最外层的bulid.gradle文件</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">buildscript {</span><br><span class="line">    ext.kotlin_version = <span class="string">"1.3.72"</span></span><br><span class="line">    repositories {</span><br><span class="line">        <span class="comment">// 代码仓库，声明后可以使用其中的依赖库</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">    dependencies {</span><br><span class="line">        <span class="comment">// 声明gradle插件，用于构建Android项目</span></span><br><span class="line">        classpath <span class="string">"com.android.tools.build:gradle:4.0.1"</span></span><br><span class="line">        <span class="comment">// kotlin插件，表明当前项目是由kotlin进行开发的</span></span><br><span class="line">        classpath <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">allprojects {</span><br><span class="line">    repositories {</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="app目录下的bulid-gradle文件"><a href="#app目录下的bulid-gradle文件" class="headerlink" title="app目录下的bulid.gradle文件"></a>app目录下的bulid.gradle文件</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">'com.android.application'</span>   <span class="comment">// 表示这是一个应用程序模块</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'kotlin-android'</span>   <span class="comment">// 使用kotlin开发android项目</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'kotlin-android-extensions'</span>    <span class="comment">// kotlin扩展功能</span></span><br><span class="line"></span><br><span class="line">android {</span><br><span class="line">    compileSdkVersion <span class="number">29</span>    <span class="comment">// 项目编译的版本，这里是Android 10.0系统的SDK编译</span></span><br><span class="line">    buildToolsVersion <span class="string">"30.0.1"</span>    <span class="comment">// 项目构建工具的版本</span></span><br><span class="line"></span><br><span class="line">    defaultConfig {</span><br><span class="line">        <span class="comment">// 每个应用的唯一标识，不能重复。默认是包名</span></span><br><span class="line">        applicationId <span class="string">"com.example.myapplication"</span>   </span><br><span class="line">        minSdkVersion <span class="number">21</span>    <span class="comment">// 项目最低兼容的Android版本，这里是5.0</span></span><br><span class="line">        targetSdkVersion <span class="number">29</span></span><br><span class="line">        versionCode <span class="number">1</span>    <span class="comment">// 指定项目的版本号</span></span><br><span class="line">        versionName <span class="string">"1.0"</span>    <span class="comment">// 指定项目的版本名</span></span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner <span class="string">"androidx.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    buildTypes {</span><br><span class="line">        release {</span><br><span class="line">            </span><br><span class="line">            minifyEnabled <span class="literal">false</span>   <span class="comment">// 是否对项目的代码进行混淆</span></span><br><span class="line">            <span class="comment">// 混淆时的规则文件</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android-optimize.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定当前项目的依赖关系</span></span><br><span class="line">dependencies {</span><br><span class="line">    <span class="comment">// 本地依赖声明，表示将libs目录下的所有.jar后缀的文件添加到项目的构建路径中。</span></span><br><span class="line">    implementation fileTree(<span class="attr">dir:</span> <span class="string">"libs"</span>, <span class="attr">include:</span> [<span class="string">"*.jar"</span>])</span><br><span class="line">    <span class="comment">// 远程依赖声明</span></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span></span><br><span class="line">    implementation <span class="string">'androidx.core:core-ktx:1.3.1'</span></span><br><span class="line">    implementation <span class="string">'androidx.appcompat:appcompat:1.2.0'</span></span><br><span class="line">    implementation <span class="string">'androidx.constraintlayout:constraintlayout:1.1.3'</span></span><br><span class="line">    testImplementation <span class="string">'junit:junit:4.12'</span></span><br><span class="line">    androidTestImplementation <span class="string">'androidx.test.ext:junit:1.1.1'</span></span><br><span class="line">    androidTestImplementation <span class="string">'androidx.test.espresso:espresso-core:3.2.0'</span></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><ul><li>第一行有两种选择：<ul><li>**’com.android.application’ **  :表示这是一个应用程序模块，可以直接运行</li><li><strong>‘com.android.library’</strong> ：表示这是一个库模块，要依赖于别的应用模块运行</li></ul></li></ul>]]></content>
-    
-    
-    <summary type="html">android gradle配置文件</summary>
-    
-    
-    
-    <category term="android" scheme="http://2663481911.github.io/categories/android/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Linux权限</title>
     <link href="http://2663481911.github.io/2021/02/22/Linux%E6%9D%83%E9%99%90/"/>
     <id>http://2663481911.github.io/2021/02/22/Linux%E6%9D%83%E9%99%90/</id>
@@ -309,7 +405,7 @@
     <category term="linux" scheme="http://2663481911.github.io/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://2663481911.github.io/tags/Linux/"/>
+    <category term="linux" scheme="http://2663481911.github.io/tags/linux/"/>
     
   </entry>
   
