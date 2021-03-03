@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/lishushuai/img/raw/master/image-20210226141030720.png">
 <meta property="article:published_time" content="2021-02-26T05:33:36.000Z">
-<meta property="article:modified_time" content="2021-02-27T06:07:50.790Z">
+<meta property="article:modified_time" content="2021-03-03T15:54:40.470Z">
 <meta property="article:author" content="lss">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-27 14:07:50" itemprop="dateModified" datetime="2021-02-27T14:07:50+08:00">2021-02-27</time>
+                <time title="修改时间：2021-03-03 23:54:40" itemprop="dateModified" datetime="2021-03-03T23:54:40+08:00">2021-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,11 +295,48 @@
 </li>
 </ul>
 <blockquote>
-<p><code>^key</code>：以关键字开头</p>
-<p><code>key$</code>：以关键字结尾</p>
-<p><code>^$</code>：匹配空行</p>
 <p><code>--color=auto</code>：可以将找到的关键词部分加上颜色的显示（一般默认了）</p>
 </blockquote>
+<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>^$</code></td>
+<td>空行</td>
+</tr>
+<tr>
+<td><code>o\{2\}</code></td>
+<td>有两个o（可以多于2）</td>
+</tr>
+<tr>
+<td><code>o\{2,5\}</code></td>
+<td>2-5个o</td>
+</tr>
+<tr>
+<td><code>oo*</code></td>
+<td>至少一个o</td>
+</tr>
+<tr>
+<td><code>^o</code></td>
+<td>以o开头</td>
+</tr>
+<tr>
+<td><code>o$</code></td>
+<td>以o结尾</td>
+</tr>
+<tr>
+<td><code>[list]</code></td>
+<td>list中的一个字符</td>
+</tr>
+<tr>
+<td><code>[^list]</code></td>
+<td>没有list中字符的</td>
+</tr>
+</tbody></table>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
 <li>查找当前用户目录下的<code>.zshrc</code>文件里面的python环境</li>
 </ul>
@@ -407,7 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-grep"><span class="nav-number">1.</span> <span class="nav-text">Linux grep</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">用法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.2.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-grep"><span class="nav-number">1.</span> <span class="nav-text">Linux grep</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">用法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">常用正则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,7 +458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
