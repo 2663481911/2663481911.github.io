@@ -5,16 +5,16 @@
 <meta property="og:site_name" content="lss">
 <meta property="og:description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="og:image" content="https://gitee.com/lishushuai/img/raw/master/20210318233648.jpg">
 <meta property="article:published_time" content="2021-02-22T13:35:39.000Z">
 <meta property="article:modified_time" content="2021-02-22T13:37:10.664Z">
 <meta property="article:author" content="lss">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://2663481911.github.io/404/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://gitee.com/lishushuai/img/raw/master/20210318233648.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://2663481911.github.io/404/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
   copy: {
@@ -141,4 +141,15 @@
     })(window)</script><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="lss" type="application/atom+xml">
-</head><body><div id="error-wrap"><div class="error-content"><div class="error-img" style="background-image: url('https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png')"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div><a class="button--animated" href="/"><i class="fas fa-rocket"></i>回到主页</a></div></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="error-wrap"><div class="error-content"><div class="error-img" style="background-image: url('https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png')"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div><a class="button--animated" href="/"><i class="fas fa-rocket"></i>回到主页</a></div></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
