@@ -1,0 +1,2768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title></title>
+    <url>/1970/01/01/Untitled/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>JavaScript-位运算符</title>
+    <url>/2021/05/06/JavaScript-%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1 id="JavaScript-位运算符"><a href="#JavaScript-位运算符" class="headerlink" title="JavaScript-位运算符"></a>JavaScript-位运算符</h1><blockquote>
+<p>位运算符处理 32 位数。</p>
+<p>该运算中的任何数值运算数都会被转换为 32 位的数, 然后进行运算，最后转换回 JavaScript 数。</p>
+</blockquote>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th align="center">规则</th>
+<th align="center">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>&amp;</code></td>
+<td align="center">与</td>
+<td align="center">都是1，就为1</td>
+<td align="center">4 &amp; 3 =  0 （0100 &amp; 0011 = 0000）</td>
+</tr>
+<tr>
+<td align="center">`</td>
+<td align="center">`</td>
+<td align="center">或</td>
+<td align="center">存在1，就为1</td>
+</tr>
+<tr>
+<td align="center"><code>^</code></td>
+<td align="center">异或</td>
+<td align="center">相同为0，不同为1</td>
+<td align="center">4 &amp; 3 =  7 （0100 &amp; 0011 = 0111）</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;&gt;</code></td>
+<td align="center">右移</td>
+<td align="center">去掉右边的n位，左边补充<code>最左边的数(32位)</code></td>
+<td align="center">3 &gt;&gt; 1 = 1 （0011 &gt;&gt; 1 = 0001）</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;&lt;</code></td>
+<td align="center">左移</td>
+<td align="center">去掉左边的n位，右边补充0</td>
+<td align="center">3 &lt;&lt; 1 = 6 （0011 &lt;&lt; 1 = 0110）</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;&gt;&gt;</code></td>
+<td align="center">无符号右移</td>
+<td align="center">去掉右边的n位，左边补充0</td>
+<td align="center">3 &gt;&gt; 1 = 1 （0011 &gt;&gt; 1 = 0001）</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript-数组</title>
+    <url>/2021/03/15/JavaScript-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="JavaScript数组"><a href="#JavaScript数组" class="headerlink" title="JavaScript数组"></a>JavaScript数组</h1><h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建数组的两种方式</span></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定数组长度为2</span></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建指定元素的数组，两种方式</span></span><br><span class="line"><span class="keyword">let</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> arr4 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="访问数组元素"><a href="#访问数组元素" class="headerlink" title="访问数组元素"></a>访问数组元素</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过索引访问数组元素</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>]    <span class="comment">// 1</span></span><br><span class="line">arr[<span class="number">1</span>];   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">value, index, array</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value, index);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 1, 0</span></span><br><span class="line"><span class="comment">// 2, 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="操作数组的基本方法"><a href="#操作数组的基本方法" class="headerlink" title="操作数组的基本方法"></a>操作数组的基本方法</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数组长度</span></span><br><span class="line"><span class="keyword">let</span> len = arr.length</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组后面添加多个数据</span></span><br><span class="line">arr.push(<span class="number">3</span>, <span class="number">4</span>);   <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组前面添加多个数据</span></span><br><span class="line">arr.unshift(<span class="number">5</span>, <span class="number">6</span>);   <span class="comment">// [5, 6, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组中删除第一个元素并返回它</span></span><br><span class="line"><span class="keyword">let</span> arr_1 = arr.shift();   <span class="comment">// [6, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组中删除元素，并在必要时插入新元素，返回已删除的元素。</span></span><br><span class="line"><span class="comment">// 从第几个位置开始删除几个数据，添加什么数据</span></span><br><span class="line"><span class="comment">// 从第三个位置开始删除0个数据，添加数据 7,8</span></span><br><span class="line">arr.splice(<span class="number">3</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">8</span>);   <span class="comment">// [6, 1, 2, 7, 8, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除数组末尾的元素</span></span><br><span class="line">arr.pop()   <span class="comment">// [ 6, 1, 2, 7, 8, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="判断元素是否存在"><a href="#判断元素是否存在" class="headerlink" title="判断元素是否存在"></a>判断元素是否存在</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.includes(<span class="number">2</span>));   <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回数组中第一个匹配值的索引，如果不存在，则返回-1。</span></span><br><span class="line">arr.indexOf(<span class="number">2</span>)   <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">if</span>(arr.indexOf(<span class="number">2</span>) != -<span class="number">1</span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><h3 id="find和findIndex"><a href="#find和findIndex" class="headerlink" title="find和findIndex"></a>find和findIndex</h3><blockquote>
+<p>find：方法返回回调函数的返回值是turn的元素值，之后不再运行，没有就返回undefined</p>
+<p>findIndex：和find差不多，只是的是返回索引</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> res = array.find(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="number">1</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(res);   <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res1 = array.find(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="number">5</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(res1);   <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="排序：sort"><a href="#排序：sort" class="headerlink" title="排序：sort"></a>排序：sort</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>];</span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a - b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">// [ 2, 3, 4, 11 ]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回调函数返回a - b升序，b - a 降序；如果省略，元素将按ASCII字符顺序升序排序。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux alias: 设置指令的别名</title>
+    <url>/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/</url>
+    <content><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><blockquote>
+<p>Linux alias命令用于设置指令的别名。</p>
+<p>有时候在Linux下执行一条命令过长，挺麻烦的，我们可以使用alias对命令设置简短的别名，相当于缩短命令，方便操作。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="查看当前设置的别名"><a href="#查看当前设置的别名" class="headerlink" title="查看当前设置的别名"></a>查看当前设置的别名</h2><ul>
+<li>查看当前全部别名：<code>alias</code></li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226141603937.png" alt="image-20210226141603937"></p>
+<ul>
+<li>查看指定别名：<code>alias ll</code></li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226142334508.png" alt="image-20210226142334508"></p>
+<h2 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h2><ul>
+<li>当前终端有效，在终端输入命令：<code>alias 别名=命令</code><ul>
+<li>示例：<code>alias l=&#39;ls -lah&#39;</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226142022283.png" alt="image-20210226142022283"></p>
+<ul>
+<li>当前用户有效：修改对应的rc（zsh：<del>/.zshrc，bash：</del>/.bashrc）文件，比如我的添加python别名：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">alias python=/home/lss/miniconda3/bin/python</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript-字符串String</title>
+    <url>/2021/03/15/JavaScript-%E5%AD%97%E7%AC%A6%E4%B8%B2string/</url>
+    <content><![CDATA[<h1 id="JavaScript字符串-String"><a href="#JavaScript字符串-String" class="headerlink" title="JavaScript字符串: String"></a>JavaScript字符串: String</h1><span id="more"></span>
+
+<ul>
+<li>字符串的分割</li>
+</ul>
+<blockquote>
+<p><code>split() </code>方法使用指定的分隔符字符串将一个<code>String</code>对象分割成子字符串数组，以一个指定的分割字串来决定每个拆分的位置。 </p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;1,2,3&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="string">&#x27;,&#x27;</span>));</span><br><span class="line"><span class="comment">// [ &#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27; ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串的反转</span></span><br><span class="line"><span class="keyword">let</span> str1 = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> arr = str1.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">arr.reverse();    <span class="comment">// 数组反转</span></span><br><span class="line"><span class="keyword">let</span> result = arr.join(<span class="string">&#x27;&#x27;</span>);    <span class="comment">// 以指定的符号把数组拼接成字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(result);   <span class="comment">// 321</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>提取字符串</li>
+</ul>
+<blockquote>
+<p><strong><code>slice()</code></strong> 方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str1 = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str1.slice(<span class="number">1</span>, <span class="number">3</span>));   <span class="comment">// 23 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取文件后缀名</span></span><br><span class="line"><span class="keyword">let</span> fileName = <span class="string">&#x27;qjhdjsajd.jpg&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> lastIndex = fileName.lastIndexOf(<span class="string">&quot;.&quot;</span>);   <span class="comment">// 获取. 最后出现的位置</span></span><br><span class="line"><span class="built_in">console</span>.log(fileName.slice(lastIndex + <span class="number">1</span>));   <span class="comment">// jpg</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-cut:提取文件片段</title>
+    <url>/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/</url>
+    <content><![CDATA[<h1 id="Linux-cut"><a href="#Linux-cut" class="headerlink" title="Linux cut"></a>Linux cut</h1><blockquote>
+<p>对文件的行进行分析，并按照指定规则截取文件</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul>
+<li><p>命令：<code>cut [选项 ]文件名</code></p>
+</li>
+<li><p>常用选项</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-c</code></td>
+<td>以字符为单位进行截取</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>自定义分隔符，默认为制表符(\t)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>与<code>-d</code>一起使用指定截取那个区域</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>对于当前文件夹下的passwd文件，文件内容如下</li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227130720.png" alt="image-20210227130521435"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第一个</span></span><br><span class="line">cut -d: -f1 passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131016.png" alt="image-20210227131016476"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第1、6、7个</span></span><br><span class="line">cut -d: -f1,6,7 passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131141.png" alt="image-20210227131141681"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取第四个字符</span></span><br><span class="line">cut -c4 passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131408.png" alt="image-20210227131408170"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取1-4的字符</span></span><br><span class="line">cut -c1-4 passwd</span><br><span class="line"><span class="meta">#</span><span class="bash"> 从第五个字符开始截取全部字符</span></span><br><span class="line">cut -c5- passwd</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux grep：文本搜索</title>
+    <url>/2021/02/26/Linux-grep-%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2/</url>
+    <content><![CDATA[<h1 id="Linux-grep"><a href="#Linux-grep" class="headerlink" title="Linux grep"></a>Linux grep</h1><blockquote>
+<p>grep （缩写来自Globally search a Regular Expression and Print）是一种强大的文本搜索工具，它能使用特定模式匹配（包括<strong>正则表达式</strong>）搜索文本，并默认输出匹配行。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法:"></a>用法:</h2><blockquote>
+<p>grep [选项]… 模式 [文件]…</p>
+</blockquote>
+<ul>
+<li><p>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-i</code></td>
+<td>不区分大小写</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>查找不包括指定的行</td>
+</tr>
+<tr>
+<td><code>-w</code></td>
+<td>按单词搜索</td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>打印匹配关键字</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>统计匹配次数</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>逐层遍历目录查找</td>
+</tr>
+<tr>
+<td><code>-A</code></td>
+<td>显示匹配行及后面多少行</td>
+</tr>
+<tr>
+<td><code>-E</code></td>
+<td>使用扩展正则匹配</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>使用正则匹配</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>常用模式</p>
+</li>
+</ul>
+<blockquote>
+<p><code>--color=auto</code>：可以将找到的关键词部分加上颜色的显示（一般默认了）</p>
+</blockquote>
+<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>^$</code></td>
+<td>空行</td>
+</tr>
+<tr>
+<td><code>o\&#123;2\&#125;</code></td>
+<td>有两个o（可以多于2）</td>
+</tr>
+<tr>
+<td><code>o\&#123;2,5\&#125;</code></td>
+<td>2-5个o</td>
+</tr>
+<tr>
+<td><code>oo*</code></td>
+<td>至少一个o</td>
+</tr>
+<tr>
+<td><code>^o</code></td>
+<td>以o开头</td>
+</tr>
+<tr>
+<td><code>o$</code></td>
+<td>以o结尾</td>
+</tr>
+<tr>
+<td><code>[list]</code></td>
+<td>list中的一个字符</td>
+</tr>
+<tr>
+<td><code>[^list]</code></td>
+<td>没有list中字符的</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>查找当前用户目录下的<code>.zshrc</code>文件里面的python环境</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">grep python ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span> python=/home/lss/miniconda3/bin/python</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示行号</span></span><br><span class="line">grep -n python ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 115:<span class="built_in">alias</span> python=/home/lss/miniconda3/bin/python</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226141030720.png" alt="image-20210226141030720"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-shell条件判断</title>
+    <url>/2021/03/03/Linux-shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/</url>
+    <content><![CDATA[<h1 id="shell条件判断"><a href="#shell条件判断" class="headerlink" title="shell条件判断"></a>shell条件判断</h1><span id="more"></span>
+
+<h2 id="条件判断：if"><a href="#条件判断：if" class="headerlink" title="条件判断：if"></a>条件判断：if</h2><ul>
+<li>if条件判断格式</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> [] 、[[]]两边都有空格</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1</span></span><br><span class="line">if [ 条件表达式 ]</span><br><span class="line">then</span><br><span class="line">	command</span><br><span class="line">fi</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、支持正则</span></span><br><span class="line">if [[ 条件表达式 ]]</span><br><span class="line">then</span><br><span class="line">	command</span><br><span class="line">fi</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3</span></span><br><span class="line">if test 条件表达式</span><br><span class="line">then</span><br><span class="line">	command</span><br><span class="line">fi</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span> <span class="keyword">else</span></span></span><br><span class="line">if [ 条件判断 ]</span><br><span class="line">then</span><br><span class="line">	command</span><br><span class="line">else</span><br><span class="line">	command</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用相关参数"><a href="#常用相关参数" class="headerlink" title="常用相关参数"></a>常用相关参数</h3><h4 id="文件、文件夹、权限的判断"><a href="#文件、文件夹、权限的判断" class="headerlink" title="文件、文件夹、权限的判断"></a>文件、文件夹、权限的判断</h4><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-e</code></td>
+<td align="left">存在（任何文件，包括目录）</td>
+</tr>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="left">存在且是普通文件</td>
+</tr>
+<tr>
+<td align="center"><code>-d</code></td>
+<td align="left">存在且是文件夹</td>
+</tr>
+<tr>
+<td align="center"><code>-s</code></td>
+<td align="left">存在且是非空文件夹</td>
+</tr>
+<tr>
+<td align="center"><code>-r</code></td>
+<td align="left">存在且可读</td>
+</tr>
+<tr>
+<td align="center"><code>-w</code></td>
+<td align="left">存在且可写</td>
+</tr>
+<tr>
+<td align="center"><code>-x</code></td>
+<td align="left">存在且可执行</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 判断是否存在</span></span><br><span class="line">pwd_path=$(pwd)</span><br><span class="line">if [ -e $pwd_path ]</span><br><span class="line">then</span><br><span class="line">    echo $pwd_path</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h4 id="整数的判断"><a href="#整数的判断" class="headerlink" title="整数的判断"></a>整数的判断</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-eq</code></td>
+<td>相等（equal）</td>
+</tr>
+<tr>
+<td><code>-ne</code></td>
+<td>不等（not equal）</td>
+</tr>
+<tr>
+<td><code>-gt</code></td>
+<td>大于（greater than）</td>
+</tr>
+<tr>
+<td><code>-lt</code></td>
+<td>小于（less than）</td>
+</tr>
+<tr>
+<td><code>-ge</code></td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td><code>-le</code></td>
+<td>小于等于</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if [ 3 -gt 4 ]</span><br><span class="line">then</span><br><span class="line">    echo 3</span><br><span class="line">else</span><br><span class="line">    echo 4</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串判断"><a href="#字符串判断" class="headerlink" title="字符串判断"></a>字符串判断</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-z</code></td>
+<td>是否为空，字符串长度为0成立</td>
+<td>[ -z ‘lss’ ]   # false</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>是否不为空</td>
+<td>[ -n ‘lss’ ]   # true</td>
+</tr>
+<tr>
+<td><code>string1 = string2</code></td>
+<td>字符串相等</td>
+<td>[ ‘lss’ = lss ]   # true</td>
+</tr>
+<tr>
+<td><code>string1 != string2</code></td>
+<td>字符串不相等</td>
+<td>[ ‘lss’ != lss ]   # false</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if [ &#x27;text&#x27; = text ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;equal&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;not equal&quot;</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> equal</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多重判断"><a href="#多重判断" class="headerlink" title="多重判断"></a>多重判断</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code>、 <code>&amp;&amp;</code></td>
+<td>逻辑与</td>
+<td>[ 1 -eq 1 &amp;&amp; 2 -eq2 ]、[ 1 -eq 1 -a 2 -eq 2 ]</td>
+</tr>
+<tr>
+<td><code>-o</code> 、`</td>
+<td></td>
+<td>`</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>&amp;&amp;</code> 只有前面的为真才会执行</li>
+<li><code>||</code> 只有前面的为假才会执行</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-sort：排序</title>
+    <url>/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="Linux-sort"><a href="#Linux-sort" class="headerlink" title="Linux sort"></a>Linux sort</h1><blockquote>
+<p>用于排序；它将文件的每一行作为一个单位，从首字符开始，按ASCll 码值进行比较，然后按升序输出</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><ul>
+<li>语法：<code>sort [选项 ]文件</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-u</code></td>
+<td>去掉重复行</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>降序排序，默认为升序</td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>将排序结果输出到文件中，类似重定向符号&gt;</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>以数字排序，默认按字符排序</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td>分隔符，和<code>-k</code>一起使用（和cut -d -f类似）</td>
+</tr>
+<tr>
+<td><code>-k</code></td>
+<td>第n个，后面数字代表第几个（-k4）</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td>忽略前面空格</td>
+</tr>
+<tr>
+<td><code>-R</code></td>
+<td>随机排列</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>passwd文件</li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227130720.png" alt="image-20210227130521435"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以:为分隔符，按第四个降序排序</span></span><br><span class="line">sort -t: -k4 -r passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227135507.png" alt="image-20210227135507755"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-uniq：处理重复行</title>
+    <url>/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="Linux-uniq"><a href="#Linux-uniq" class="headerlink" title="Linux uniq"></a>Linux uniq</h1><blockquote>
+<p>用于处理文件的重复行</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
+<li><p>命令：<code>uniq [选项] 文件</code></p>
+</li>
+<li><p>选项</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-i</code></td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>统计重复行次数</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>只显示重复行</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-tee</title>
+    <url>/2021/02/27/Linux-tee/</url>
+    <content><![CDATA[<h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote>
+<p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p>
+<p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
+<li>命令：tee [选项] 文件</li>
+<li>选项</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code></td>
+<td>追加，默认覆盖保存</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（追加保存）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227143112.png" alt="image-20210227143112062"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-zsh使用</title>
+    <url>/2021/09/15/Linux-zsh%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-文件和文件夹操作.md</title>
+    <url>/2021/02/22/Linux-%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="Linux目录和文件命令"><a href="#Linux目录和文件命令" class="headerlink" title="Linux目录和文件命令"></a>Linux目录和文件命令</h1><h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><ul>
+<li>常用命令：mkdir [选项] 文件夹</li>
+</ul>
+<blockquote>
+<p>常用选项</p>
+<ul>
+<li>-p：创建多级目录</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>实例</p>
+<ul>
+<li>创建单级目录/aa</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir aa</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建多级目录aa/bb</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkidr -p aa/bb</span><br></pre></td></tr></table></figure></li>
+</ul>
+<span id="more"></span>
+
+<h3 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h3><ul>
+<li>常用命令：<ul>
+<li>rm -rf 文件夹（使用要小心，文件夹里面内容全部删除）</li>
+<li>rmdir [选项] 文件夹（只能删除空文件夹）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>常用选项</p>
+<ul>
+<li>-p ：当子目录被删除后使它也成为空目录的话，则顺便一并删除。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>实例</p>
+<ul>
+<li>删除文件夹aa（空文件夹）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmdir aa</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除aa下的文件夹bb（aa文件夹下只有bb的情况下，aa文件夹也会一并删除）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmdir -p aa/bb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件夹aa（非空）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf aa</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><ul>
+<li>常用命令：touch [选项] 文件名</li>
+</ul>
+<blockquote>
+<p>常用选项</p>
+<ul>
+<li>-c：不建立任何文档</li>
+<li>-d：使用指定的日期时间，而非现在的时间</li>
+<li>-r ：更新前者的时间戳，使其与后者的时间戳一样</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>实例：</p>
+<ul>
+<li>创建文件a.txt</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch a.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h3><ul>
+<li>常用命令：cp [选项] 源文件 移动到的位置</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-a</code></td>
+<td align="left">此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpt参数组合。</td>
+</tr>
+<tr>
+<td align="left"><code>-d</code></td>
+<td align="left">复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。</td>
+</tr>
+<tr>
+<td align="left"><code>-f</code></td>
+<td align="left">覆盖已经存在的目标文件而不给出提示。</td>
+</tr>
+<tr>
+<td align="left"><code>-i</code></td>
+<td align="left">与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答”y”时目标文件将被覆盖。</td>
+</tr>
+<tr>
+<td align="left"><code>-p</code></td>
+<td align="left">除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</td>
+</tr>
+<tr>
+<td align="left"><code>-r</code></td>
+<td align="left">若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</td>
+</tr>
+<tr>
+<td align="left"><code>-l</code></td>
+<td align="left">不复制文件，只是生成链接文件(快捷方式)。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li><p>实例</p>
+<ul>
+<li>拷贝a.txt文件到文件夹bb中</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp a.txt bb/</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h3><ul>
+<li><p>常用命令：mv 旧文件名 新文件名</p>
+</li>
+<li><p>实例：</p>
+<ul>
+<li>a.txt 重命名位b.txt</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mv a.txt b.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="移动文件或目录"><a href="#移动文件或目录" class="headerlink" title="移动文件或目录"></a>移动文件或目录</h3><ul>
+<li>常用命令：mv [选项] 源文件或目录 位置</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b</code></td>
+<td align="left">当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td align="left">如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td align="left">如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td align="left">不要覆盖任何已存在的文件或目录</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td align="left">当源文件比目标文件新或者目标文件不存在时，才执行移动操作</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li><p>实例:</p>
+<ul>
+<li>移动a.txt 到文件夹bb中</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mv a.txt bb\</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h3><ol>
+<li>cat  [选项] 文件名</li>
+</ol>
+<blockquote>
+<p>选项</p>
+<ul>
+<li>-n：显示行号</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>more  [选项] 文件名</li>
+</ol>
+<blockquote>
+<p>Linux more 命令类似 cat ，不过会以<code>一页一页</code>的形式显示，更方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似），使用中的说明文件，请按 h 。</p>
+</blockquote>
+<ol start="3">
+<li>less [选项] 文件名</li>
+</ol>
+<blockquote>
+<p>less和more类似，但更加强大，在显示内容时不是一次性加载，而是根据显示的内容加载，一点一点的读，<code>对大型文件具有较高的效率</code></p>
+</blockquote>
+<ol start="4">
+<li>tail</li>
+</ol>
+<p>命令：</p>
+<ul>
+<li>tail 文件 （查看文件尾10行内容）</li>
+<li>tail -n 5 文件 （查看文件尾部5行内容）</li>
+<li><code>tail -f 文件</code>（实时监控文件的所有更新）</li>
+</ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>命令：rm [选项] 目录或文件</p>
+<blockquote>
+<p> <strong><code>rm</code></strong> (remove)命令可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-f</code></td>
+<td>强制删除文件或目录</td>
+</tr>
+<tr>
+<td align="center"><code>-i</code></td>
+<td>删除已有文件或目录之前先询问用户</td>
+</tr>
+<tr>
+<td align="center"><code>-r</code></td>
+<td>递归处理， 将指定目录下的所有文件与子目录一并处理</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/</code></td>
+<td>在Linux中表示根目录</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>所有文件</td>
+</tr>
+<tr>
+<td><code>/*</code></td>
+<td>根目录下的所有文件</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li>实例：rm -rf</li>
+</ul>
+<p><strong><code>文件一旦通过rm命令删除，则无法恢复，所以必须格外小心地使用该命令。</code></strong></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-权限</title>
+    <url>/2021/02/22/Linux-%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
+<li><p>r：代表可读，查看</p>
+</li>
+<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
+</li>
+<li><p>x：可执行</p>
+<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
+<li><p>r：可以读取，ls查看目录内容</p>
+</li>
+<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
+</li>
+<li><p>x：可执行，可以cd进入改目录</p>
+</li>
+</ul>
+<p>例子：</p>
+<ul>
+<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
+<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><ul>
+<li><p>基本说明：</p>
+<blockquote>
+<p>通过chmod指令，可以修改文件或目录的权限</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过-、-、-变更权限"><a href="#通过-、-、-变更权限" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h3><p><code>说明</code>u：使用者，g：所有组，o：其他用户，a：所有用户</p>
+<ul>
+<li><p>命令一：</p>
+<blockquote>
+<p>chmod u=rwx,g=rx,o=x 文件或目录名</p>
+<ul>
+<li>设定文件或目录的使用者权限为rwx，组的权限为r-x，其他人权限为–x</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令二：</p>
+<blockquote>
+<p>chmod o+w 文件或目录名</p>
+<ul>
+<li>添加权限，给其他添加权限w（写）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令三：</p>
+<blockquote>
+<p>chmod a-x 文件或目录名</p>
+<ul>
+<li>除去权限，所有用户除去权限x（执行）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过数字变更权限"><a href="#通过数字变更权限" class="headerlink" title="通过数字变更权限"></a>通过数字变更权限</h3><p><code>说明</code>r：4、w：2、x：1，则rwx = 4+2+1=7</p>
+<blockquote>
+<p>命令：chmod 555</p>
+<ul>
+<li>赋予r-xr-xr-x的权限</li>
+</ul>
+</blockquote>
+<ul>
+<li>chmod u=rwx,g=rx,o=x相当于chmod 751</li>
+</ul>
+<h2 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h2><blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>a</code></td>
+<td>让文件或目录仅供附加用途。可以附加内容到文件中，但是不能编辑文件中的现有信息，也不能删除文件</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>不更新文件或目录的最后存取时间。</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>这个属性设置之后，将会自动的将此文件“压缩”，在读取的时候将会自动解压缩，</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>但是在储存的时候，将会先进行压缩后再储存当 dump 程序被执行的时候，设置 d 属性将可使该文件（或目录）不会被 dump 备份</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>不得任意更动文件或目录，文件“不能被删除、改名、设置链接也无法写入或新增数据！”</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>保密性删除文件或目录。当文件设置了 s 属性时，如果这个文件被删除，他将会被完全的移除出这个硬盘空间， 所以如果误删了，完全无法救回来了.</td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td>一般文件是非同步写入磁盘的，如果加上 S 这个属性时， 当你进行任何文件的修改，该更动会“同步”写入磁盘中。</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>与 s 相反的，当使用 u 来设置文件时，如果该文件被删除了，则数据内容其实还存在磁盘中，可以使用来救援该文件</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="设置隐藏属性（chattr）"><a href="#设置隐藏属性（chattr）" class="headerlink" title="设置隐藏属性（chattr）"></a>设置隐藏属性（chattr）</h3><ul>
+<li><p>+ ：增加某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>- ：移除某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>= ：设置一定，且仅有后面接的参数 </p>
+</li>
+</ul>
+<h3 id="查看隐藏属性（lsattr）"><a href="#查看隐藏属性（lsattr）" class="headerlink" title="查看隐藏属性（lsattr）"></a>查看隐藏属性（lsattr）</h3><h2 id="文件特殊权限：-SUID、SGID、SBIT"><a href="#文件特殊权限：-SUID、SGID、SBIT" class="headerlink" title="文件特殊权限： SUID、SGID、SBIT"></a>文件特殊权限： SUID、SGID、SBIT</h2><h3 id="SUID（Set-UID-）"><a href="#SUID（Set-UID-）" class="headerlink" title="SUID（Set UID ）"></a>SUID（Set UID ）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID</p>
+</blockquote>
+<p>我们先来看看这个</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> l /usr/bin/passwd</span></span><br><span class="line">--rwsr-xr-x 1 root root 67K 5月  28  2020 /usr/bin/passwd</span><br><span class="line"><span class="meta">$</span><span class="bash"> l /etc/shadow</span></span><br><span class="line">-rw-r----- 1 root shadow 972 2月  13 14:24 /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>/etc/shadow：用于存储 Linux 系统中用户的密码信息</p>
+<p>可以看到/etc/shadow文件仅有root可读且仅有root可以强制写入而已，但是我们可不可以更改自己账号的密码呢，明显是可以的，这就是SUID的作用</p>
+<ul>
+<li><p>SUID 权限仅对<code>二进制程序</code>有效</p>
+</li>
+<li><p>执行者对于该程序需要<code>具有 x 的可执行权限</code></p>
+</li>
+<li><p>本权限仅在<code>执行该程序的过程中有效 </code></p>
+</li>
+<li><p><code>执行者将具有该程序拥有者 （owner） 的权限</code>（上面拥有root的权限）</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SGID（Set-GID）"><a href="#SGID（Set-GID）" class="headerlink" title="SGID（Set GID）"></a>SGID（Set GID）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则称为 Set GID</p>
+<ul>
+<li><p>SGID 对<code>二进制程序</code>有用</p>
+</li>
+<li><p>程序执行者对于该程序来说，需<code>具备 x 的权限</code></p>
+</li>
+<li><p>执行者在<code>执行的过程中将会获得该程序群组的支持</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SBIT（Sticky-Bit-）"><a href="#SBIT（Sticky-Bit-）" class="headerlink" title="SBIT（Sticky Bit ）"></a>SBIT（Sticky Bit ）</h3><blockquote>
+<p>针对目录有效</p>
+<p>SBIT 对于目录的作用 是：</p>
+<ul>
+<li>当<code>使用者对于此目录具有 w, x 权限</code>，亦即具有写入的权限时，<code>使用者在该目录下创建文件或目录时，仅有自己与 root 才有权力删除该文件</code></li>
+</ul>
+</blockquote>
+<h3 id="SUID-SGID-SBIT-权限设置"><a href="#SUID-SGID-SBIT-权限设置" class="headerlink" title="SUID/SGID/SBIT 权限设置"></a>SUID/SGID/SBIT 权限设置</h3><h4 id="通过-、-、-变更权限-1"><a href="#通过-、-、-变更权限-1" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h4><ul>
+<li>和上面的修改rwx权限一样，SUID 为 u+s ，而 SGID 为 g+s ， SBIT 则是 o+t</li>
+</ul>
+<h4 id="使用数字更改"><a href="#使用数字更改" class="headerlink" title="使用数字更改"></a>使用数字更改</h4><ul>
+<li><p>4 为 SUID </p>
+</li>
+<li><p>2 为 SGID </p>
+</li>
+<li><p>1 为 SBIT </p>
+</li>
+</ul>
+<p>假设要将一个文件权限改为“-rwsr-xr-x”时，由于 s 在使用者权限中，所以是 SUID ，因此， 在原先的 755 之前还要加上 4 ，也就是：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 4755 filename </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>一、让使用者能进入某目录成为“可工作目录”的基本权限，例如 cd 等变换工作目录的指令： </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 的权限 </p>
+</li>
+<li><p>额外需求：如果使用者想要在这个目录内利用 ls 查阅文件名，则使用者对此目录还需要 r 的权限。 </p>
+</li>
+</ul>
+<p>二、使用者在某个目录内读取一个文件的基本权限，例如 cat, more, less等等 </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对文件至少需要具有 r 的权限才行！ </p>
+</li>
+</ul>
+<p>三、让使用者可以修改一个文件的基本权限，例如 nano 或 vi 编辑器等； </p>
+<ul>
+<li><p>目录所需权限：使用者在该文件所在的目录至少要有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对该文件至少要有 r, w 权限 </p>
+</li>
+</ul>
+<p>四、让一个使用者可以创建一个文件的基本权限为何？ </p>
+<ul>
+<li>目录所需权限：使用者在该目录要具有 w,x 的权限，重点在 w 啦！ </li>
+</ul>
+<p>五、让使用者进入某目录并执行该目录下的某个指令之基本权限为何？ </p>
+<ul>
+<li><p>目录所需权限：使用者在该目录至少要有 x 的权限； </p>
+</li>
+<li><p>文件所需权限：使用者在该文件至少需要有 x 的权限</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>picGo的gitee图床</title>
+    <url>/2021/02/22/PicGo%E7%9A%84gitee%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="PicGo添加gitee图床"><a href="#PicGo添加gitee图床" class="headerlink" title="PicGo添加gitee图床"></a>PicGo添加gitee图床</h1><blockquote>
+<p>PicGo默认是没有gitee图床的，如果要使用gitee图床就要添加插件，而gitee插件的使用要用到node</p>
+</blockquote>
+<ul>
+<li><p>安装node，添加环境变量</p>
+</li>
+<li><p>添加gitee插件：打开PicGo的插件设置搜索gitee安装</p>
+</li>
+<li><p>重启PicGo会看到图床设置里多了个gitee</p>
+</li>
+<li><p>设置gitee图床</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222204029618.png" alt="image-20210222204029618"></p>
+<ul>
+<li>一个地址说明上面的参数：<a href="https://gitee.com/lishushuai/img">https://gitee.com/lishushuai/img</a> <ul>
+<li>owner：lishushuai</li>
+<li>repo：img</li>
+<li>path：</li>
+<li>token：可以在<a href="https://gitee.com/profile/personal_access_tokens%E7%94%9F%E6%88%90">https://gitee.com/profile/personal_access_tokens生成</a></li>
+<li>message：</li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+]]></content>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-环境变量.md</title>
+    <url>/2021/02/24/Linux-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h1 id="linux环境变量"><a href="#linux环境变量" class="headerlink" title="linux环境变量"></a>linux环境变量</h1><ul>
+<li>export ：显示所有的环境变量</li>
+<li>echo $PATH：命令输出当前的PATH环境变量的值</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
+<li><p>临时变量，当前终端有效，窗口关闭后无效</p>
+<ul>
+<li>在终端输入</li>
+</ul>
+<blockquote>
+<p>export PATH=软件位置/bin:$PATH或export PATH=$PATH:软件位置bin</p>
+</blockquote>
+</li>
+<li><p>当前用户有效（终端bash）</p>
+<ul>
+<li>vim ~/.bashrc</li>
+</ul>
+<blockquote>
+<p>通过修改用户目录下的~/.bashrc文件进行配置：在最后一行加上export PATH=$PATH:软件位置/bin</p>
+</blockquote>
+<ul>
+<li>source ~/.bashrc</li>
+</ul>
+<p>注意：source ~/.bashrc后才生效，对当前用户永久有效</p>
+</li>
+<li><p>对所有用户有效（终端bash）</p>
+<ul>
+<li>vim /etc/bashrc</li>
+</ul>
+<blockquote>
+<p>方法是修改系统配置，需要管理员权限（如root）或者对该文件的写入权限, 在最后添加：</p>
+<p>export PATH=$PATH:软件位置/bin</p>
+</blockquote>
+<ul>
+<li>source /etc/bashrc</li>
+</ul>
+</li>
+</ol>
+<h2 id="配置anaconda"><a href="#配置anaconda" class="headerlink" title="配置anaconda"></a>配置anaconda</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"># 在最后添加export PATH=$PATH:你的anaconda位置/bin</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加多个"><a href="#添加多个" class="headerlink" title="添加多个"></a>添加多个</h2><p>添加anaconda和java环境变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在最后添加</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生效</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>注意: $PATH  代表前面添加的PATH，没有$PATH前面的会失效，在这里最后没有$PATH则anaconda不起作用</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vim-实用技巧</title>
+    <url>/2021/05/07/Vim-%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="Vim-实用技巧"><a href="#Vim-实用技巧" class="headerlink" title="Vim-实用技巧"></a>Vim-实用技巧</h1><h2 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>g~</code></td>
+<td align="center">反转大小写</td>
+</tr>
+<tr>
+<td align="center"><code>gU</code></td>
+<td align="center">转换为大写</td>
+</tr>
+<tr>
+<td align="center"><code>gu</code></td>
+<td align="center">转换为小写</td>
+</tr>
+<tr>
+<td align="center"><code>guu</code></td>
+<td align="center">转换当前行小写</td>
+</tr>
+<tr>
+<td align="center"><code>gUU</code></td>
+<td align="center">转换当前行为大写</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
+<li>gcc 注释当前行</li>
+<li>gcap 注释当前段</li>
+<li>gcG 注释当前行到结尾的内容</li>
+</ul>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><ul>
+<li>插入模式下</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;<code>C - h</code>&gt;</td>
+<td align="center">删除前一个字符（同退格键）</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - w</code>&gt;</td>
+<td align="center">删除前一个单词</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - u</code>&gt;</td>
+<td align="center">删除到行首</td>
+</tr>
+</tbody></table>
+<h2 id="插入模式返回普通模式"><a href="#插入模式返回普通模式" class="headerlink" title="插入模式返回普通模式"></a>插入模式返回普通模式</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>esc</code></td>
+<td align="center">返回普通模式</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - [</code>&gt;</td>
+<td align="center">返回普通模式</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - o</code>&gt;</td>
+<td align="center">返回普通模式执行一次命令后回到插入模式</td>
+</tr>
+</tbody></table>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>u</code></td>
+<td align="center">替换当前字符（后面跟替换的字符）</td>
+</tr>
+<tr>
+<td align="center"><code>U</code></td>
+<td align="center">进入替换模式</td>
+</tr>
+</tbody></table>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><ul>
+<li>gv 选择上次可视模式选择的文本范围</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>build.gradle文件.md</title>
+    <url>/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="bulid-gradle文件"><a href="#bulid-gradle文件" class="headerlink" title="bulid.gradle文件"></a>bulid.gradle文件</h2><h3 id="最外层的bulid-gradle文件"><a href="#最外层的bulid-gradle文件" class="headerlink" title="最外层的bulid.gradle文件"></a>最外层的bulid.gradle文件</h3><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">&quot;1.3.72&quot;</span></span><br><span class="line">    repositories &#123;</span><br><span class="line">        <span class="comment">// 代码仓库，声明后可以使用其中的依赖库</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// 声明gradle插件，用于构建Android项目</span></span><br><span class="line">        classpath <span class="string">&quot;com.android.tools.build:gradle:4.0.1&quot;</span></span><br><span class="line">        <span class="comment">// kotlin插件，表明当前项目是由kotlin进行开发的</span></span><br><span class="line">        classpath <span class="string">&quot;org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="app目录下的bulid-gradle文件"><a href="#app目录下的bulid-gradle文件" class="headerlink" title="app目录下的bulid.gradle文件"></a>app目录下的bulid.gradle文件</h3><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;com.android.application&#x27;</span>   <span class="comment">// 表示这是一个应用程序模块</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;kotlin-android&#x27;</span>   <span class="comment">// 使用kotlin开发android项目</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;kotlin-android-extensions&#x27;</span>    <span class="comment">// kotlin扩展功能</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">29</span>    <span class="comment">// 项目编译的版本，这里是Android 10.0系统的SDK编译</span></span><br><span class="line">    buildToolsVersion <span class="string">&quot;30.0.1&quot;</span>    <span class="comment">// 项目构建工具的版本</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        <span class="comment">// 每个应用的唯一标识，不能重复。默认是包名</span></span><br><span class="line">        applicationId <span class="string">&quot;com.example.myapplication&quot;</span>   </span><br><span class="line">        minSdkVersion <span class="number">21</span>    <span class="comment">// 项目最低兼容的Android版本，这里是5.0</span></span><br><span class="line">        targetSdkVersion <span class="number">29</span></span><br><span class="line">        versionCode <span class="number">1</span>    <span class="comment">// 指定项目的版本号</span></span><br><span class="line">        versionName <span class="string">&quot;1.0&quot;</span>    <span class="comment">// 指定项目的版本名</span></span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner <span class="string">&quot;androidx.test.runner.AndroidJUnitRunner&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            </span><br><span class="line">            minifyEnabled <span class="literal">false</span>   <span class="comment">// 是否对项目的代码进行混淆</span></span><br><span class="line">            <span class="comment">// 混淆时的规则文件</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">&#x27;proguard-android-optimize.txt&#x27;</span>), <span class="string">&#x27;proguard-rules.pro&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定当前项目的依赖关系</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">// 本地依赖声明，表示将libs目录下的所有.jar后缀的文件添加到项目的构建路径中。</span></span><br><span class="line">    implementation fileTree(<span class="attr">dir:</span> <span class="string">&quot;libs&quot;</span>, <span class="attr">include:</span> [<span class="string">&quot;*.jar&quot;</span>])</span><br><span class="line">    <span class="comment">// 远程依赖声明</span></span><br><span class="line">    implementation <span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version&quot;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.core:core-ktx:1.3.1&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.appcompat:appcompat:1.2.0&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.constraintlayout:constraintlayout:1.1.3&#x27;</span></span><br><span class="line">    testImplementation <span class="string">&#x27;junit:junit:4.12&#x27;</span></span><br><span class="line">    androidTestImplementation <span class="string">&#x27;androidx.test.ext:junit:1.1.1&#x27;</span></span><br><span class="line">    androidTestImplementation <span class="string">&#x27;androidx.test.espresso:espresso-core:3.2.0&#x27;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一行有两种选择：<ul>
+<li>**’com.android.application’ **  :表示这是一个应用程序模块，可以直接运行</li>
+<li><strong>‘com.android.library’</strong> ：表示这是一个库模块，要依赖于别的应用模块运行</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>css-帧动画</title>
+    <url>/2021/04/14/css-%E5%B8%A7%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css-选择器</title>
+    <url>/2021/03/27/css-%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h1><span id="more"></span>
+
+<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择使用的div元素 */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h2><blockquote>
+<p>使用点（.）类名（class的值）的方式选择</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择class值等于red的元素*/</span></span><br><span class="line"><span class="selector-class">.red</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 选择div中calss值等于red是元素 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.red</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h2><blockquote>
+<p>使用<code>#</code>id名（id的值）选择</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择id等于red的元素 */</span></span><br><span class="line"><span class="selector-id">#red</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2><blockquote>
+<p>后代选择器用于选取某元素的后代元素。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择ul标签里面所有的li标签 */</span></span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123; &#125;   </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>父元素和后代元素用空格隔开</li>
+<li>最终选择的是后代元素</li>
+<li>后代元素可以是儿子也可以是孙子，只要是父元素的后代就可以</li>
+<li>父元素和后代元素可以是任意的基础选择器</li>
+</ul>
+<h2 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h2><blockquote>
+<p>与后代选择器相比，子元素选择器只能选择作为某元素子元素的元素。</p>
+</blockquote>
+<p>语法：父元素 &gt; 子元素 { 样式声明 }</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择div里面的子元素a，孙子不可以 */</span></span><br><span class="line"><span class="selector-tag">div</span>&gt;<span class="selector-tag">a</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">a</span> href=&quot;&quot;&gt;<span class="selector-tag">div</span> <span class="selector-tag">a</span>&lt;/<span class="selector-tag">a</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">ul</span>&gt;</span><br><span class="line">    	&lt;<span class="selector-tag">li</span>&gt;</span><br><span class="line">    		&lt;<span class="selector-tag">a</span> href=&quot;&quot;&gt;<span class="selector-tag">li</span> <span class="selector-tag">a</span>&lt;/<span class="selector-tag">a</span>&gt;</span><br><span class="line">    	&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">    &lt;/<span class="selector-tag">ul</span>&gt;</span><br><span class="line">&lt;/<span class="selector-tag">div</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>只能选择div的第一层a元素，不能选择div下li里面的a</p>
+</li>
+<li><p>最终选择的是子元素</p>
+</li>
+</ul>
+<h2 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h2><blockquote>
+<p>选择在第一个元素之后相邻的元素，二者有相同父元素。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择在div之后相邻的span元素，二者有相同的父级元素 */</span></span><br><span class="line"><span class="selector-tag">div</span>+<span class="selector-tag">span</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后续兄弟选择器"><a href="#后续兄弟选择器" class="headerlink" title="后续兄弟选择器"></a>后续兄弟选择器</h2><blockquote>
+<p>选取所有指定元素之后的兄弟元素。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 选择div之后ul元素，二者有相同的父级元素 */</span></span><br><span class="line"><span class="selector-tag">div</span>~<span class="selector-tag">ul</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h2><blockquote>
+<p>选择多个元素</p>
+</blockquote>
+<p>语法：元素1, 元素2 { 样式 }</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 同时选择ul和ol */</span></span><br><span class="line"><span class="selector-tag">ul</span>, <span class="selector-tag">ol</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><blockquote>
+<p>用来添加一些选择器的特殊效果。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github不能访问</title>
+    <url>/2021/02/22/github%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/</url>
+    <content><![CDATA[<h1 id="github不能访问"><a href="#github不能访问" class="headerlink" title="github不能访问"></a>github不能访问</h1><ul>
+<li>修改hosts文件</li>
+</ul>
+<blockquote>
+<p><strong>Hosts</strong>是一个没有扩展名的系统文件]，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。</p>
+<p>需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问。</p>
+</blockquote>
+<span id="more"></span>
+
+<ul>
+<li>windows下hosts文件路径：C:\windows\system32\drivers\etc\</li>
+<li>linux下路径：/etc/</li>
+</ul>
+<p>在hosts文件里添加</p>
+<blockquote>
+<p>ip地址 github.com</p>
+</blockquote>
+<p>github IP地址查询：<a href="https://site.ip138.com/github.com/">https://site.ip138.com/github.com/</a> 查询到的ip地址什么就填什么</p>
+<p>上面的可以是</p>
+<blockquote>
+<p>52.74.223.119 github.com</p>
+</blockquote>
+<ul>
+<li>github上图片不显示同样，图片前缀：raw.githubusercontent.com</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip地址 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo和gitee建立自己的博客</title>
+    <url>/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="使用hexo和gitee建立博客"><a href="#使用hexo和gitee建立博客" class="headerlink" title="使用hexo和gitee建立博客"></a>使用hexo和gitee建立博客</h1><blockquote>
+<p>使用Hexo 建立网站，然后把网站部署到gitee中</p>
+</blockquote>
+<h2 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h2><ol>
+<li>新建一个仓库，仓库名和gitee名字一样（不一样也行，只是后面要配置多一点），其他默认，比如：<a href="https://gitee.com/lishushuai/lishushuai">https://gitee.com/lishushuai/lishushuai</a></li>
+</ol>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222162017066.png" alt="image-20210222162017066"></p>
+<ol start="2">
+<li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下可以部署自己的博客</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><ul>
+<li><p>生成 sshkey:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxxxx@xxxxx.com&quot; </span><br></pre></td></tr></table></figure></li>
+<li><p>（这里的 <code>xxxxx@xxxxx.com</code> 只是生成的 sshkey 的名称，并不约束或要求具体命名为某个邮箱。）按照提示完成三次回车，即可生成 ssh key。通过查看 <code>~/.ssh/id_rsa.pub</code> 文件内容，获取到你的 public key</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li>
+<li><p>复制生成后的 ssh key，通过仓库主页 <strong>「管理」-&gt;「部署公钥管理」-&gt;「添加部署公钥」</strong> ，添加生成的 public key 添加到仓库中。</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222163837110.png" alt="image-20210222163837110"></p>
+<ul>
+<li><p>添加后，在终端（Terminal）中输入</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+
+<p>首次使用需要确认并添加主机到本机SSH可信列表。若返回 <code>Hi XXX! You&#39;ve successfully authenticated, but Gitee.com does not provide shell access.</code> 内容，则证明添加成功。</p>
+</li>
+</ul>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><blockquote>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <u><strong>Markdown</strong></u>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<a href="https://hexo.io/">官网</a></p>
+</blockquote>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>可以看<a href="https://hexo.io/zh-cn/docs/">官网</a>的步骤，详细一点</p>
+<p>下面是我自己安装步骤（已经安装了git），使用windows下的wsl（ubuntu）：</p>
+<ol>
+<li>安装node npm</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install nodejs npm</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装hexo</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立网站"><a href="#建立网站" class="headerlink" title="建立网站"></a>建立网站</h3><ul>
+<li>在指定文件夹内，比如在blog文件夹内（以后博客内容什么的都在这里）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装hexo主题"><a href="#安装hexo主题" class="headerlink" title="安装hexo主题"></a>安装hexo主题</h3><blockquote>
+<p>一个好看的博客好看的主题是少不了的</p>
+</blockquote>
+<ul>
+<li>这里我使用的主题是<a href="https://github.com/blinkfox/hexo-theme-matery.git">hexo-theme-matery</a></li>
+<li>安装，进入themes文件夹（主题文件夹放在这里）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/blinkfox/hexo-theme-matery.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下载好切换主题</li>
+</ul>
+<blockquote>
+<p> 修改<code>_config.yml</code>（博客目录下的，这里我的是blog目录下） 的  <code>theme</code> 的值：<code>theme: hexo-theme-matery</code></p>
+</blockquote>
+<ul>
+<li>更多配置看主题文件夹下的<code>README</code></li>
+</ul>
+<h3 id="预览博客"><a href="#预览博客" class="headerlink" title="预览博客"></a>预览博客</h3><ul>
+<li>在博客目录下（blog目录）执行，执行完后访问 <a href="http://localhost:4000/">http://localhost:4000</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 生成静态文件hexo generate</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="meta">#</span><span class="bash"> hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="绑定gitee"><a href="#绑定gitee" class="headerlink" title="绑定gitee"></a>绑定gitee</h3><ul>
+<li>修改**_config.yml**文件(在blog文件夹下)：</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 改deploy字段，git@gitee.com:lishushuai/lishushuai.git改成自己的</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@gitee.com:lishushuai/lishushuai.git</span></span><br><span class="line">  <span class="attr">bransh:</span> <span class="string">master</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 改url（仓库名和gitee名称不一样的这里不一样，可以看gitee上的介绍：</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://lishushuai.gitee.io</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="推送博客到gitee"><a href="#推送博客到gitee" class="headerlink" title="推送博客到gitee"></a>推送博客到gitee</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 部署网站</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>出现<u><strong>Deployer not found: git</strong></u>，执行：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署自己的博客"><a href="#部署自己的博客" class="headerlink" title="部署自己的博客"></a>部署自己的博客</h2><ul>
+<li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下 –》更新（部署网站）</li>
+</ul>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222164616327.png" alt="image-20210222164616327"></p>
+<ul>
+<li>访问2的网址</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/1970/01/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>http状态码</title>
+    <url>/2021/03/30/http%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+  </entry>
+  <entry>
+    <title>javaScript-call()、apply()、bind()函数的使用</title>
+    <url>/2021/03/20/javaScript-call%E3%80%81apply%E3%80%81bind%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="javaScript-call、apply、bind函数的使用"><a href="#javaScript-call、apply、bind函数的使用" class="headerlink" title="javaScript-call、apply、bind函数的使用"></a>javaScript-call、apply、bind函数的使用</h1><blockquote>
+<p>在JavaScript中每个函数都包含两个非继承而来的函数apply()和call()，这两个函数的作用是一样的。都是为了改变函数运行时的上下文而存在的，实际就是改变函数体内this的指向。而bind()函数也是一样的。</p>
+<p>apply和call是立即执行函数，而bind没有立即执行</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="call函数的基本使用"><a href="#call函数的基本使用" class="headerlink" title="call函数的基本使用"></a>call函数的基本使用</h2><p>call()函数调用一个函数时，会将该函数的执行对象上下文改变为另一个对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span>.call(thisArg, arg1, arg2, ...)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>function为需要调用的函数。</li>
+<li>thisArg表示的是新的对象上下文，函数中的this将指向thisArg，如果thisArg为null或者unfriend，则this会指向全局对象。</li>
+<li>arg1，arg2，…表示的是函数所接收的参数列表。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">age</span>: <span class="string">&#x27;lss&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把User中的this指向obj，obj添加name的属性，</span></span><br><span class="line"><span class="comment">// 由于obj是对象类型的，在User里面改变也会改变obj</span></span><br><span class="line"><span class="comment">// 故输出为：&#123; age: &#x27;lss&#x27;, name: &#x27;lss&#x27; &#125;</span></span><br><span class="line">User.call(obj, <span class="string">&quot;lss&quot;</span>);   <span class="comment">// lss</span></span><br><span class="line"><span class="built_in">console</span>.log(obj);   <span class="comment">// &#123; age: &#x27;lss&#x27;, name: &#x27;lss&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>call函数用于继承</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    ths.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// call()使Person中的this指向Teacher</span></span><br><span class="line">    Person.call(<span class="built_in">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> Teacher(<span class="string">&quot;node&quot;</span>).getName()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="apply函数的基本使用"><a href="#apply函数的基本使用" class="headerlink" title="apply函数的基本使用"></a>apply函数的基本使用</h2><p>apply()函数的作用域与call()函数是一致的，只是在传递参数时存在差异。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span>.apply(thisArg, [argsArray])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>function和thisArg和call一样</p>
+</li>
+<li><p>[argsArray] 表示参数会通过数组形式进行传递。</p>
+</li>
+</ul>
+<h2 id="bind函数的基本使用"><a href="#bind函数的基本使用" class="headerlink" title="bind函数的基本使用"></a>bind函数的基本使用</h2><p>bind函数创建新的函数，在调用时设置this关键字为提供的值，在执行新函数时，将给定的参数列表作为原函数的参数序列，从前往后匹配。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span>.bind(thisArg, arg1, arg2, ...)</span><br></pre></td></tr></table></figure>
+
+<p>bind函数和call函数用法基本一致，只是bind函数返回值是原函数的副本。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">age</span>: <span class="string">&#x27;lss&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind没有立即执行，返回一个函数对象</span></span><br><span class="line"><span class="keyword">let</span> user_bind = User.bind(obj, <span class="string">&quot;lss&quot;</span>);</span><br><span class="line">user_bind();   <span class="comment">// lss</span></span><br><span class="line"><span class="built_in">console</span>.log(obj);   <span class="comment">// &#123; age: &#x27;lss&#x27;, name: &#x27;lss&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-json</title>
+    <url>/2021/04/15/javaScript-json/</url>
+    <content><![CDATA[<h1 id="JavaScript-json"><a href="#JavaScript-json" class="headerlink" title="JavaScript-json"></a>JavaScript-json</h1><span id="more"></span>
+
+<h2 id="JavaScript数据转换为json格式"><a href="#JavaScript数据转换为json格式" class="headerlink" title="JavaScript数据转换为json格式"></a>JavaScript数据转换为json格式</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(value, [replacer], [space])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>value</code>: 要转换的JavaScript值，通常是一个对象或数组.</p>
+</li>
+<li><p><code>replace</code>: 可选，如果该参数是一个函数，则在转化过程中，被转化的值的每个属性都会经过该函数的转换和处理；如果该参数是一个数组，则只有包含在这个数组中的属性名才会被转化到最终的 JSON 字符串中；如果该参数为 null 或者未提供，则对象所有的属性都会被转化。</p>
+</li>
+<li><p><code>sapce</code>: 指定缩进用的空白字符串，用于美化输出；如果参数是个数字，它代表有多少的空格；上限为10。该值若小于1，则意味着没有空格；如果该参数为字符串（当字符串长度超过10个字母，取其前10个字母），该字符串将被作为空格；如果该参数没有提供（或者为 null），将没有空格。</p>
+</li>
+<li><p><code>返回值</code>：一个给定值的JSON字符串。</p>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;lss&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;02&#x27;</span>,</span><br><span class="line">    <span class="attr">score</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;数学&#x27;</span>: <span class="number">90</span>,</span><br><span class="line">        <span class="string">&#x27;化学&#x27;</span>: <span class="number">90</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> json = <span class="built_in">JSON</span>.stringify(user, [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>], <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(json);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>value值为user是对象类型，replace为[‘name’, ‘age’]表示要转化的属性为name和age，space为4表示4个空格。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lss&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="json数据转化为JavaScript数据"><a href="#json数据转化为JavaScript数据" class="headerlink" title="json数据转化为JavaScript数据"></a>json数据转化为JavaScript数据</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(json, [reviver])</span><br></pre></td></tr></table></figure>
+
+<p><code>JSON.parse()</code> 方法用来解析JSON字符串，解析为JavaScript值或对象。</p>
+<ul>
+<li><code>json</code>：需要转化的json字符串</li>
+<li><code>reviver</code>：可选的函数，用以在返回之前对所得到的对象执行操作。当前属性名和属性值会分别作为第一个和第二个参数传入 <code>reviver</code> 中。如果 <code>reviver</code> 返回 <code>undefined</code>，则当前属性会从所属对象中删除，如果返回了其他值，则返回的值会成为当前属性新的属性值。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-undefined与null类型</title>
+    <url>/2021/03/15/javaScript-undefined%E4%B8%8Enull%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="undefined与null类型"><a href="#undefined与null类型" class="headerlink" title="undefined与null类型"></a>undefined与null类型</h1><h2 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h2><blockquote>
+<p><code>undefined</code> 属性用于存放 JavaScript 中未定义的值。</p>
+</blockquote>
+<span id="more"></span>
+
+<p>常见出现undefined的场景</p>
+<ul>
+<li>使用只声明而未初始化的变量时</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);    <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取一个对象的某个不存在的属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;node&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.sex);   <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数没有返回值，获取返回值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(func());   <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数定义了多种参数，调用时参数不足</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">&#125;</span><br><span class="line">func1(<span class="number">1</span>);    <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="null"><a href="#null" class="headerlink" title="null"></a>null</h2><blockquote>
+<p>特指对象的值未设置</p>
+</blockquote>
+<p>常见出现<code>null</code>的场景</p>
+<ul>
+<li>变量为了保存后面得到的值，前面定义一个变量赋值为<code>null</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;node&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">name = getName();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>javaScript在获取DOM元素时，如果没有获取指定的元素对象，就会返回<code>null</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;id&quot;</span>);    <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在使用正则表达式进行捕获时，如果没有捕获结果，就会返回<code>null</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;test&#x27;</span>.match(<span class="regexp">/a/</span>);    <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="undefined和null异同"><a href="#undefined和null异同" class="headerlink" title="undefined和null异同"></a>undefined和null异同</h2><ol>
+<li>相同点</li>
+</ol>
+<ul>
+<li>在将两者转换为对象时，都会抛出一个TypeError的异常，也就是引用异常</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> c;</span><br><span class="line"><span class="keyword">let</span> b = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c.name);   <span class="comment">// Cannot read property &#x27;name&#x27; of undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(b.name);   <span class="comment">// Cannot read property &#x27;name&#x27; of null</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在不严格相等的情况下，两者相等</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>;    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>不同点</li>
+</ol>
+<ul>
+<li>在typeof检测时，undefined类型的值会返回’undefined’，而null返回object</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">undefined</span>), <span class="keyword">typeof</span>(<span class="literal">null</span>));    <span class="comment">// undefined object</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在进行数值转换时，undefined转换为NaN，而null转换为0</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> + <span class="number">1</span>, <span class="literal">undefined</span> + <span class="number">1</span>);   <span class="comment">// 1 NaN</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-函数</title>
+    <url>/2021/03/18/javaScript-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="JavaScript函数"><a href="#JavaScript函数" class="headerlink" title="JavaScript函数"></a>JavaScript函数</h1><blockquote>
+<p>在JavaScript中函数实际也是一种对象，每个函数都是Function类型的实例，能够定义不同类型的属性和方法</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一、函数的定义"><a href="#一、函数的定义" class="headerlink" title="一、函数的定义"></a>一、函数的定义</h2><blockquote>
+<p>函数的定义大致上可以分为3种，分别是函数的声明、函数表达式和Function构造函数</p>
+</blockquote>
+<h3 id="1、函数声明"><a href="#1、函数声明" class="headerlink" title="1、函数声明"></a>1、函数声明</h3><ul>
+<li>函数的声明是直接使用function关键字接一个函数名，函数名后面是接收函数的形参</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、函数表达式"><a href="#2、函数表达式" class="headerlink" title="2、函数表达式"></a>2、函数表达式</h3><ul>
+<li>函数表达式的形式类似于普通变量的初始化，只不过这个变量初始化的值时函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Function-构造函数"><a href="#3、Function-构造函数" class="headerlink" title="3、Function()构造函数"></a>3、Function()构造函数</h3><ul>
+<li>使用new操作符，调用<code>Function()</code>构造函数，传入对应的参数，也可以定义一个函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;return a + b&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>其中除了最后一个参数是执行的函数体，其他参数都是函数的形参</p>
+</li>
+<li><p><code>Function()</code>构造函数每次执行时，都会解析函数主体，并创建一个新的函数对象</p>
+</li>
+<li><p><code>Function()</code>函数在A函数中执行时无法访问A函数内的局部变量，只能访问全局变量</p>
+</li>
+</ul>
+<h3 id="函数声明和函数表达式的区别"><a href="#函数声明和函数表达式的区别" class="headerlink" title="函数声明和函数表达式的区别"></a>函数声明和函数表达式的区别</h3><ul>
+<li><p>在使用函数声明时，是必须设置函数名称的，这个函数名称相当于一个变量，以后函数的调用也会通过这个变量进行。</p>
+</li>
+<li><p>而对于一个函数表达式来说，函数名称是可选的，可以定义一个匿名表达式，并赋给一个变量，然后通过变量进行函数的调用。</p>
+</li>
+<li><p>对应函数声明，存在<code>函数提升</code>，函数的调用可以在函数声明之前使用，而函数表达式不存在。</p>
+</li>
+</ul>
+<h2 id="二、函数的调用"><a href="#二、函数的调用" class="headerlink" title="二、函数的调用"></a>二、函数的调用</h2><h3 id="1、函数调用模式"><a href="#1、函数调用模式" class="headerlink" title="1、函数调用模式"></a>1、函数调用模式</h3><p>函数调用模式是通过函数声明或者函数表达式的方式定义函数，然后通过直接函数名调用的模式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a1, a2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a1 + a2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">let</span> sub = <span class="function"><span class="keyword">function</span>(<span class="params">a1, a2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a1 - a2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">sub(<span class="number">11</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、方法调用模式"><a href="#2、方法调用模式" class="headerlink" title="2、方法调用模式"></a>2、方法调用模式</h3><p>方法调用模式会优先定义一个对象obj，然后在对象内部定义值为函数的属性<code>property</code>，通过对象<code>obj.property()</code>来调用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义对象</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="comment">// 定义getName属性，值为一个函数</span></span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getName();   <span class="comment">// 通过点调用</span></span><br><span class="line">obj[<span class="string">&#x27;getName&#x27;</span>]();   <span class="comment">// 通过中括号调用</span></span><br></pre></td></tr></table></figure>
+
+<p>如果函数返回对象本身this，则可以利用链式调用的原理进行连续的函数调用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="comment">// 定义getName属性，值为一个函数</span></span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="attr">setName</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;   <span class="comment">// 在函数内部返回函数对象本身</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.setName(<span class="string">&quot;Node&quot;</span>).getName();   <span class="comment">// 链式函数调用</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、构造器调用模式"><a href="#3、构造器调用模式" class="headerlink" title="3、构造器调用模式"></a>3、构造器调用模式</h3><p>构造器调用模式会定义一个函数，在函数中定义实例属性，在原型上定义函数，然后通过new操作符生成函数实例，在通过实例调用原型上定义的函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型上定义函数</span></span><br><span class="line">Person.property.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过new操作符生成实例</span></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>);</span><br><span class="line"><span class="comment">// 通过实例调用函数</span></span><br><span class="line">person.getName()</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、call-函数、apply-函数调用模式"><a href="#4、call-函数、apply-函数调用模式" class="headerlink" title="4、call()函数、apply()函数调用模式"></a>4、call()函数、apply()函数调用模式</h3><p>通过call()函数或者apply()函数可以改变函数执行的主体，使得某些不具有特定函数的对象可以直接调用该特定函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义一个对象</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line"><span class="comment">// 通过call()或者apply()函数调用sum()函数</span></span><br><span class="line">sum.call(person, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">sum.apply(person, [<span class="number">1</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、匿名函数调用模式"><a href="#5、匿名函数调用模式" class="headerlink" title="5、匿名函数调用模式"></a>5、匿名函数调用模式</h3><p>匿名函数，就是没有函数名称的函数。匿名函数的调用有两种方式，一种是通过函数表达式调用函数，并赋值给变量，通过变量进行调用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 通过sum()函数进行匿名函数调用</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>另一种是使用小括号()将匿名函数括起来，然后在后面使用小括号()，传递对应参数进行调用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>);   <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-对象</title>
+    <url>/2021/03/18/javaScript-%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="javaScript对象"><a href="#javaScript对象" class="headerlink" title="javaScript对象"></a>javaScript对象</h1><blockquote>
+<p>对象的定义：无序属性的集合，其属性可以包含基本类型值、对象或者函数等。通俗来讲，对象是一组键值对的集合，键表示的是属性的名称，值表示的是属性的值。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h2><blockquote>
+<p>对象的属性可以分为数据属性和访问器属性。数据属性一般用于存储数据数值，而访问器属性一般进行get/set操作，不能直接存储数据数值。</p>
+</blockquote>
+<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>数据属性具有4个描述其行为的特征</p>
+<ul>
+<li>[[configurable]]：是否可以通过delete删除属性默认true；</li>
+<li>[[enumerable]]：是否可以通过for…in循环返回，默认true；</li>
+<li>[[writable]]：是否可以修改属性的值，默认true；</li>
+<li>[[value]]：设置属性的值，默认undefined。</li>
+</ul>
+<p>修改数据属性默认的特征，必须使用<code>Object.defineProperty()</code>方法，这个方法接收三个参数：属性所在对象、属性的名字和一个描述符对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(target, property, &#123;</span><br><span class="line">    <span class="attr">configurable</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">enumerable</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">writable</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">value</span>: <span class="string">&#x27;node&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>其中target为目标对象，property表示将要更改特征的属性，第三个参数是一个描述对象，描述对象的属性必须为configurable、enumerable、writable、value，以分别设置对应的特征值。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;node&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">writable</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">value</span>: <span class="string">&quot;Node&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line">person.name = <span class="string">&quot;NODE&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(person.name);    <span class="comment">// Node</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中通过<code>Object.defineProperty()</code>函数设置person对象的name的writable值为false，表示name的属性值不可更改，并设置name的value为Node。由于writable值为false使的在后面设置name的属性值为Node不生效，而设置name的value为Node使的name的属性值为Node。</p>
+<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>访问器属性不包含数据值。它包含一对getter和setter函数。当读取访问器属性时，会调用getter函数并返回有效值；当写入访问器属性时，会调用setter函数并传入新值，setter函数负责处理数据。该属性有四个特性：</p>
+<ul>
+<li>[[Configurable]]：默认为true。表示能否通过delete删除属性从而重新定义属性，能否修改属性特性，或者能否把属性修改为访问器属性；</li>
+<li>[[Enumerable]]：默认为true。表示能否通过for-in循环返回属性；</li>
+<li>[[Get]]：读取属性时调用的函数，默认为undefined；</li>
+<li>[[Set]]：写入属性时调用的函数，默认为undefined。</li>
+</ul>
+<p>访问器属性不能直接定义，必须通过Object.defineProperty()函数定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    <span class="attr">_age</span>: <span class="number">16</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;age&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._age</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">set</span>: <span class="function"><span class="keyword">function</span>(<span class="params">newAge</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(newAge &gt; <span class="number">16</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>._age = newAge</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">person.age = <span class="number">9</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.age);   <span class="comment">// 16</span></span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.age);   <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中定义的person对象包含一个_age属性，一般下划线开头的属性将理解为私有属性。通过<code>Object.defineProperty()</code>函数为person对象定义一个age属性，用来控制对_age属性的读取和写入。</p>
+<p>当读取age属性时直接返回对象的_age属性，当写入age属性时通过setter()函数对写入的值进行控制，当值大于16时，才会允许写入，所以第一个输出为16（9小于16不写入），第二个输出为18（18大于16写入）。</p>
+<h2 id="属性的访问"><a href="#属性的访问" class="headerlink" title="属性的访问"></a>属性的访问</h2><blockquote>
+<p>属性的访问有两种，一种是使用点操作符（.），一种是使用括号操作符（[]）</p>
+</blockquote>
+<h3 id="使用点（“-”）来访问"><a href="#使用点（“-”）来访问" class="headerlink" title="使用点（“.”）来访问"></a>使用点（“.”）来访问</h3><p>语法：<code>objectName.propertyName</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;node&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">person.name    <span class="comment">// node</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用括号（“-”）访问属性"><a href="#使用括号（“-”）访问属性" class="headerlink" title="使用括号（“[]”）访问属性"></a>使用括号（“[]”）访问属性</h3><p>语法：<code>objectName[propertyName]</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">person[<span class="string">&#x27;name&#x27;</span>]    <span class="comment">// node</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="点和括号访问的不同"><a href="#点和括号访问的不同" class="headerlink" title="点和括号访问的不同"></a>点和括号访问的不同</h3><ul>
+<li>点操作符是静态的，只能是一个以属性名称的简单描述符，而是无法修改；而中括号操作符是动态的，可以传递字符串或变量，并且支持在运行时修改。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> myName = <span class="string">&#x27;name&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(person.myName);   <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person[myName]);   <span class="comment">// node</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>点操作符不能使用数字作为属性名，而括号可以</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// person.1 = 1   // 异常：Unexpected number</span></span><br><span class="line">person[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"><span class="comment">// console.log(person.1);   // 异常:missing ) after argument list</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="number">1</span>]);   <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果点操作符中包含会导致语法错误的字符，或者属性名中含有关键字或者保留字，可以使用方括号操作符，而不能使用点操作符</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">person[<span class="string">&#x27;first name&#x27;</span>] = <span class="string">&quot;NodeJs&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">&#x27;first name&#x27;</span>]);   <span class="comment">// NodeJs</span></span><br><span class="line"><span class="built_in">console</span>.log(person.first name);   <span class="comment">// 异常：missing ) after argument list</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="1-基于Object-构造函数"><a href="#1-基于Object-构造函数" class="headerlink" title="1. 基于Object()构造函数"></a>1. 基于<code>Object()</code>构造函数</h3><p>通过Object对象的构造函数生成一个实例，然后给他增加需要的各种属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">// 为实例添加各种属性</span></span><br><span class="line">person.name = <span class="string">&#x27;node&#x27;</span></span><br><span class="line">person.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line">person.address = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;广东&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-基于对象字面量"><a href="#2-基于对象字面量" class="headerlink" title="2.基于对象字面量"></a>2.基于对象字面量</h3><p>对象字面量本身就是一系列键值对的组合，每个属性用逗号分隔。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		reurn <span class="built_in">this</span>.name</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">address</span>: &#123;</span><br><span class="line">		<span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">		<span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法1与方法2在创建对象时都具有相同的优点，即简单、容易理解。但是对象的属性值是通过对象自身进行设置的，如果需要同时创建若干个属性名相同，而只是属性值不同的对象时，则会产生很多的重复代码。</p>
+<h3 id="3-基于工厂方法模式"><a href="#3-基于工厂方法模式" class="headerlink" title="3.基于工厂方法模式"></a>3.基于工厂方法模式</h3><p>工厂方法模式是一种比较重要的设计模式，用于创建对象，旨在抽象出对象和属性赋值的过程，只对外暴露出需要设置的属性值。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, address</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.address = address;</span><br><span class="line">    o.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = createPerson(<span class="string">&#x27;node&#x27;</span>, <span class="number">18</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用工厂方法可以减少很多重复的代码，但是创建的所有实例都是Object类型，无法进一步区分具体的类型。</p>
+<h3 id="4-基于构造函数模式"><a href="#4-基于构造函数模式" class="headerlink" title="4.基于构造函数模式"></a>4.基于构造函数模式</h3><p>构造函数是通过this为对象添加属性的，属性值类型可以为基本类型、对象类型或者函数，然后通过new操作符创建对象实例。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, address</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.address = address;</span><br><span class="line">    <span class="built_in">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>, <span class="number">18</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>, <span class="number">18</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> Person);   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.getName === person.getName);   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>使用构造函数创建的对象可以确定所属类型，但是相同实例的函数是不一样的。每个实例都会占据一定的内存空间。</p>
+<h3 id="5-基于原型对象的模式"><a href="#5-基于原型对象的模式" class="headerlink" title="5.基于原型对象的模式"></a>5.基于原型对象的模式</h3><blockquote>
+<p>原型对象：在每一个函数创建时都会赋予一个prototype属性，它指向函数的原型对象，这个对象包含所有的<code>实例共享</code>的属性和函数</p>
+</blockquote>
+<p>基于原型对象的模式是将所有的函数和属性都封装在对象的<code>pertotype</code>属性上</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Person.prototype.name = <span class="string">&#x27;node&#x27;</span>;</span><br><span class="line">Person.prototype.age = <span class="number">18</span>;</span><br><span class="line">Person.prototype.address = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = Person();</span><br><span class="line"><span class="keyword">let</span> person2 = Person()</span><br><span class="line"><span class="built_in">console</span>.log(person.name === person2.name);   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person.getName === person2.getName);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>使用基于原型对象的模式创建的实例，其属性和函数都是相等的，不同的实例会共享原型上的属性和函数，改变其中的一个会引起其他实例的改变。</p>
+<h3 id="6-构造函数和原型混合的模式"><a href="#6-构造函数和原型混合的模式" class="headerlink" title="6.构造函数和原型混合的模式"></a>6.构造函数和原型混合的模式</h3><p>构造模式和原型混合的模式是目前最常见的创建自定义类型对象的方式。</p>
+<p>构造函数中对于实例的属性，原型函数中用于定义实例共享的属性和函数。通过构造函数传递参数，这样每个实例都能拥有自己的属性值，同属实例还能共享函数的引用，最大限度地节省了内存空间。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, address</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.address = address;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node1&#x27;</span>, <span class="number">11</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>, <span class="number">18</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName === person1.getName);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-基于动态原型模式"><a href="#7-基于动态原型模式" class="headerlink" title="7.基于动态原型模式"></a>7.基于动态原型模式</h3><p>将原型对象放在构造函数内部，通过变量控制，只在第一次生成实例的时候进行原型的设置。</p>
+<p>相当于懒汉模式，只在生成实例是设置原型对象，但是功能与构造函数和原型混合模式相同。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, address</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.address = address;</span><br><span class="line">    <span class="comment">// 如果Person对象中_initalized为undefined，则表明还没有为Person的原型添加函数</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> Person._initalized === <span class="string">&quot;undefined&quot;</span>)&#123;</span><br><span class="line">        Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">        &#125;</span><br><span class="line">        Person._initalized = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node1&#x27;</span>, <span class="number">11</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>, <span class="number">18</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName === person1.getName);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-正则表达式</title>
+    <url>/2021/03/30/javaScript-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="javaScript正则表达式"><a href="#javaScript正则表达式" class="headerlink" title="javaScript正则表达式"></a>javaScript正则表达式</h1><span id="more"></span>
+
+<h2 id="正则表达式的创建"><a href="#正则表达式的创建" class="headerlink" title="正则表达式的创建"></a>正则表达式的创建</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/test/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二，</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;test&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-输出</title>
+    <url>/2021/03/15/javaScript-%E8%BE%93%E5%87%BA/</url>
+    <content><![CDATA[<h1 id="javaScript输出"><a href="#javaScript输出" class="headerlink" title="javaScript输出"></a>javaScript输出</h1><blockquote>
+<ul>
+<li> window.alert() 弹出警告框</li>
+<li>document.write() 写入HTML输出，在页面加载完毕后，会覆盖原来的页面内容</li>
+<li>innerHTML 写入HTML 元素</li>
+<li>console.log() 写入浏览器控制台</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="window-alert"><a href="#window-alert" class="headerlink" title="window.alert"></a>window.alert</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.alert(<span class="string">&quot;alert&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210315100502.png" alt="image-20210315100455012"></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux-sed：处理数据</title>
+    <url>/2021/03/04/linux-sed%EF%BC%9A%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<h1 id="Linux：sed"><a href="#Linux：sed" class="headerlink" title="Linux：sed"></a>Linux：sed</h1><blockquote>
+<p>依照脚本的指令处理、编辑文本文件，<code>一行一行</code>的更改</p>
+<p>主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]</span><br></pre></td></tr></table></figure>
+
+<p><strong>选项</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-e</code></td>
+<td>以指定的script来处理输入的文本文件。</td>
+</tr>
+<tr>
+<td align="center"><code>-f</code></td>
+<td>以指定的script文件来处理输入的文本文件</td>
+</tr>
+<tr>
+<td align="center"><code>-n</code></td>
+<td>仅显示script处理后的结果。</td>
+</tr>
+<tr>
+<td align="center"><code>-i</code></td>
+<td>直接修改读取的文件内容，而不是由屏幕输出。</td>
+</tr>
+<tr>
+<td align="center"><code>-r</code></td>
+<td>sed 的动作支持的是延伸型正则表达式的语法。（默认是基础正则表达式语法）</td>
+</tr>
+</tbody></table>
+<p><strong>动作说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">动作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>a</code></td>
+<td>新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)</td>
+</tr>
+<tr>
+<td align="center"><code>c</code></td>
+<td>取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</td>
+</tr>
+<tr>
+<td align="center"><code>d</code></td>
+<td>删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</td>
+</tr>
+<tr>
+<td align="center"><code>i</code></td>
+<td>插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</td>
+</tr>
+<tr>
+<td align="center"><code>p</code></td>
+<td>打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行</td>
+</tr>
+<tr>
+<td align="center"><code>s</code></td>
+<td>取代，可以直接进行取代的工作，通常这个 s 的动作可以搭配正规表示法！</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除passwd的4-10行</span></span><br><span class="line">cat -n passwd | sed &#x27;4,10d&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304002103.png" alt="image-20210304002056235"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在第四行后面添加啊啊啊</span></span><br><span class="line">cat -n passwd | sed &#x27;4a 啊啊啊&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304002154.png" alt="image-20210304002154588"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以2-5取代2-5行</span></span><br><span class="line">cat -n passwd | sed &#x27;2,5c 2-5&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304002626.png" alt="image-20210304002626223"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示2-7行</span></span><br><span class="line">nl passwd | sed -n &#x27;2,7p&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304003004.png" alt="image-20210304003003921"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改passwd1文件中的root为ROOT,最后的g为全部更改</span></span><br><span class="line">sed -i &#x27;s/root/ROOT/g&#x27; passwd1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304003827.png" alt="image-20210304003827596"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-axios爬虫</title>
+    <url>/2021/03/28/node-axios%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<h1 id="node-axios爬虫"><a href="#node-axios爬虫" class="headerlink" title="node-axios爬虫"></a>node-axios爬虫</h1><span id="more"></span>
+
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&quot;axios&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(url: string, config?: AxiosRequestConfig)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>url：请求地址</li>
+<li>config：可选参数，对象类型的。常用参数：<ul>
+<li>responseType：请求类型</li>
+<li>headers：请求头</li>
+</ul>
+</li>
+</ul>
+<p>下载一张图片</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&quot;https://gitee.com/lishushuai/img/raw/master/20210318234209.jpg&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&quot;stream&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    resp.data.pipe(fs.createWriteStream(<span class="string">&quot;./img/1.jpg&quot;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-文件和文件夹</title>
+    <url>/2021/03/28/node-%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h1 id="node-文件和文件夹"><a href="#node-文件和文件夹" class="headerlink" title="node-文件和文件夹"></a>node-文件和文件夹</h1><span id="more"></span>
+
+<h2 id="判断文件和文件夹是否存在"><a href="#判断文件和文件夹是否存在" class="headerlink" title="判断文件和文件夹是否存在"></a>判断文件和文件夹是否存在</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (fs.existsSync(<span class="string">&#x27;文件&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;该路径已存在&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><p>异步</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fs.mkdir(path, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, callback);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>path：文件夹路径，</li>
+<li>recursive：是否递归创建，即创建多层文件夹，默认为false</li>
+<li>callback：回调函数，可以传入可能的异常以及第一个创建的目录（recursive为true）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.mkdir(<span class="string">&quot;G:/l/s/s&quot;</span>, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, <span class="function">(<span class="params">err, path</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err, path);   <span class="comment">// null G:\l</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>同步</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.mkdirSync(path, &#123; <span class="attr">recursive</span>: <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>path：文件夹路径，如果</li>
+<li>recursive：是否递归创建，即创建多层文件夹，默认为false</li>
+</ul>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-简单使用</title>
+    <url>/2021/03/14/node-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="node简单使用"><a href="#node简单使用" class="headerlink" title="node简单使用"></a>node简单使用</h1><h2 id="node赋值简化"><a href="#node赋值简化" class="headerlink" title="node赋值简化"></a>node赋值简化</h2><ul>
+<li>赋值简化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="string">&quot;18&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值写法1</span></span><br><span class="line"><span class="keyword">let</span> name = OBJ.name;</span><br><span class="line"><span class="keyword">let</span> age = OBJ.age;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值写法2，等价于写法1</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = objl</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取别名，防止重新定义变量</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>: myName, age&#125; = obj</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="node函数默认值"><a href="#node函数默认值" class="headerlink" title="node函数默认值"></a>node函数默认值</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对于普通函数，直接添加默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func_0</span>(<span class="params">name=<span class="string">&quot;node&quot;</span>, age=<span class="number">18</span></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于对象类型，先给对象赋值为空，然后再赋值对象里面的内容</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;name=<span class="string">&quot;node&quot;</span>, age=<span class="number">18</span>&#125;=&#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><ul>
+<li>数组的合并</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [...arr, ...arr1];   <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>object对象合并</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;node&#x27;</span>, <span class="attr">age</span>: <span class="number">10</span>&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">sex</span>: <span class="string">&#x27;男&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 如果有同名属性，后面的会覆盖前面的</span></span><br><span class="line">&#123;...obj1, ...obj2&#125;;   <span class="comment">// &#123; name: &#x27;node&#x27;, age: 10, sex: &#x27;男&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="全局变量global"><a href="#全局变量global" class="headerlink" title="全局变量global"></a>全局变量<code>global</code></h2><ul>
+<li>Nodejs里面没有window对象，但是有<code>global</code>对象，console、setTimeout是global对象下的</li>
+<li>Nodejs里面声明的变量，不会挂载到global里面</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以向global添加成员，可以在任何地方使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">global</span>.a = <span class="number">60</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// 60</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在Nodejs中this和global不是相等的(js文件中)，this在文件中，指向的是这个模块</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">global</span>);   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-模块</title>
+    <url>/2021/03/16/node-%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<h1 id="node模块"><a href="#node模块" class="headerlink" title="node模块"></a>node模块</h1><blockquote>
+<p>在 Node.js 模块系统中，每个文件都被视为一个独立的模块。</p>
+<p>node中每个js文件都是一个模块，都可以导出（<code>exports</code>），而多个js文件之间可以导入（<code>require</code>），共同实现一个功能</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="模块的导出"><a href="#模块的导出" class="headerlink" title="模块的导出"></a>模块的导出</h2><blockquote>
+<p>在一个js文件中实现了功能，要在另一个js文件中使用，就要把对应的功能导出。而模块的导出要用到<code>Module..exports</code>，在<code>exports</code>对象上指定额外的属性</p>
+</blockquote>
+<p>例子：在一个js文件中完成了一个方法或类，想要在别的js中使用，比如定义了一个sum方法和一个Animal的类</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;animal&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>模块导出的两种方式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模块的导出方式1</span></span><br><span class="line"><span class="built_in">exports</span>.sum = sum;</span><br><span class="line"><span class="built_in">exports</span>.Animal = Animal;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模块的导出方式2</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    sum,</span><br><span class="line">    Animal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>exports</code>是<code>modele.exports</code>的引用。在文件中才有exports，交互模式下没有</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">exports</span> === <span class="built_in">module</span>.exports);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="模块的导入"><a href="#模块的导入" class="headerlink" title="模块的导入"></a>模块的导入</h2><blockquote>
+<p>模块导出后要在别的js文件中使用还要将模块导入到js文件中，要用到<code>require</code></p>
+</blockquote>
+<ul>
+<li>上面导出模块的js文件（sum.js）和需要导入的js文件在同一目录下</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**模块的导入*/</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">&#x27;./sum&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="built_in">console</span>.log(sum.sum(<span class="number">1</span>, <span class="number">22</span>));</span><br><span class="line"><span class="keyword">new</span> myNum.Animal().say()</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块中的this"><a href="#模块中的this" class="headerlink" title="模块中的this"></a>模块中的this</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在js文件中导出</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">exports</span>.a = a;</span><br><span class="line"><span class="comment">/**模块中的this */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;this&#x27;</span>, <span class="built_in">this</span>);   <span class="comment">// &#123; a: 10 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">module</span>.exports);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>说明js文件中的this指向模块导出的对象exports，在交互模式下this===global</li>
+</ul>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-箭头函数</title>
+    <url>/2021/03/14/node-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// function func()&#123;&#125;</span></span><br><span class="line"><span class="comment">// 不带参数</span></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;func&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个参数</span></span><br><span class="line"><span class="keyword">let</span> func_1 = <span class="function"><span class="params">x1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带多个参数</span></span><br><span class="line"><span class="keyword">let</span> func_2 = <span class="function">(<span class="params">x1, x2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1, x2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值</span></span><br><span class="line"><span class="keyword">let</span> func_5 = <span class="function">() =&gt;</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 等价于func_5</span></span><br><span class="line"><span class="keyword">let</span> func_6 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-类</title>
+    <url>/2021/03/17/node-%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="node-类"><a href="#node-类" class="headerlink" title="node-类"></a>node-类</h1><span id="more"></span>
+
+<ul>
+<li>ES5中</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.say = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给类的实例定义方法</span></span><br><span class="line">Person.prototype.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义类的静态方法</span></span><br><span class="line">Person.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;eat.....&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**new的作用：</span></span><br><span class="line"><span class="comment"> *      1、创建一个对象</span></span><br><span class="line"><span class="comment"> *      2、调用构造方法，传入对应参数</span></span><br><span class="line"><span class="comment"> *      3、把this指向第一次创建的对象</span></span><br><span class="line"><span class="comment"> *      4、执行构造函数里面的代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>, <span class="number">11</span>);</span><br><span class="line">person.say()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params">name, age, subject</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 子类继承父类的属性，需要需要将this指向父类中的属性</span></span><br><span class="line">    Person.call(<span class="built_in">this</span>, name, age)</span><br><span class="line">    <span class="built_in">this</span>.subject = subject;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类继承父类的方法</span></span><br><span class="line">Teacher.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> t = <span class="keyword">new</span> Teacher(<span class="string">&#x27;l&#x27;</span>, <span class="number">22</span>, <span class="string">&#x27;shuxue&#x27;</span>);</span><br><span class="line">t.say()</span><br><span class="line">t.showName()</span><br><span class="line"><span class="comment">// Teacher.eat()</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ES6</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ES6后</span></span><br><span class="line"><span class="comment">/**注意要点</span></span><br><span class="line"><span class="comment"> * 1、实例化方法和实例化属性都是给实例化对象调用，静态方法只能类名调用</span></span><br><span class="line"><span class="comment"> * 2、每一个实例化对象在内存中独立存在的，有自己的属性和方法，互不影响，相互独立</span></span><br><span class="line"><span class="comment"> * 3、</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123; <span class="comment">// 定义一个类</span></span><br><span class="line">    <span class="keyword">static</span> num = <span class="number">10</span>; <span class="comment">// 静态属性</span></span><br><span class="line">    <span class="comment">// 构造器</span></span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 实例化的时候执行</span></span><br><span class="line">        <span class="built_in">this</span>.name = name; <span class="comment">// 实例属性</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义一个实例方法</span></span><br><span class="line">    <span class="function"><span class="title">showName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 静态方法，通过类名调用</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;eat&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Animal(<span class="string">&#x27;dog&#x27;</span>); <span class="comment">// 实例化对象</span></span><br><span class="line">dog.showName(); <span class="comment">// dog, 调用实例方法</span></span><br><span class="line">Animal.eat(); <span class="comment">// eat, 调用静态方法</span></span><br><span class="line"><span class="built_in">console</span>.log(Animal.num); <span class="comment">// 10, 调用静态属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6后</span></span><br><span class="line"><span class="comment">/**继承</span></span><br><span class="line"><span class="comment"> *  格式：class 子类名 extends 父类 &#123;&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 重写constructor方法使父类的constructor失效，</span></span><br><span class="line">        <span class="comment">// 可以调用super()调用父类的constructor方法</span></span><br><span class="line">        <span class="comment">// super()方法必须在使用this前面：this在调用父类的constructor方法才起作用</span></span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">        <span class="built_in">this</span>.age = <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 重写：子类方法名和父类一样，覆盖父类的方法，调用子类的方法</span></span><br><span class="line">    <span class="function"><span class="title">showName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>:喵喵喵`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cat = <span class="keyword">new</span> Cat(<span class="string">&quot;汤姆&quot;</span>)</span><br><span class="line">cat.showName() <span class="comment">// 汤姆:喵喵喵</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python-京东评论.md</title>
+    <url>/2021/02/22/python-%E4%BA%AC%E4%B8%9C%E8%AF%84%E8%AE%BA/</url>
+    <content><![CDATA[<h2 id="评论获取"><a href="#评论获取" class="headerlink" title="评论获取"></a>评论获取</h2><p>爬取商品：<a href="https://item.jd.com/11943853.html">https://item.jd.com/11943853.html</a></p>
+<h3 id="一、评论查找"><a href="#一、评论查找" class="headerlink" title="一、评论查找"></a>一、评论查找</h3><p>源代码查找</p>
+<p>随便复制一个评论的评论人：名字。在源代码中搜索，没有找到。</p>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094252.png"></p>
+<span id="more"></span>
+
+<p>那就在加载的数据中查找</p>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094221.png" alt="image-20200524094219681"></p>
+<p>在这个里面有：</p>
+<blockquote>
+<p><a href="https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1">https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
+</blockquote>
+<p>看看是不是评论：</p>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094519.png" alt="image-20200524094518225"></p>
+<p>有评论的内容。</p>
+<h3 id="二、评论内容获取。"><a href="#二、评论内容获取。" class="headerlink" title="二、评论内容获取。"></a>二、评论内容获取。</h3><p>请求得到数据, 数据格式：</p>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524095853.png"></p>
+<p>使用正则，再使用json.loads把数据转化为字典类型：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">resp = requests.get(url, headers=headers)</span><br><span class="line">   <span class="keyword">if</span> resp.status_code == <span class="number">200</span>:</span><br><span class="line">       text = resp.text</span><br><span class="line">       pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;fetchJSON_comment98\((.*?)\);&#x27;</span>, re.S)</span><br><span class="line">       t_data = pattern.search(text).group(<span class="number">1</span>)</span><br><span class="line">       t_json = json.loads(t_data)</span><br><span class="line">       pprint(t_json)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524101010.png"></p>
+<p>评论在comments的content里面：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> comment <span class="keyword">in</span> t_json[<span class="string">&#x27;comments&#x27;</span>]:</span><br><span class="line">	<span class="built_in">print</span>(comment[<span class="string">&#x27;content&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20200524101255131.png"></p>
+<h3 id="三、全部评论获取"><a href="#三、全部评论获取" class="headerlink" title="三、全部评论获取"></a>三、全部评论获取</h3><blockquote>
+<p><a href="https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1">https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
+</blockquote>
+<p>在这个地址了page参数代表页码：改变page的值可以获取不同页码的评论。</p>
+<p>还有一个productId代表每个商品。</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>scrapy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python-小说爬虫.md</title>
+    <url>/2021/02/22/python-%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<h3 id="目标：爬取零点看书网"><a href="#目标：爬取零点看书网" class="headerlink" title="目标：爬取零点看书网"></a>目标：爬取零点看书网</h3><p> 一本小说</p>
+<h3 id="1、爬取小说目录地址"><a href="#1、爬取小说目录地址" class="headerlink" title="1、爬取小说目录地址"></a>1、爬取小说目录地址</h3><p>爬取小说地址：<a href="https://www.lingdiankanshu.co/258400/">https://www.lingdiankanshu.co/258400/</a></p>
+<p>查看网页源代码</p>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204725455.png" alt="image-20210226204725455"></p>
+<p>小说<code>楔子</code>在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面</p>
+<span id="more"></span>
+
+<p>用xpath来获取</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;list&quot;]/dl/dt[2]/following-sibling::dd/a&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>following-sibling :选取当前节点之后的所有同级节点 </p>
+<p>获取章节地址和章节名</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pageUrlName_list = []</span><br><span class="line">dit = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> a_list:</span><br><span class="line">    dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + a.xpath(<span class="string">&#x27;./@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    dit[<span class="string">&#x27;pageName&#x27;</span>] = a.xpath(<span class="string">&#x27;./text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list.append(dit.copy())</span><br><span class="line"><span class="built_in">print</span>(pageUrlName_list)</span><br></pre></td></tr></table></figure>
+<h3 id="2、爬取小说内容页"><a href="#2、爬取小说内容页" class="headerlink" title="2、爬取小说内容页"></a><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204831863.png" alt="image-20210226204831863">2、爬取小说内容页</h3><p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204921501.png" alt="image-20210226204921501"></p>
+<p>小说内容在一个id等于content的div里面</p>
+<p>获取小说内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(content_list)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226205024731.png" alt="image-20210226205024731"></p>
+<h3 id="3、整理爬取的小说"><a href="#3、整理爬取的小说" class="headerlink" title="3、整理爬取的小说"></a>3、整理爬取的小说</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content = <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210226211457.png" alt="image-20210226211457781"></p>
+<h3 id="4、多线程下载"><a href="#4、多线程下载" class="headerlink" title="4、多线程下载"></a>4、多线程下载</h3><p>由于小说各个章节顺序一定，可以定义一个正在保存章节的标记</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>把章节地址扔进队列中，用的时候取出来</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line">q = Queue()</span><br><span class="line"><span class="comment"># i记录章节顺序</span></span><br><span class="line"><span class="keyword">for</span> i, page <span class="keyword">in</span> <span class="built_in">enumerate</span>(pageUrlName_list):</span><br><span class="line">	q.put([i, page])</span><br></pre></td></tr></table></figure>
+
+<p>当队列不为空时：从队列中取出一个元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    i, page_url_name = q.get()</span><br></pre></td></tr></table></figure>
+
+<p>判断当前爬取的章节是否和保存标记的章节数一样</p>
+<p>不一样：等待</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> i &gt; index:</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>一样：保存当前章节，用来保存标记的章节数加一</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> index == i:</span><br><span class="line">    fw.write(content)</span><br><span class="line">    index += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>开始多线程：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    t = Thread(target=down_txt, args=[q, fw])</span><br><span class="line">    t.start()</span><br><span class="line">    ts.append(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> ts:</span><br><span class="line">    t.join()</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、完整代码："><a href="#5、完整代码：" class="headerlink" title="5、完整代码："></a>5、完整代码：</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 Edg/81.0.416.72&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_pageUrlName</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;获取各章节地址和章节名&#x27;&#x27;&#x27;</span></span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    html = etree.HTML(resp.text)</span><br><span class="line">    dd_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;list&quot;]/dl/dt[2]/following-sibling::dd&#x27;</span>)</span><br><span class="line">    <span class="comment"># 获取小说名</span></span><br><span class="line">    title = html.xpath(<span class="string">&#x27;//h1/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list = []</span><br><span class="line">    dit = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> dd <span class="keyword">in</span> dd_list:</span><br><span class="line"></span><br><span class="line">        dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + dd.xpath(<span class="string">&#x27;./a/@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        dit[<span class="string">&#x27;pageName&#x27;</span>] = dd.xpath(<span class="string">&#x27;./a/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        pageUrlName_list.append(dit.copy())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(pageUrlName_list)</span></span><br><span class="line">    <span class="keyword">return</span> pageUrlName_list, title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">page_url</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;获取内容&#x27;&#x27;&#x27;</span></span><br><span class="line">    resp = requests.get(page_url, headers=headers)</span><br><span class="line">    html = etree.HTML(resp.text)</span><br><span class="line">    content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line">    <span class="comment"># print(&#x27;\r\n&#x27;.join(content_list[:-1]))</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">down_txt</span>(<span class="params">q, fw</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;保存小说&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">global</span> index</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        i, page_url_name = q.get()</span><br><span class="line">        <span class="comment"># print(page_url_name, i)</span></span><br><span class="line">        page_url = page_url_name[<span class="string">&#x27;pageUrl&#x27;</span>]</span><br><span class="line">        page_name = page_url_name[<span class="string">&#x27;pageName&#x27;</span>]</span><br><span class="line">        content = page_name + get_content(page_url)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;爬取--&gt;&#x27;</span>, page_name)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 判断当前章节是否和标记的章节数一样</span></span><br><span class="line">        <span class="keyword">while</span> i &gt; index:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == i:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;保存--&gt;&#x27;</span>, page_name)</span><br><span class="line">            fw.write(content)</span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    url = <span class="string">&#x27;https://www.lingdiankanshu.co/467479/&#x27;</span></span><br><span class="line">    pageUrl_list, title = get_pageUrlName(url)</span><br><span class="line">    <span class="comment"># print(pageUrl_list)</span></span><br><span class="line">    </span><br><span class="line">    q = Queue()</span><br><span class="line">    <span class="keyword">for</span> i, page_url_name <span class="keyword">in</span> <span class="built_in">enumerate</span>(pageUrl_list):</span><br><span class="line">        q.put([i, page_url_name])</span><br><span class="line"></span><br><span class="line">    index = <span class="number">0</span>   <span class="comment"># 记录保存章节数</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;title&#125;</span>.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> fw:</span><br><span class="line"></span><br><span class="line">        ts = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            t = Thread(target=down_txt, args=[q, fw])</span><br><span class="line">            t.start()</span><br><span class="line">            ts.append(t)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> ts:</span><br><span class="line">            t.join()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>工具-github+typora+PicGo图床</title>
+    <url>/2021/08/25/%E5%B7%A5%E5%85%B7-github-typora-PicGo%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="github图床"><a href="#github图床" class="headerlink" title="github图床"></a>github图床</h1><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><ol>
+<li>获取tokens</li>
+</ol>
+<ul>
+<li>Settings =&gt; <a href="https://github.com/settings/apps">Developer settings</a> =&gt; <a href="https://github.com/settings/tokens">Personal access tokens</a> =&gt; <a href="https://github.com/settings/tokens/new">New personal access token </a></li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><p>设置Note，选择<code>repo</code>, <code>Generate token</code>生成token，复制生成的token（只显示一次）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894315.png" alt="image-20210825202513498"></p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894463.png" alt="image-20210825202741003"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894694.png" alt="image-20210825203131917"></p>
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><ol>
+<li>下载PicGo-Core，配置</li>
+</ol>
+<ul>
+<li>偏好设置 , 图像，PicGo-Core，下载或更新，下载完后点击验证图片上传（查看位置）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629895244.png" alt="image-20210825204041755"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629895464.png" alt="image-20210825204422037"></p>
+<ul>
+<li>打开cmd，输入转到picgo.exe所在目录。安装<code>github-plus</code>插件</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\<span class="number">26634</span>\AppData\Roaming\Typora\picgo\win64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">./picgo install github-plus</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回到<code>typora</code>, 打开配置文件，设置如下</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span>: <span class="string">&quot;githubPlus&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;current&quot;</span>: <span class="string">&quot;githubPlus&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;githubPlus&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;branch&quot;</span>: <span class="string">&quot;master&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span>: <span class="string">&quot;https://cdn.jsdelivr.net/gh/用户名/仓库&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;origin&quot;</span>: <span class="string">&quot;github&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;repo&quot;</span>: <span class="string">&quot;用户名/仓库&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;保存路径/&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;上面创建的token&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;picgo-plugin-github-plus&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgo-plugin-github-plus&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;lastSync&quot;</span>: <span class="string">&quot;2021-08-25 08:40:46&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>https://cdn.jsdelivr.net/gh/用户名/仓库</code> cdn加速访问</li>
+</ul>
+<ol start="2">
+<li>上传的时候重命名</li>
+</ol>
+<ul>
+<li>在picgo所在目录下安装[rename-file](<a href="https://github.com/liuwave/picgo-plugin-rename-file">Issues · liuwave/picgo-plugin-rename-file (github.com)</a>)插件</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">./picgo install <span class="built_in">rename</span>-file</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打开配置文件在最后添加</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;picgo-plugin-rename-file&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;&#123;y&#125;-&#123;m&#125;-&#123;d&#125;/&#123;timestamp&#125;&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;githubPlus&quot;,</span><br><span class="line">    &quot;current&quot;: &quot;githubPlus&quot;,</span><br><span class="line">    &quot;githubPlus&quot;: &#123;</span><br><span class="line">      &quot;branch&quot;: &quot;master&quot;,</span><br><span class="line">      &quot;customUrl&quot;: &quot;https://cdn.jsdelivr.net/gh/用户名/仓库&quot;,</span><br><span class="line">      &quot;origin&quot;: &quot;github&quot;,</span><br><span class="line">      &quot;repo&quot;: &quot;用户名/仓库&quot;,</span><br><span class="line">      &quot;path&quot;: &quot;img/&quot;,</span><br><span class="line">      &quot;token&quot;: &quot;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&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;</span><br><span class="line">    &quot;picgo-plugin-github-plus&quot;: true,</span><br><span class="line">    &quot;picgo-plugin-rename-file&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgo-plugin-github-plus&quot;: &#123;</span><br><span class="line">    &quot;lastSync&quot;: &quot;2021-08-25 08:44:25&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgo-plugin-rename-file&quot;: &#123;</span><br><span class="line">    &quot;format&quot;: &quot;&#123;y&#125;-&#123;m&#125;-&#123;d&#125;/&#123;timestamp&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>viw的使用</title>
+    <url>/2021/02/22/viw%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vim的使用"><a href="#vim的使用" class="headerlink" title="vim的使用"></a>vim的使用</h1><h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><h3 id="一般模式"><a href="#一般模式" class="headerlink" title="一般模式"></a>一般模式</h3><blockquote>
+<p>在终端输入vim xxx，进入就是一般模式</p>
+</blockquote>
+<h4 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h4><ul>
+<li><p>编辑模式 按<code>ESC</code>键 切换到一般模式</p>
+</li>
+<li><p>可视模式切换到一般模式</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>描述</th>
+<th>助记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>y</code></td>
+<td>复制当前选择区域，并退出可视模式</td>
+<td>yank</td>
+</tr>
+<tr>
+<td><code>Y</code></td>
+<td>复制当前选择区域（按行），并退出可视模式</td>
+<td>Yank</td>
+</tr>
+<tr>
+<td><code>ESC</code></td>
+<td>直接退出可视模式</td>
+<td></td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<h3 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h3><blockquote>
+<p>一般用于选择</p>
+</blockquote>
+<h4 id="切换-1"><a href="#切换-1" class="headerlink" title="切换"></a>切换</h4><ul>
+<li>一般模式切换到可视模式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>描述</th>
+<th>助记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>v</code></td>
+<td>选中当前光标字符，并进入可视模式，移动光标按字符选择。类似于在普通编辑器里按住鼠标左键移动鼠标进行选择</td>
+<td>visual</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>移动光标按行选择</td>
+<td>Visual</td>
+</tr>
+<tr>
+<td><code>ctrl+v</code></td>
+<td>块选择模式，此时移动光标会选择一个矩形块</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="编辑模式（插入模式）"><a href="#编辑模式（插入模式）" class="headerlink" title="编辑模式（插入模式）"></a>编辑模式（插入模式）</h3><blockquote>
+<p>按键输入字符</p>
+</blockquote>
+<h4 id="切换-2"><a href="#切换-2" class="headerlink" title="切换"></a>切换</h4><ul>
+<li>一般模式切换到编辑模式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th>描述</th>
+<th>助记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>i</code></td>
+<td>在当前光标字符前插入</td>
+<td>insert</td>
+</tr>
+<tr>
+<td align="center"><code>a</code></td>
+<td>在当前光标字符后插入</td>
+<td>append</td>
+</tr>
+<tr>
+<td align="center"><code>I</code></td>
+<td>在当前行首插入</td>
+<td>Insert</td>
+</tr>
+<tr>
+<td align="center"><code>A</code></td>
+<td>在当前行尾插入</td>
+<td>Append</td>
+</tr>
+<tr>
+<td align="center"><code>o</code></td>
+<td>在下方开一新行，插入</td>
+<td>open</td>
+</tr>
+<tr>
+<td align="center"><code>O</code></td>
+<td>在上方开一新行</td>
+<td>Open</td>
+</tr>
+</tbody></table>
+<ul>
+<li>可视模式切换到编辑模式：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>描述</th>
+<th>助记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>s</code></td>
+<td>删除当前已选择的内容，并进入插入模式</td>
+<td></td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>删除当前已选择的内容，并进入插入模式</td>
+<td>change</td>
+</tr>
+<tr>
+<td><code>di</code></td>
+<td>删除当前已选择的内容，并进入插入模式</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="常用操作（一般模式下）"><a href="#常用操作（一般模式下）" class="headerlink" title="常用操作（一般模式下）"></a>常用操作（一般模式下）</h2><h4 id="保存、退出"><a href="#保存、退出" class="headerlink" title="保存、退出"></a>保存、退出</h4><ul>
+<li><code>:w</code> 保存</li>
+<li><code>:q </code> 退出不保存</li>
+<li><code>:wq</code> 保存并退出</li>
+<li><code>:q!</code> 强制退出，不保存</li>
+</ul>
+<h4 id="显示行号"><a href="#显示行号" class="headerlink" title="显示行号"></a>显示行号</h4><ul>
+<li><code>:set nu </code>显示行号</li>
+<li><code>:set nonu</code> 隐藏行号</li>
+</ul>
+<h2 id="常用快捷键-一般模式下"><a href="#常用快捷键-一般模式下" class="headerlink" title="常用快捷键(一般模式下)"></a>常用快捷键(一般模式下)</h2><h4 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h4><ul>
+<li><code>yy</code> 拷贝当前行，</li>
+<li><code>5yy</code> 拷贝当前向下5行</li>
+</ul>
+<h4 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h4><ul>
+<li><code>p</code></li>
+</ul>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul>
+<li><code>dd</code> 删除当前行</li>
+<li><code>5dd</code> 删除当前向下5行</li>
+<li><code>x</code> 删除光标所在字符</li>
+</ul>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><ul>
+<li><code>/ + 关键字</code>，回车查找，输入n查找下一个，例查找hello：<code>/hello</code></li>
+</ul>
+<h4 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h4><ul>
+<li><code>u</code></li>
+</ul>
+<h4 id="重做"><a href="#重做" class="headerlink" title="重做"></a>重做</h4><ul>
+<li><code>ctrl + r</code> 重做上一次修改，<code>u</code> 的逆过程</li>
+</ul>
+<h4 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h4><ul>
+<li><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>h</code></td>
+<td>光标左移</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td>光标下移</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>光标上移</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>光标右移</td>
+</tr>
+<tr>
+<td>n + <code>h</code></td>
+<td>光标左移 n 个位置 ，n(umber) 指数字</td>
+</tr>
+<tr>
+<td>n + <code>j</code></td>
+<td>光标下移 n 个位置 ，n(umber) 指数字</td>
+</tr>
+<tr>
+<td>n + <code>k</code></td>
+<td>光标上移 n 个位置 ，n(umber) 指数字</td>
+</tr>
+<tr>
+<td>n + <code>l</code></td>
+<td>光标右移 n 个位置 ，n(umber) 指数字</td>
+</tr>
+<tr>
+<td>n + <code>G</code></td>
+<td>光标移动第n行</td>
+</tr>
+<tr>
+<td><code>gg</code></td>
+<td>光标移动到等一行</td>
+</tr>
+<tr>
+<td><code>G </code></td>
+<td>移动到最后一行</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>跳到行首</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>跳到行首开始的第一个非空白字符</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>跳到行尾</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>跳到下一个词首</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>跳到上一个词首</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>跳到下一个词尾</td>
+</tr>
+<tr>
+<td><code>ge</code></td>
+<td>跳到上一个词尾</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/1970/01/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p><img src="https://gitee.com/lishushuai/img/raw/master/20210307233614.png" alt="image-20210307233606826"></p>
+<p><img src="https://gitee.com/lishushuai/img/raw/master/20210307235006.png" alt="image-20210307235005672"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>算法-子数组异或查询</title>
+    <url>/2021/05/12/%E7%AE%97%E6%B3%95-%E5%AD%90%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%9F%A5%E8%AF%A2/</url>
+    <content><![CDATA[<h1 id="子数组异或查询"><a href="#子数组异或查询" class="headerlink" title="子数组异或查询"></a><a href="https://leetcode-cn.com/problems/xor-queries-of-a-subarray/">子数组异或查询</a></h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个正整数数组 <code>arr</code>，现给你一个对应的查询数组 <code>queries</code>，其中 <code>queries[i] = [Li, Ri]</code>。</p>
+<p>对于每个查询<code> i</code>，请你计算从<code>Li</code>到<code> Ri</code> 的 <code>XOR </code>值（即 <code>arr[Li] xor arr[Li+1] xor ... xor arr[Ri]</code>）作为本次查询的结果。</p>
+<p>并返回一个包含给定查询<code> queries</code> 所有结果的数组。</p>
+<ul>
+<li>示例 1</li>
+</ul>
+<blockquote>
+<p>输入：arr = [1, 3, 4, 8], queries = [[0, 1], [1, 2], [0, 3], [3,3]]<br>输出：[2, 7, 14, 8]<br>解释：<br>    [0,1] = 1 xor 3 = 2<br>    [1,2] = 3 xor 4 = 7<br>    [0,3] = 1 xor 3 xor 4 xor 8 = 14<br>    [3,3] = 8</p>
+</blockquote>
+<ul>
+<li>示例 2</li>
+</ul>
+<blockquote>
+<p>输入：arr = [4, 8, 2, 10], queries = [[2, 3], [1, 3], [0, 0], [0, 3]]<br>输出：[8, 0, 4, 4]</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>由于 <code>a ^ 0 = a, a ^ b ^ a = b</code></li>
+<li>我们可以得到在区间 <code>[i, j]</code>上的异或</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xors[j + <span class="number">1</span>] = (arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>] ^ ... ^ arr[j]);</span><br><span class="line">xors[i] = (arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>] ^ ... ^ arr[i - <span class="number">1</span>]);</span><br><span class="line">arr[i] ^ arr[i + <span class="number">1</span>] ... ^ arr[j] = s[i] ^ s[j + <span class="number">1</span>]; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 比如[1, 3];</span></span><br><span class="line">arr[<span class="number">1</span>] ^ arr[<span class="number">2</span>] ^ arr[<span class="number">3</span>];</span><br><span class="line">xors[<span class="number">4</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>] ^ arr[<span class="number">2</span>] ^ arr[<span class="number">3</span>];</span><br><span class="line">xors[<span class="number">1</span>] = arr[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">arr[<span class="number">1</span>] ^ arr[<span class="number">2</span>] ^ arr[<span class="number">3</span>] = xors[<span class="number">4</span>] ^ xors[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>建立<code>xors</code>数组保存arr前n项异或</li>
+<li>遍历<code>queries</code>数组，获取所求区间<code>[i, j]</code></li>
+<li>求值 <code>xors[i] ^ xors[j + 1]</code>，添加到返回的数组中</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">arr</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">queries</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> xorQueries = <span class="function"><span class="keyword">function</span> (<span class="params">arr, queries</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arrLength = arr.length;</span><br><span class="line">    <span class="keyword">let</span> xors = <span class="keyword">new</span> <span class="built_in">Array</span>().fill(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加arr的前i个异或到xors的第i + 1个中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arrLength; i++)&#123;</span><br><span class="line">        xors[i + <span class="number">1</span>] = xors[i] ^ arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    queries.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// [i, j]区间异或</span></span><br><span class="line">        result.push(xors[value[<span class="number">0</span>]] ^ xors[value[<span class="number">1</span>] + <span class="number">1</span>])</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>算法</tag>
+        <tag>前缀</tag>
+        <tag>异或</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法-树-深度优先遍历</title>
+    <url>/2021/05/10/%E7%AE%97%E6%B3%95-%E6%A0%91-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</url>
+    <content><![CDATA[<h1 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h1><span id="more"></span>
+
+<h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><blockquote>
+<p>二叉树的前序遍历，输出顺序是根节点、左子树、右子树。</p>
+</blockquote>
+<h3 id="遍历过程"><a href="#遍历过程" class="headerlink" title="遍历过程"></a>遍历过程</h3><img src="https://gitee.com/lishushuai/img/raw/master/image-20210510224549490.png" alt="image-20210510224549490" style="zoom: 50%;" />
+
+<p>上图是一个二叉树，其中前序遍历顺序为（1245367）</p>
+<img src="https://gitee.com/lishushuai/img/raw/master/20210510225245.png" alt="image-20210510225200875" style="zoom:50%;" />
+
+<ol>
+<li>先遍历根节点（1）</li>
+<li>遍历根节点下的左节点（2）</li>
+<li>遍历左节点下的左节点（4），没有子节点，返回上一个节点（2），</li>
+<li>遍历其右节点（5），没有子节点，返回上上一节点（1）</li>
+<li>遍历其右节点（3）</li>
+<li>遍历（3）左节点（6），没有子节点，返回上一节点</li>
+<li>遍历右节点（7），遍历完成</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>递归</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> dfs = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node === <span class="literal">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 输出当前节点的值</span></span><br><span class="line">    <span class="built_in">console</span>.log(node.val);</span><br><span class="line">    <span class="comment">// 遍历当前节点左节点</span></span><br><span class="line">    <span class="keyword">if</span> (node.left) dfs(node.left);</span><br><span class="line">    <span class="comment">// 遍历当前节点的右节点</span></span><br><span class="line">    <span class="keyword">if</span>(node.right) dfs(node.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>迭代</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dfs = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root === <span class="literal">null</span>) <span class="keyword">return</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 栈，用于回溯</span></span><br><span class="line">    <span class="keyword">let</span> stk = [];</span><br><span class="line">    <span class="comment">// 先遍历根节点</span></span><br><span class="line">    <span class="keyword">let</span> node = root;</span><br><span class="line">    <span class="keyword">while</span> (node !== <span class="literal">null</span> || stk.length !== <span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 把当前节点的左节点放入stk</span></span><br><span class="line">        <span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(node.val);</span><br><span class="line">            stk.push(node);</span><br><span class="line">            node = node.left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历右节点</span></span><br><span class="line">        <span class="keyword">if</span> (stk.length !== <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 回溯，取出stk中的左节点，遍历右节点</span></span><br><span class="line">            node = stk.pop();</span><br><span class="line">            node = node.right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><blockquote>
+<p><em>中序遍历</em>首先遍历左子树，然后访问根结点，最后遍历右子树。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>数学建模-线性</title>
+    <url>/2021/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-%E7%BA%BF%E6%80%A7/</url>
+    <content><![CDATA[<h1 id="数学建模-线性"><a href="#数学建模-线性" class="headerlink" title="数学建模-线性"></a>数学建模-线性</h1><span id="more"></span>]]></content>
+  </entry>
+</search>
