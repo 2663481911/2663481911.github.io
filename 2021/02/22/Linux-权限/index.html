@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="权限说明rwx权限作用到文件 r：代表可读，查看  w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件  x：可执行 作用到目录 r：可以读取，ls查看目录内容  w：可写，可以修改，对目录内创建、删除、重命名目录  x：可执行，可以cd进入改目录   例子：  drwxr-xr-x的1-3位为rwx代表可读可写可执行 drwxr-xr-x的4-6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-权限">
+<meta property="og:url" content="http://2663481911.github.io/2021/02/22/Linux-%E6%9D%83%E9%99%90/index.html">
+<meta property="og:site_name" content="lss">
+<meta property="og:description" content="权限说明rwx权限作用到文件 r：代表可读，查看  w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件  x：可执行 作用到目录 r：可以读取，ls查看目录内容  w：可写，可以修改，对目录内创建、删除、重命名目录  x：可执行，可以cd进入改目录   例子：  drwxr-xr-x的1-3位为rwx代表可读可写可执行 drwxr-xr-x的4-6">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-21T19:24:04.000Z">
+<meta property="article:modified_time" content="2021-02-21T19:24:04.000Z">
+<meta property="article:author" content="lss">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://2663481911.github.io/2021/02/22/Linux-权限/"/>
+
+
+
+
+
+  <title>Linux-权限 | lss</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">梦想</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://2663481911.github.io/2021/02/22/Linux-%E6%9D%83%E9%99%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux-权限</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-22T03:24:04+08:00">
+                2021-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
+<li><p>r：代表可读，查看</p>
+</li>
+<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
+</li>
+<li><p>x：可执行</p>
+<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
+<li><p>r：可以读取，ls查看目录内容</p>
+</li>
+<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
+</li>
+<li><p>x：可执行，可以cd进入改目录</p>
+</li>
+</ul>
+<p>例子：</p>
+<ul>
+<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
+<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><ul>
+<li><p>基本说明：</p>
+<blockquote>
+<p>通过chmod指令，可以修改文件或目录的权限</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过-、-、-变更权限"><a href="#通过-、-、-变更权限" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h3><p><code>说明</code>u：使用者，g：所有组，o：其他用户，a：所有用户</p>
+<ul>
+<li><p>命令一：</p>
+<blockquote>
+<p>chmod u=rwx,g=rx,o=x 文件或目录名</p>
+<ul>
+<li>设定文件或目录的使用者权限为rwx，组的权限为r-x，其他人权限为–x</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令二：</p>
+<blockquote>
+<p>chmod o+w 文件或目录名</p>
+<ul>
+<li>添加权限，给其他添加权限w（写）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令三：</p>
+<blockquote>
+<p>chmod a-x 文件或目录名</p>
+<ul>
+<li>除去权限，所有用户除去权限x（执行）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过数字变更权限"><a href="#通过数字变更权限" class="headerlink" title="通过数字变更权限"></a>通过数字变更权限</h3><p><code>说明</code>r：4、w：2、x：1，则rwx = 4+2+1=7</p>
+<blockquote>
+<p>命令：chmod 555</p>
+<ul>
+<li>赋予r-xr-xr-x的权限</li>
+</ul>
+</blockquote>
+<ul>
+<li>chmod u=rwx,g=rx,o=x相当于chmod 751</li>
+</ul>
+<h2 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h2><blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>a</code></td>
+<td>让文件或目录仅供附加用途。可以附加内容到文件中，但是不能编辑文件中的现有信息，也不能删除文件</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>不更新文件或目录的最后存取时间。</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>这个属性设置之后，将会自动的将此文件“压缩”，在读取的时候将会自动解压缩，</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>但是在储存的时候，将会先进行压缩后再储存当 dump 程序被执行的时候，设置 d 属性将可使该文件（或目录）不会被 dump 备份</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>不得任意更动文件或目录，文件“不能被删除、改名、设置链接也无法写入或新增数据！”</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>保密性删除文件或目录。当文件设置了 s 属性时，如果这个文件被删除，他将会被完全的移除出这个硬盘空间， 所以如果误删了，完全无法救回来了.</td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td>一般文件是非同步写入磁盘的，如果加上 S 这个属性时， 当你进行任何文件的修改，该更动会“同步”写入磁盘中。</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>与 s 相反的，当使用 u 来设置文件时，如果该文件被删除了，则数据内容其实还存在磁盘中，可以使用来救援该文件</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="设置隐藏属性（chattr）"><a href="#设置隐藏属性（chattr）" class="headerlink" title="设置隐藏属性（chattr）"></a>设置隐藏属性（chattr）</h3><ul>
+<li><p>+ ：增加某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>- ：移除某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>= ：设置一定，且仅有后面接的参数 </p>
+</li>
+</ul>
+<h3 id="查看隐藏属性（lsattr）"><a href="#查看隐藏属性（lsattr）" class="headerlink" title="查看隐藏属性（lsattr）"></a>查看隐藏属性（lsattr）</h3><h2 id="文件特殊权限：-SUID、SGID、SBIT"><a href="#文件特殊权限：-SUID、SGID、SBIT" class="headerlink" title="文件特殊权限： SUID、SGID、SBIT"></a>文件特殊权限： SUID、SGID、SBIT</h2><h3 id="SUID（Set-UID-）"><a href="#SUID（Set-UID-）" class="headerlink" title="SUID（Set UID ）"></a>SUID（Set UID ）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID</p>
+</blockquote>
+<p>我们先来看看这个</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> l /usr/bin/passwd</span></span><br><span class="line">--rwsr-xr-x 1 root root 67K 5月  28  2020 /usr/bin/passwd</span><br><span class="line"><span class="meta">$</span><span class="bash"> l /etc/shadow</span></span><br><span class="line">-rw-r----- 1 root shadow 972 2月  13 14:24 /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>/etc/shadow：用于存储 Linux 系统中用户的密码信息</p>
+<p>可以看到/etc/shadow文件仅有root可读且仅有root可以强制写入而已，但是我们可不可以更改自己账号的密码呢，明显是可以的，这就是SUID的作用</p>
+<ul>
+<li><p>SUID 权限仅对<code>二进制程序</code>有效</p>
+</li>
+<li><p>执行者对于该程序需要<code>具有 x 的可执行权限</code></p>
+</li>
+<li><p>本权限仅在<code>执行该程序的过程中有效 </code></p>
+</li>
+<li><p><code>执行者将具有该程序拥有者 （owner） 的权限</code>（上面拥有root的权限）</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SGID（Set-GID）"><a href="#SGID（Set-GID）" class="headerlink" title="SGID（Set GID）"></a>SGID（Set GID）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则称为 Set GID</p>
+<ul>
+<li><p>SGID 对<code>二进制程序</code>有用</p>
+</li>
+<li><p>程序执行者对于该程序来说，需<code>具备 x 的权限</code></p>
+</li>
+<li><p>执行者在<code>执行的过程中将会获得该程序群组的支持</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SBIT（Sticky-Bit-）"><a href="#SBIT（Sticky-Bit-）" class="headerlink" title="SBIT（Sticky Bit ）"></a>SBIT（Sticky Bit ）</h3><blockquote>
+<p>针对目录有效</p>
+<p>SBIT 对于目录的作用 是：</p>
+<ul>
+<li>当<code>使用者对于此目录具有 w, x 权限</code>，亦即具有写入的权限时，<code>使用者在该目录下创建文件或目录时，仅有自己与 root 才有权力删除该文件</code></li>
+</ul>
+</blockquote>
+<h3 id="SUID-SGID-SBIT-权限设置"><a href="#SUID-SGID-SBIT-权限设置" class="headerlink" title="SUID/SGID/SBIT 权限设置"></a>SUID/SGID/SBIT 权限设置</h3><h4 id="通过-、-、-变更权限-1"><a href="#通过-、-、-变更权限-1" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h4><ul>
+<li>和上面的修改rwx权限一样，SUID 为 u+s ，而 SGID 为 g+s ， SBIT 则是 o+t</li>
+</ul>
+<h4 id="使用数字更改"><a href="#使用数字更改" class="headerlink" title="使用数字更改"></a>使用数字更改</h4><ul>
+<li><p>4 为 SUID </p>
+</li>
+<li><p>2 为 SGID </p>
+</li>
+<li><p>1 为 SBIT </p>
+</li>
+</ul>
+<p>假设要将一个文件权限改为“-rwsr-xr-x”时，由于 s 在使用者权限中，所以是 SUID ，因此， 在原先的 755 之前还要加上 4 ，也就是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 4755 filename </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>一、让使用者能进入某目录成为“可工作目录”的基本权限，例如 cd 等变换工作目录的指令： </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 的权限 </p>
+</li>
+<li><p>额外需求：如果使用者想要在这个目录内利用 ls 查阅文件名，则使用者对此目录还需要 r 的权限。 </p>
+</li>
+</ul>
+<p>二、使用者在某个目录内读取一个文件的基本权限，例如 cat, more, less等等 </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对文件至少需要具有 r 的权限才行！ </p>
+</li>
+</ul>
+<p>三、让使用者可以修改一个文件的基本权限，例如 nano 或 vi 编辑器等； </p>
+<ul>
+<li><p>目录所需权限：使用者在该文件所在的目录至少要有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对该文件至少要有 r, w 权限 </p>
+</li>
+</ul>
+<p>四、让一个使用者可以创建一个文件的基本权限为何？ </p>
+<ul>
+<li>目录所需权限：使用者在该目录要具有 w,x 的权限，重点在 w 啦！ </li>
+</ul>
+<p>五、让使用者进入某目录并执行该目录下的某个指令之基本权限为何？ </p>
+<ul>
+<li><p>目录所需权限：使用者在该目录至少要有 x 的权限； </p>
+</li>
+<li><p>文件所需权限：使用者在该文件至少需要有 x 的权限</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/22/viw%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="viw的使用">
+                <i class="fa fa-chevron-left"></i> viw的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/02/22/python-%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/" rel="prev" title="python-小说爬虫.md">
+                python-小说爬虫.md <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">权限说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rwx%E6%9D%83%E9%99%90"><span class="nav-number">1.1.</span> <span class="nav-text">rwx权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%88%B0%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">作用到文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%88%B0%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">作用到目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">修改权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-%E3%80%81-%E3%80%81-%E5%8F%98%E6%9B%B4%E6%9D%83%E9%99%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">通过+、-、&#x3D; 变更权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E5%AD%97%E5%8F%98%E6%9B%B4%E6%9D%83%E9%99%90"><span class="nav-number">1.2.2.</span> <span class="nav-text">通过数字变更权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">隐藏属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7%EF%BC%88chattr%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置隐藏属性（chattr）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7%EF%BC%88lsattr%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">查看隐藏属性（lsattr）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90%EF%BC%9A-SUID%E3%80%81SGID%E3%80%81SBIT"><span class="nav-number">1.4.</span> <span class="nav-text">文件特殊权限： SUID、SGID、SBIT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SUID%EF%BC%88Set-UID-%EF%BC%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">SUID（Set UID ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SGID%EF%BC%88Set-GID%EF%BC%89"><span class="nav-number">1.4.2.</span> <span class="nav-text">SGID（Set GID）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SBIT%EF%BC%88Sticky-Bit-%EF%BC%89"><span class="nav-number">1.4.3.</span> <span class="nav-text">SBIT（Sticky Bit ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SUID-SGID-SBIT-%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.4.4.</span> <span class="nav-text">SUID&#x2F;SGID&#x2F;SBIT 权限设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-%E3%80%81-%E3%80%81-%E5%8F%98%E6%9B%B4%E6%9D%83%E9%99%90-1"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">通过+、-、&#x3D; 变更权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%97%E6%9B%B4%E6%94%B9"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">使用数字更改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.5.</span> <span class="nav-text">说明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lss</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
