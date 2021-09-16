@@ -134,6 +134,100 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux alias: 设置指令的别名</title>
+    <url>/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/</url>
+    <content><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><blockquote>
+<p>Linux alias命令用于设置指令的别名。</p>
+<p>有时候在Linux下执行一条命令过长，挺麻烦的，我们可以使用alias对命令设置简短的别名，相当于缩短命令，方便操作。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="查看当前设置的别名"><a href="#查看当前设置的别名" class="headerlink" title="查看当前设置的别名"></a>查看当前设置的别名</h2><ul>
+<li>查看当前全部别名：<code>alias</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784700.png" alt="image-20210226141603937"></p>
+<ul>
+<li>查看指定别名：<code>alias ll</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784702.png" alt="image-20210226142334508"></p>
+<h2 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h2><ul>
+<li>当前终端有效，在终端输入命令：<code>alias 别名=命令</code><ul>
+<li>示例：<code>alias l=&#39;ls -lah&#39;</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784704.png" alt="image-20210226142022283"></p>
+<ul>
+<li>当前用户有效：修改对应的rc（zsh：<del>/.zshrc，bash：</del>/.bashrc）文件，比如我的添加python别名：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">alias python=/home/lss/miniconda3/bin/python</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-cut:提取文件片段</title>
+    <url>/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/</url>
+    <content><![CDATA[<h1 id="Linux-cut"><a href="#Linux-cut" class="headerlink" title="Linux cut"></a>Linux cut</h1><blockquote>
+<p>对文件的行进行分析，并按照指定规则截取文件</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul>
+<li><p>命令：<code>cut [选项 ]文件名</code></p>
+</li>
+<li><p>常用选项</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-c</code></td>
+<td>以字符为单位进行截取</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>自定义分隔符，默认为制表符(\t)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>与<code>-d</code>一起使用指定截取那个区域</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>对于当前文件夹下的passwd文件，文件内容如下</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784718.png" alt="image-20210227130521435"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第一个</span></span><br><span class="line">cut -d: -f1 passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784720.png" alt="image-20210227131016476"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第1、6、7个</span></span><br><span class="line">cut -d: -f1,6,7 passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784729.png" alt="image-20210227131141681"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取第四个字符</span></span><br><span class="line">cut -c4 passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784737.png" alt="image-20210227131408170"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取1-4的字符</span></span><br><span class="line">cut -c1-4 passwd</span><br><span class="line"><span class="meta">#</span><span class="bash"> 从第五个字符开始截取全部字符</span></span><br><span class="line">cut -c5- passwd</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux grep：文本搜索</title>
     <url>/2021/02/26/Linux-grep-%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2/</url>
     <content><![CDATA[<h1 id="Linux-grep"><a href="#Linux-grep" class="headerlink" title="Linux grep"></a>Linux grep</h1><blockquote>
@@ -246,174 +340,13 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">grep python ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">alias</span> python=/home/lss/miniconda3/bin/python</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示行号</span></span><br><span class="line">grep -n python ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 115:<span class="built_in">alias</span> python=/home/lss/miniconda3/bin/python</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226141030720.png" alt="image-20210226141030720"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784749.png" alt="image-20210226141030720"></p>
 ]]></content>
       <categories>
         <category>linux</category>
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux-cut:提取文件片段</title>
-    <url>/2021/02/27/Linux-cut-%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%89%87%E6%AE%B5/</url>
-    <content><![CDATA[<h1 id="Linux-cut"><a href="#Linux-cut" class="headerlink" title="Linux cut"></a>Linux cut</h1><blockquote>
-<p>对文件的行进行分析，并按照指定规则截取文件</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul>
-<li><p>命令：<code>cut [选项 ]文件名</code></p>
-</li>
-<li><p>常用选项</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-c</code></td>
-<td>以字符为单位进行截取</td>
-</tr>
-<tr>
-<td><code>-d</code></td>
-<td>自定义分隔符，默认为制表符(\t)</td>
-</tr>
-<tr>
-<td><code>-f</code></td>
-<td>与<code>-d</code>一起使用指定截取那个区域</td>
-</tr>
-</tbody></table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
-<li>对于当前文件夹下的passwd文件，文件内容如下</li>
-</ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227130720.png" alt="image-20210227130521435"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第一个</span></span><br><span class="line">cut -d: -f1 passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131016.png" alt="image-20210227131016476"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以冒号为分隔，获取第1、6、7个</span></span><br><span class="line">cut -d: -f1,6,7 passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131141.png" alt="image-20210227131141681"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取第四个字符</span></span><br><span class="line">cut -c4 passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227131408.png" alt="image-20210227131408170"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以字符为分隔获取1-4的字符</span></span><br><span class="line">cut -c1-4 passwd</span><br><span class="line"><span class="meta">#</span><span class="bash"> 从第五个字符开始截取全部字符</span></span><br><span class="line">cut -c5- passwd</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux alias: 设置指令的别名</title>
-    <url>/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/</url>
-    <content><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><blockquote>
-<p>Linux alias命令用于设置指令的别名。</p>
-<p>有时候在Linux下执行一条命令过长，挺麻烦的，我们可以使用alias对命令设置简短的别名，相当于缩短命令，方便操作。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="查看当前设置的别名"><a href="#查看当前设置的别名" class="headerlink" title="查看当前设置的别名"></a>查看当前设置的别名</h2><ul>
-<li>查看当前全部别名：<code>alias</code></li>
-</ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226141603937.png" alt="image-20210226141603937"></p>
-<ul>
-<li>查看指定别名：<code>alias ll</code></li>
-</ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226142334508.png" alt="image-20210226142334508"></p>
-<h2 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h2><ul>
-<li>当前终端有效，在终端输入命令：<code>alias 别名=命令</code><ul>
-<li>示例：<code>alias l=&#39;ls -lah&#39;</code></li>
-</ul>
-</li>
-</ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226142022283.png" alt="image-20210226142022283"></p>
-<ul>
-<li>当前用户有效：修改对应的rc（zsh：<del>/.zshrc，bash：</del>/.bashrc）文件，比如我的添加python别名：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">alias python=/home/lss/miniconda3/bin/python</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux-sort：排序</title>
-    <url>/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="Linux-sort"><a href="#Linux-sort" class="headerlink" title="Linux sort"></a>Linux sort</h1><blockquote>
-<p>用于排序；它将文件的每一行作为一个单位，从首字符开始，按ASCll 码值进行比较，然后按升序输出</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><ul>
-<li>语法：<code>sort [选项 ]文件</code></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-u</code></td>
-<td>去掉重复行</td>
-</tr>
-<tr>
-<td><code>-r</code></td>
-<td>降序排序，默认为升序</td>
-</tr>
-<tr>
-<td><code>-o</code></td>
-<td>将排序结果输出到文件中，类似重定向符号&gt;</td>
-</tr>
-<tr>
-<td><code>-n</code></td>
-<td>以数字排序，默认按字符排序</td>
-</tr>
-<tr>
-<td><code>-t</code></td>
-<td>分隔符，和<code>-k</code>一起使用（和cut -d -f类似）</td>
-</tr>
-<tr>
-<td><code>-k</code></td>
-<td>第n个，后面数字代表第几个（-k4）</td>
-</tr>
-<tr>
-<td><code>-b</code></td>
-<td>忽略前面空格</td>
-</tr>
-<tr>
-<td><code>-R</code></td>
-<td>随机排列</td>
-</tr>
-</tbody></table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
-<li>passwd文件</li>
-</ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227130720.png" alt="image-20210227130521435"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以:为分隔符，按第四个降序排序</span></span><br><span class="line">sort -t: -k4 -r passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227135507.png" alt="image-20210227135507755"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -562,6 +495,122 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux-sort：排序</title>
+    <url>/2021/02/27/Linux-sort%EF%BC%9A%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="Linux-sort"><a href="#Linux-sort" class="headerlink" title="Linux sort"></a>Linux sort</h1><blockquote>
+<p>用于排序；它将文件的每一行作为一个单位，从首字符开始，按ASCll 码值进行比较，然后按升序输出</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><ul>
+<li>语法：<code>sort [选项 ]文件</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-u</code></td>
+<td>去掉重复行</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>降序排序，默认为升序</td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>将排序结果输出到文件中，类似重定向符号&gt;</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>以数字排序，默认按字符排序</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td>分隔符，和<code>-k</code>一起使用（和cut -d -f类似）</td>
+</tr>
+<tr>
+<td><code>-k</code></td>
+<td>第n个，后面数字代表第几个（-k4）</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td>忽略前面空格</td>
+</tr>
+<tr>
+<td><code>-R</code></td>
+<td>随机排列</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>passwd文件</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784786.png" alt="image-20210227130521435"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以:为分隔符，按第四个降序排序</span></span><br><span class="line">sort -t: -k4 -r passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784788.png" alt="image-20210227135507755"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-tee</title>
+    <url>/2021/02/27/Linux-tee/</url>
+    <content><![CDATA[<h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote>
+<p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p>
+<p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
+<li>命令：tee [选项] 文件</li>
+<li>选项</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code></td>
+<td>追加，默认覆盖保存</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（追加保存）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784803.png" alt="image-20210227143112062"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux-uniq：处理重复行</title>
     <url>/2021/02/27/Linux-uniq%EF%BC%9A%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C/</url>
     <content><![CDATA[<h1 id="Linux-uniq"><a href="#Linux-uniq" class="headerlink" title="Linux uniq"></a>Linux uniq</h1><blockquote>
@@ -607,288 +656,6 @@
     <title>Linux-zsh使用</title>
     <url>/2021/09/15/Linux-zsh%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<span id="more"></span>]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux-环境变量.md</title>
-    <url>/2021/02/24/Linux-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h1 id="linux环境变量"><a href="#linux环境变量" class="headerlink" title="linux环境变量"></a>linux环境变量</h1><ul>
-<li>export ：显示所有的环境变量</li>
-<li>echo $PATH：命令输出当前的PATH环境变量的值</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
-<li><p>临时变量，当前终端有效，窗口关闭后无效</p>
-<ul>
-<li>在终端输入</li>
-</ul>
-<blockquote>
-<p>export PATH=软件位置/bin:$PATH或export PATH=$PATH:软件位置bin</p>
-</blockquote>
-</li>
-<li><p>当前用户有效（终端bash）</p>
-<ul>
-<li>vim ~/.bashrc</li>
-</ul>
-<blockquote>
-<p>通过修改用户目录下的~/.bashrc文件进行配置：在最后一行加上export PATH=$PATH:软件位置/bin</p>
-</blockquote>
-<ul>
-<li>source ~/.bashrc</li>
-</ul>
-<p>注意：source ~/.bashrc后才生效，对当前用户永久有效</p>
-</li>
-<li><p>对所有用户有效（终端bash）</p>
-<ul>
-<li>vim /etc/bashrc</li>
-</ul>
-<blockquote>
-<p>方法是修改系统配置，需要管理员权限（如root）或者对该文件的写入权限, 在最后添加：</p>
-<p>export PATH=$PATH:软件位置/bin</p>
-</blockquote>
-<ul>
-<li>source /etc/bashrc</li>
-</ul>
-</li>
-</ol>
-<h2 id="配置anaconda"><a href="#配置anaconda" class="headerlink" title="配置anaconda"></a>配置anaconda</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"># 在最后添加export PATH=$PATH:你的anaconda位置/bin</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加多个"><a href="#添加多个" class="headerlink" title="添加多个"></a>添加多个</h2><p>添加anaconda和java环境变量</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在最后添加</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>生效</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>注意: $PATH  代表前面添加的PATH，没有$PATH前面的会失效，在这里最后没有$PATH则anaconda不起作用</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux-权限</title>
-    <url>/2021/02/22/Linux-%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
-<li><p>r：代表可读，查看</p>
-</li>
-<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
-</li>
-<li><p>x：可执行</p>
-<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
-<li><p>r：可以读取，ls查看目录内容</p>
-</li>
-<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
-</li>
-<li><p>x：可执行，可以cd进入改目录</p>
-</li>
-</ul>
-<p>例子：</p>
-<ul>
-<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
-<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><ul>
-<li><p>基本说明：</p>
-<blockquote>
-<p>通过chmod指令，可以修改文件或目录的权限</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="通过-、-、-变更权限"><a href="#通过-、-、-变更权限" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h3><p><code>说明</code>u：使用者，g：所有组，o：其他用户，a：所有用户</p>
-<ul>
-<li><p>命令一：</p>
-<blockquote>
-<p>chmod u=rwx,g=rx,o=x 文件或目录名</p>
-<ul>
-<li>设定文件或目录的使用者权限为rwx，组的权限为r-x，其他人权限为–x</li>
-</ul>
-</blockquote>
-</li>
-<li><p>命令二：</p>
-<blockquote>
-<p>chmod o+w 文件或目录名</p>
-<ul>
-<li>添加权限，给其他添加权限w（写）</li>
-</ul>
-</blockquote>
-</li>
-<li><p>命令三：</p>
-<blockquote>
-<p>chmod a-x 文件或目录名</p>
-<ul>
-<li>除去权限，所有用户除去权限x（执行）</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h3 id="通过数字变更权限"><a href="#通过数字变更权限" class="headerlink" title="通过数字变更权限"></a>通过数字变更权限</h3><p><code>说明</code>r：4、w：2、x：1，则rwx = 4+2+1=7</p>
-<blockquote>
-<p>命令：chmod 555</p>
-<ul>
-<li>赋予r-xr-xr-x的权限</li>
-</ul>
-</blockquote>
-<ul>
-<li>chmod u=rwx,g=rx,o=x相当于chmod 751</li>
-</ul>
-<h2 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h2><blockquote>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>a</code></td>
-<td>让文件或目录仅供附加用途。可以附加内容到文件中，但是不能编辑文件中的现有信息，也不能删除文件</td>
-</tr>
-<tr>
-<td><code>b</code></td>
-<td>不更新文件或目录的最后存取时间。</td>
-</tr>
-<tr>
-<td><code>c</code></td>
-<td>这个属性设置之后，将会自动的将此文件“压缩”，在读取的时候将会自动解压缩，</td>
-</tr>
-<tr>
-<td><code>d</code></td>
-<td>但是在储存的时候，将会先进行压缩后再储存当 dump 程序被执行的时候，设置 d 属性将可使该文件（或目录）不会被 dump 备份</td>
-</tr>
-<tr>
-<td><code>i</code></td>
-<td>不得任意更动文件或目录，文件“不能被删除、改名、设置链接也无法写入或新增数据！”</td>
-</tr>
-<tr>
-<td><code>s</code></td>
-<td>保密性删除文件或目录。当文件设置了 s 属性时，如果这个文件被删除，他将会被完全的移除出这个硬盘空间， 所以如果误删了，完全无法救回来了.</td>
-</tr>
-<tr>
-<td><code>S</code></td>
-<td>一般文件是非同步写入磁盘的，如果加上 S 这个属性时， 当你进行任何文件的修改，该更动会“同步”写入磁盘中。</td>
-</tr>
-<tr>
-<td><code>u</code></td>
-<td>与 s 相反的，当使用 u 来设置文件时，如果该文件被删除了，则数据内容其实还存在磁盘中，可以使用来救援该文件</td>
-</tr>
-</tbody></table>
-</blockquote>
-<h3 id="设置隐藏属性（chattr）"><a href="#设置隐藏属性（chattr）" class="headerlink" title="设置隐藏属性（chattr）"></a>设置隐藏属性（chattr）</h3><ul>
-<li><p>+ ：增加某一个特殊参数，其他原本存在参数则不动。 </p>
-</li>
-<li><p>- ：移除某一个特殊参数，其他原本存在参数则不动。 </p>
-</li>
-<li><p>= ：设置一定，且仅有后面接的参数 </p>
-</li>
-</ul>
-<h3 id="查看隐藏属性（lsattr）"><a href="#查看隐藏属性（lsattr）" class="headerlink" title="查看隐藏属性（lsattr）"></a>查看隐藏属性（lsattr）</h3><h2 id="文件特殊权限：-SUID、SGID、SBIT"><a href="#文件特殊权限：-SUID、SGID、SBIT" class="headerlink" title="文件特殊权限： SUID、SGID、SBIT"></a>文件特殊权限： SUID、SGID、SBIT</h2><h3 id="SUID（Set-UID-）"><a href="#SUID（Set-UID-）" class="headerlink" title="SUID（Set UID ）"></a>SUID（Set UID ）</h3><blockquote>
-<p>当 s 标志在文件拥有者的 x 项目为 SUID</p>
-</blockquote>
-<p>我们先来看看这个</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> l /usr/bin/passwd</span></span><br><span class="line">--rwsr-xr-x 1 root root 67K 5月  28  2020 /usr/bin/passwd</span><br><span class="line"><span class="meta">$</span><span class="bash"> l /etc/shadow</span></span><br><span class="line">-rw-r----- 1 root shadow 972 2月  13 14:24 /etc/shadow</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>/etc/shadow：用于存储 Linux 系统中用户的密码信息</p>
-<p>可以看到/etc/shadow文件仅有root可读且仅有root可以强制写入而已，但是我们可不可以更改自己账号的密码呢，明显是可以的，这就是SUID的作用</p>
-<ul>
-<li><p>SUID 权限仅对<code>二进制程序</code>有效</p>
-</li>
-<li><p>执行者对于该程序需要<code>具有 x 的可执行权限</code></p>
-</li>
-<li><p>本权限仅在<code>执行该程序的过程中有效 </code></p>
-</li>
-<li><p><code>执行者将具有该程序拥有者 （owner） 的权限</code>（上面拥有root的权限）</p>
-</li>
-</ul>
-</blockquote>
-<h3 id="SGID（Set-GID）"><a href="#SGID（Set-GID）" class="headerlink" title="SGID（Set GID）"></a>SGID（Set GID）</h3><blockquote>
-<p>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则称为 Set GID</p>
-<ul>
-<li><p>SGID 对<code>二进制程序</code>有用</p>
-</li>
-<li><p>程序执行者对于该程序来说，需<code>具备 x 的权限</code></p>
-</li>
-<li><p>执行者在<code>执行的过程中将会获得该程序群组的支持</code></p>
-</li>
-</ul>
-</blockquote>
-<h3 id="SBIT（Sticky-Bit-）"><a href="#SBIT（Sticky-Bit-）" class="headerlink" title="SBIT（Sticky Bit ）"></a>SBIT（Sticky Bit ）</h3><blockquote>
-<p>针对目录有效</p>
-<p>SBIT 对于目录的作用 是：</p>
-<ul>
-<li>当<code>使用者对于此目录具有 w, x 权限</code>，亦即具有写入的权限时，<code>使用者在该目录下创建文件或目录时，仅有自己与 root 才有权力删除该文件</code></li>
-</ul>
-</blockquote>
-<h3 id="SUID-SGID-SBIT-权限设置"><a href="#SUID-SGID-SBIT-权限设置" class="headerlink" title="SUID/SGID/SBIT 权限设置"></a>SUID/SGID/SBIT 权限设置</h3><h4 id="通过-、-、-变更权限-1"><a href="#通过-、-、-变更权限-1" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h4><ul>
-<li>和上面的修改rwx权限一样，SUID 为 u+s ，而 SGID 为 g+s ， SBIT 则是 o+t</li>
-</ul>
-<h4 id="使用数字更改"><a href="#使用数字更改" class="headerlink" title="使用数字更改"></a>使用数字更改</h4><ul>
-<li><p>4 为 SUID </p>
-</li>
-<li><p>2 为 SGID </p>
-</li>
-<li><p>1 为 SBIT </p>
-</li>
-</ul>
-<p>假设要将一个文件权限改为“-rwsr-xr-x”时，由于 s 在使用者权限中，所以是 SUID ，因此， 在原先的 755 之前还要加上 4 ，也就是：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 4755 filename </span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>一、让使用者能进入某目录成为“可工作目录”的基本权限，例如 cd 等变换工作目录的指令： </p>
-<ul>
-<li><p>目录所需权限：使用者对这个目录至少需要具有 x 的权限 </p>
-</li>
-<li><p>额外需求：如果使用者想要在这个目录内利用 ls 查阅文件名，则使用者对此目录还需要 r 的权限。 </p>
-</li>
-</ul>
-<p>二、使用者在某个目录内读取一个文件的基本权限，例如 cat, more, less等等 </p>
-<ul>
-<li><p>目录所需权限：使用者对这个目录至少需要具有 x 权限； </p>
-</li>
-<li><p>文件所需权限：使用者对文件至少需要具有 r 的权限才行！ </p>
-</li>
-</ul>
-<p>三、让使用者可以修改一个文件的基本权限，例如 nano 或 vi 编辑器等； </p>
-<ul>
-<li><p>目录所需权限：使用者在该文件所在的目录至少要有 x 权限； </p>
-</li>
-<li><p>文件所需权限：使用者对该文件至少要有 r, w 权限 </p>
-</li>
-</ul>
-<p>四、让一个使用者可以创建一个文件的基本权限为何？ </p>
-<ul>
-<li>目录所需权限：使用者在该目录要具有 w,x 的权限，重点在 w 啦！ </li>
-</ul>
-<p>五、让使用者进入某目录并执行该目录下的某个指令之基本权限为何？ </p>
-<ul>
-<li><p>目录所需权限：使用者在该目录至少要有 x 的权限； </p>
-</li>
-<li><p>文件所需权限：使用者在该文件至少需要有 x 的权限</p>
-</li>
-</ul>
-]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -1154,46 +921,279 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux-tee</title>
-    <url>/2021/02/27/Linux-tee/</url>
-    <content><![CDATA[<h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote>
-<p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p>
-<p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p>
-</blockquote>
+    <title>Linux-权限</title>
+    <url>/2021/02/22/Linux-%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
+<li><p>r：代表可读，查看</p>
+</li>
+<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
+</li>
+<li><p>x：可执行</p>
+<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
+<li><p>r：可以读取，ls查看目录内容</p>
+</li>
+<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
+</li>
+<li><p>x：可执行，可以cd进入改目录</p>
+</li>
+</ul>
+<p>例子：</p>
+<ul>
+<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
+<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
-<li>命令：tee [选项] 文件</li>
-<li>选项</li>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><ul>
+<li><p>基本说明：</p>
+<blockquote>
+<p>通过chmod指令，可以修改文件或目录的权限</p>
+</blockquote>
+</li>
 </ul>
+<h3 id="通过-、-、-变更权限"><a href="#通过-、-、-变更权限" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h3><p><code>说明</code>u：使用者，g：所有组，o：其他用户，a：所有用户</p>
+<ul>
+<li><p>命令一：</p>
+<blockquote>
+<p>chmod u=rwx,g=rx,o=x 文件或目录名</p>
+<ul>
+<li>设定文件或目录的使用者权限为rwx，组的权限为r-x，其他人权限为–x</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令二：</p>
+<blockquote>
+<p>chmod o+w 文件或目录名</p>
+<ul>
+<li>添加权限，给其他添加权限w（写）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令三：</p>
+<blockquote>
+<p>chmod a-x 文件或目录名</p>
+<ul>
+<li>除去权限，所有用户除去权限x（执行）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过数字变更权限"><a href="#通过数字变更权限" class="headerlink" title="通过数字变更权限"></a>通过数字变更权限</h3><p><code>说明</code>r：4、w：2、x：1，则rwx = 4+2+1=7</p>
+<blockquote>
+<p>命令：chmod 555</p>
+<ul>
+<li>赋予r-xr-xr-x的权限</li>
+</ul>
+</blockquote>
+<ul>
+<li>chmod u=rwx,g=rx,o=x相当于chmod 751</li>
+</ul>
+<h2 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h2><blockquote>
 <table>
 <thead>
 <tr>
-<th>选项</th>
+<th>属性</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>-a</code></td>
-<td>追加，默认覆盖保存</td>
+<td><code>a</code></td>
+<td>让文件或目录仅供附加用途。可以附加内容到文件中，但是不能编辑文件中的现有信息，也不能删除文件</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>不更新文件或目录的最后存取时间。</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>这个属性设置之后，将会自动的将此文件“压缩”，在读取的时候将会自动解压缩，</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>但是在储存的时候，将会先进行压缩后再储存当 dump 程序被执行的时候，设置 d 属性将可使该文件（或目录）不会被 dump 备份</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>不得任意更动文件或目录，文件“不能被删除、改名、设置链接也无法写入或新增数据！”</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>保密性删除文件或目录。当文件设置了 s 属性时，如果这个文件被删除，他将会被完全的移除出这个硬盘空间， 所以如果误删了，完全无法救回来了.</td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td>一般文件是非同步写入磁盘的，如果加上 S 这个属性时， 当你进行任何文件的修改，该更动会“同步”写入磁盘中。</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>与 s 相反的，当使用 u 来设置文件时，如果该文件被删除了，则数据内容其实还存在磁盘中，可以使用来救援该文件</td>
 </tr>
 </tbody></table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
-<li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li>
+</blockquote>
+<h3 id="设置隐藏属性（chattr）"><a href="#设置隐藏属性（chattr）" class="headerlink" title="设置隐藏属性（chattr）"></a>设置隐藏属性（chattr）</h3><ul>
+<li><p>+ ：增加某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>- ：移除某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>= ：设置一定，且仅有后面接的参数 </p>
+</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></table></figure>
+<h3 id="查看隐藏属性（lsattr）"><a href="#查看隐藏属性（lsattr）" class="headerlink" title="查看隐藏属性（lsattr）"></a>查看隐藏属性（lsattr）</h3><h2 id="文件特殊权限：-SUID、SGID、SBIT"><a href="#文件特殊权限：-SUID、SGID、SBIT" class="headerlink" title="文件特殊权限： SUID、SGID、SBIT"></a>文件特殊权限： SUID、SGID、SBIT</h2><h3 id="SUID（Set-UID-）"><a href="#SUID（Set-UID-）" class="headerlink" title="SUID（Set UID ）"></a>SUID（Set UID ）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID</p>
+</blockquote>
+<p>我们先来看看这个</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> l /usr/bin/passwd</span></span><br><span class="line">--rwsr-xr-x 1 root root 67K 5月  28  2020 /usr/bin/passwd</span><br><span class="line"><span class="meta">$</span><span class="bash"> l /etc/shadow</span></span><br><span class="line">-rw-r----- 1 root shadow 972 2月  13 14:24 /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>/etc/shadow：用于存储 Linux 系统中用户的密码信息</p>
+<p>可以看到/etc/shadow文件仅有root可读且仅有root可以强制写入而已，但是我们可不可以更改自己账号的密码呢，明显是可以的，这就是SUID的作用</p>
+<ul>
+<li><p>SUID 权限仅对<code>二进制程序</code>有效</p>
+</li>
+<li><p>执行者对于该程序需要<code>具有 x 的可执行权限</code></p>
+</li>
+<li><p>本权限仅在<code>执行该程序的过程中有效 </code></p>
+</li>
+<li><p><code>执行者将具有该程序拥有者 （owner） 的权限</code>（上面拥有root的权限）</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SGID（Set-GID）"><a href="#SGID（Set-GID）" class="headerlink" title="SGID（Set GID）"></a>SGID（Set GID）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则称为 Set GID</p>
+<ul>
+<li><p>SGID 对<code>二进制程序</code>有用</p>
+</li>
+<li><p>程序执行者对于该程序来说，需<code>具备 x 的权限</code></p>
+</li>
+<li><p>执行者在<code>执行的过程中将会获得该程序群组的支持</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SBIT（Sticky-Bit-）"><a href="#SBIT（Sticky-Bit-）" class="headerlink" title="SBIT（Sticky Bit ）"></a>SBIT（Sticky Bit ）</h3><blockquote>
+<p>针对目录有效</p>
+<p>SBIT 对于目录的作用 是：</p>
+<ul>
+<li>当<code>使用者对于此目录具有 w, x 权限</code>，亦即具有写入的权限时，<code>使用者在该目录下创建文件或目录时，仅有自己与 root 才有权力删除该文件</code></li>
+</ul>
+</blockquote>
+<h3 id="SUID-SGID-SBIT-权限设置"><a href="#SUID-SGID-SBIT-权限设置" class="headerlink" title="SUID/SGID/SBIT 权限设置"></a>SUID/SGID/SBIT 权限设置</h3><h4 id="通过-、-、-变更权限-1"><a href="#通过-、-、-变更权限-1" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h4><ul>
+<li>和上面的修改rwx权限一样，SUID 为 u+s ，而 SGID 为 g+s ， SBIT 则是 o+t</li>
+</ul>
+<h4 id="使用数字更改"><a href="#使用数字更改" class="headerlink" title="使用数字更改"></a>使用数字更改</h4><ul>
+<li><p>4 为 SUID </p>
+</li>
+<li><p>2 为 SGID </p>
+</li>
+<li><p>1 为 SBIT </p>
+</li>
+</ul>
+<p>假设要将一个文件权限改为“-rwsr-xr-x”时，由于 s 在使用者权限中，所以是 SUID ，因此， 在原先的 755 之前还要加上 4 ，也就是：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 4755 filename </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>一、让使用者能进入某目录成为“可工作目录”的基本权限，例如 cd 等变换工作目录的指令： </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 的权限 </p>
+</li>
+<li><p>额外需求：如果使用者想要在这个目录内利用 ls 查阅文件名，则使用者对此目录还需要 r 的权限。 </p>
+</li>
+</ul>
+<p>二、使用者在某个目录内读取一个文件的基本权限，例如 cat, more, less等等 </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对文件至少需要具有 r 的权限才行！ </p>
+</li>
+</ul>
+<p>三、让使用者可以修改一个文件的基本权限，例如 nano 或 vi 编辑器等； </p>
+<ul>
+<li><p>目录所需权限：使用者在该文件所在的目录至少要有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对该文件至少要有 r, w 权限 </p>
+</li>
+</ul>
+<p>四、让一个使用者可以创建一个文件的基本权限为何？ </p>
+<ul>
+<li>目录所需权限：使用者在该目录要具有 w,x 的权限，重点在 w 啦！ </li>
+</ul>
+<p>五、让使用者进入某目录并执行该目录下的某个指令之基本权限为何？ </p>
+<ul>
+<li><p>目录所需权限：使用者在该目录至少要有 x 的权限； </p>
+</li>
+<li><p>文件所需权限：使用者在该文件至少需要有 x 的权限</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-环境变量.md</title>
+    <url>/2021/02/24/Linux-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h1 id="linux环境变量"><a href="#linux环境变量" class="headerlink" title="linux环境变量"></a>linux环境变量</h1><ul>
+<li>export ：显示所有的环境变量</li>
+<li>echo $PATH：命令输出当前的PATH环境变量的值</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
+<li><p>临时变量，当前终端有效，窗口关闭后无效</p>
+<ul>
+<li>在终端输入</li>
+</ul>
+<blockquote>
+<p>export PATH=软件位置/bin:$PATH或export PATH=$PATH:软件位置bin</p>
+</blockquote>
+</li>
+<li><p>当前用户有效（终端bash）</p>
+<ul>
+<li>vim ~/.bashrc</li>
+</ul>
+<blockquote>
+<p>通过修改用户目录下的~/.bashrc文件进行配置：在最后一行加上export PATH=$PATH:软件位置/bin</p>
+</blockquote>
+<ul>
+<li>source ~/.bashrc</li>
+</ul>
+<p>注意：source ~/.bashrc后才生效，对当前用户永久有效</p>
+</li>
+<li><p>对所有用户有效（终端bash）</p>
+<ul>
+<li>vim /etc/bashrc</li>
+</ul>
+<blockquote>
+<p>方法是修改系统配置，需要管理员权限（如root）或者对该文件的写入权限, 在最后添加：</p>
+<p>export PATH=$PATH:软件位置/bin</p>
+</blockquote>
+<ul>
+<li>source /etc/bashrc</li>
+</ul>
+</li>
+</ol>
+<h2 id="配置anaconda"><a href="#配置anaconda" class="headerlink" title="配置anaconda"></a>配置anaconda</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"># 在最后添加export PATH=$PATH:你的anaconda位置/bin</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加多个"><a href="#添加多个" class="headerlink" title="添加多个"></a>添加多个</h2><p>添加anaconda和java环境变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li>
+<li>在最后添加</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>将<strong>echo</strong>输出写入文件t中（追加保存）</li>
+<li>生效</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210227143112.png" alt="image-20210227143112062"></p>
+
+<blockquote>
+<p>注意: $PATH  代表前面添加的PATH，没有$PATH前面的会失效，在这里最后没有$PATH则anaconda不起作用</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>linux</category>
@@ -1218,7 +1218,7 @@
 <li><p>设置gitee图床</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222204029618.png" alt="image-20210222204029618"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784833.png" alt="image-20210222204029618"></p>
 <ul>
 <li>一个地址说明上面的参数：<a href="https://gitee.com/lishushuai/img">https://gitee.com/lishushuai/img</a> <ul>
 <li>owner：lishushuai</li>
@@ -1357,6 +1357,18 @@
       </categories>
   </entry>
   <entry>
+    <title>css-帧动画</title>
+    <url>/2021/04/14/css-%E5%B8%A7%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css-选择器</title>
     <url>/2021/03/27/css-%E9%80%89%E6%8B%A9%E5%99%A8/</url>
     <content><![CDATA[<h1 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h1><span id="more"></span>
@@ -1427,18 +1439,6 @@
       </tags>
   </entry>
   <entry>
-    <title>css-帧动画</title>
-    <url>/2021/04/14/css-%E5%B8%A7%E5%8A%A8%E7%94%BB/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>github不能访问</title>
     <url>/2021/02/22/github%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/</url>
     <content><![CDATA[<h1 id="github不能访问"><a href="#github不能访问" class="headerlink" title="github不能访问"></a>github不能访问</h1><ul>
@@ -1474,6 +1474,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/1970/01/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>http状态码</title>
+    <url>/2021/03/30/http%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+  </entry>
+  <entry>
     <title>hexo和gitee建立自己的博客</title>
     <url>/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="使用hexo和gitee建立博客"><a href="#使用hexo和gitee建立博客" class="headerlink" title="使用hexo和gitee建立博客"></a>使用hexo和gitee建立博客</h1><blockquote>
@@ -1482,7 +1505,7 @@
 <h2 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h2><ol>
 <li>新建一个仓库，仓库名和gitee名字一样（不一样也行，只是后面要配置多一点），其他默认，比如：<a href="https://gitee.com/lishushuai/lishushuai">https://gitee.com/lishushuai/lishushuai</a></li>
 </ol>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222162017066.png" alt="image-20210222162017066"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784598.png" alt="image-20210222162017066"></p>
 <ol start="2">
 <li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下可以部署自己的博客</li>
 </ol>
@@ -1496,7 +1519,7 @@
 <li><p>复制生成后的 ssh key，通过仓库主页 <strong>「管理」-&gt;「部署公钥管理」-&gt;「添加部署公钥」</strong> ，添加生成的 public key 添加到仓库中。</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222163837110.png" alt="image-20210222163837110"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784610.png" alt="image-20210222163837110"></p>
 <ul>
 <li><p>添加后，在终端（Terminal）中输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
@@ -1562,7 +1585,7 @@
 <h2 id="部署自己的博客"><a href="#部署自己的博客" class="headerlink" title="部署自己的博客"></a>部署自己的博客</h2><ul>
 <li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下 –》更新（部署网站）</li>
 </ul>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210222164616327.png" alt="image-20210222164616327"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784624.png" alt="image-20210222164616327"></p>
 <ul>
 <li>访问2的网址</li>
 </ul>
@@ -1570,6 +1593,44 @@
       <tags>
         <tag>hexo</tag>
         <tag>gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-json</title>
+    <url>/2021/04/15/javaScript-json/</url>
+    <content><![CDATA[<h1 id="JavaScript-json"><a href="#JavaScript-json" class="headerlink" title="JavaScript-json"></a>JavaScript-json</h1><span id="more"></span>
+
+<h2 id="JavaScript数据转换为json格式"><a href="#JavaScript数据转换为json格式" class="headerlink" title="JavaScript数据转换为json格式"></a>JavaScript数据转换为json格式</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(value, [replacer], [space])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>value</code>: 要转换的JavaScript值，通常是一个对象或数组.</p>
+</li>
+<li><p><code>replace</code>: 可选，如果该参数是一个函数，则在转化过程中，被转化的值的每个属性都会经过该函数的转换和处理；如果该参数是一个数组，则只有包含在这个数组中的属性名才会被转化到最终的 JSON 字符串中；如果该参数为 null 或者未提供，则对象所有的属性都会被转化。</p>
+</li>
+<li><p><code>sapce</code>: 指定缩进用的空白字符串，用于美化输出；如果参数是个数字，它代表有多少的空格；上限为10。该值若小于1，则意味着没有空格；如果该参数为字符串（当字符串长度超过10个字母，取其前10个字母），该字符串将被作为空格；如果该参数没有提供（或者为 null），将没有空格。</p>
+</li>
+<li><p><code>返回值</code>：一个给定值的JSON字符串。</p>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;lss&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;02&#x27;</span>,</span><br><span class="line">    <span class="attr">score</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;数学&#x27;</span>: <span class="number">90</span>,</span><br><span class="line">        <span class="string">&#x27;化学&#x27;</span>: <span class="number">90</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> json = <span class="built_in">JSON</span>.stringify(user, [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>], <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(json);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>value值为user是对象类型，replace为[‘name’, ‘age’]表示要转化的属性为name和age，space为4表示4个空格。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lss&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="json数据转化为JavaScript数据"><a href="#json数据转化为JavaScript数据" class="headerlink" title="json数据转化为JavaScript数据"></a>json数据转化为JavaScript数据</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(json, [reviver])</span><br></pre></td></tr></table></figure>
+
+<p><code>JSON.parse()</code> 方法用来解析JSON字符串，解析为JavaScript值或对象。</p>
+<ul>
+<li><code>json</code>：需要转化的json字符串</li>
+<li><code>reviver</code>：可选的函数，用以在返回之前对所得到的对象执行操作。当前属性名和属性值会分别作为第一个和第二个参数传入 <code>reviver</code> 中。如果 <code>reviver</code> 返回 <code>undefined</code>，则当前属性会从所属对象中删除，如果返回了其他值，则返回的值会成为当前属性新的属性值。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1618,29 +1679,6 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>http状态码</title>
-    <url>/2021/03/30/http%E7%8A%B6%E6%80%81%E7%A0%81/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/1970/01/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>javaScript-undefined与null类型</title>
@@ -1725,35 +1763,68 @@
       </tags>
   </entry>
   <entry>
-    <title>javaScript-json</title>
-    <url>/2021/04/15/javaScript-json/</url>
-    <content><![CDATA[<h1 id="JavaScript-json"><a href="#JavaScript-json" class="headerlink" title="JavaScript-json"></a>JavaScript-json</h1><span id="more"></span>
+    <title>javaScript-函数</title>
+    <url>/2021/03/18/javaScript-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="JavaScript函数"><a href="#JavaScript函数" class="headerlink" title="JavaScript函数"></a>JavaScript函数</h1><blockquote>
+<p>在JavaScript中函数实际也是一种对象，每个函数都是Function类型的实例，能够定义不同类型的属性和方法</p>
+</blockquote>
+<span id="more"></span>
 
-<h2 id="JavaScript数据转换为json格式"><a href="#JavaScript数据转换为json格式" class="headerlink" title="JavaScript数据转换为json格式"></a>JavaScript数据转换为json格式</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(value, [replacer], [space])</span><br></pre></td></tr></table></figure>
+<h2 id="一、函数的定义"><a href="#一、函数的定义" class="headerlink" title="一、函数的定义"></a>一、函数的定义</h2><blockquote>
+<p>函数的定义大致上可以分为3种，分别是函数的声明、函数表达式和Function构造函数</p>
+</blockquote>
+<h3 id="1、函数声明"><a href="#1、函数声明" class="headerlink" title="1、函数声明"></a>1、函数声明</h3><ul>
+<li>函数的声明是直接使用function关键字接一个函数名，函数名后面是接收函数的形参</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、函数表达式"><a href="#2、函数表达式" class="headerlink" title="2、函数表达式"></a>2、函数表达式</h3><ul>
+<li>函数表达式的形式类似于普通变量的初始化，只不过这个变量初始化的值时函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Function-构造函数"><a href="#3、Function-构造函数" class="headerlink" title="3、Function()构造函数"></a>3、Function()构造函数</h3><ul>
+<li>使用new操作符，调用<code>Function()</code>构造函数，传入对应的参数，也可以定义一个函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;return a + b&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p><code>value</code>: 要转换的JavaScript值，通常是一个对象或数组.</p>
+<li><p>其中除了最后一个参数是执行的函数体，其他参数都是函数的形参</p>
 </li>
-<li><p><code>replace</code>: 可选，如果该参数是一个函数，则在转化过程中，被转化的值的每个属性都会经过该函数的转换和处理；如果该参数是一个数组，则只有包含在这个数组中的属性名才会被转化到最终的 JSON 字符串中；如果该参数为 null 或者未提供，则对象所有的属性都会被转化。</p>
+<li><p><code>Function()</code>构造函数每次执行时，都会解析函数主体，并创建一个新的函数对象</p>
 </li>
-<li><p><code>sapce</code>: 指定缩进用的空白字符串，用于美化输出；如果参数是个数字，它代表有多少的空格；上限为10。该值若小于1，则意味着没有空格；如果该参数为字符串（当字符串长度超过10个字母，取其前10个字母），该字符串将被作为空格；如果该参数没有提供（或者为 null），将没有空格。</p>
-</li>
-<li><p><code>返回值</code>：一个给定值的JSON字符串。</p>
+<li><p><code>Function()</code>函数在A函数中执行时无法访问A函数内的局部变量，只能访问全局变量</p>
 </li>
 </ul>
-<p>例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;lss&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;02&#x27;</span>,</span><br><span class="line">    <span class="attr">score</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;数学&#x27;</span>: <span class="number">90</span>,</span><br><span class="line">        <span class="string">&#x27;化学&#x27;</span>: <span class="number">90</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> json = <span class="built_in">JSON</span>.stringify(user, [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>], <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(json);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>value值为user是对象类型，replace为[‘name’, ‘age’]表示要转化的属性为name和age，space为4表示4个空格。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lss&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="json数据转化为JavaScript数据"><a href="#json数据转化为JavaScript数据" class="headerlink" title="json数据转化为JavaScript数据"></a>json数据转化为JavaScript数据</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(json, [reviver])</span><br></pre></td></tr></table></figure>
-
-<p><code>JSON.parse()</code> 方法用来解析JSON字符串，解析为JavaScript值或对象。</p>
-<ul>
-<li><code>json</code>：需要转化的json字符串</li>
-<li><code>reviver</code>：可选的函数，用以在返回之前对所得到的对象执行操作。当前属性名和属性值会分别作为第一个和第二个参数传入 <code>reviver</code> 中。如果 <code>reviver</code> 返回 <code>undefined</code>，则当前属性会从所属对象中删除，如果返回了其他值，则返回的值会成为当前属性新的属性值。</li>
+<h3 id="函数声明和函数表达式的区别"><a href="#函数声明和函数表达式的区别" class="headerlink" title="函数声明和函数表达式的区别"></a>函数声明和函数表达式的区别</h3><ul>
+<li><p>在使用函数声明时，是必须设置函数名称的，这个函数名称相当于一个变量，以后函数的调用也会通过这个变量进行。</p>
+</li>
+<li><p>而对于一个函数表达式来说，函数名称是可选的，可以定义一个匿名表达式，并赋给一个变量，然后通过变量进行函数的调用。</p>
+</li>
+<li><p>对应函数声明，存在<code>函数提升</code>，函数的调用可以在函数声明之前使用，而函数表达式不存在。</p>
+</li>
 </ul>
+<h2 id="二、函数的调用"><a href="#二、函数的调用" class="headerlink" title="二、函数的调用"></a>二、函数的调用</h2><h3 id="1、函数调用模式"><a href="#1、函数调用模式" class="headerlink" title="1、函数调用模式"></a>1、函数调用模式</h3><p>函数调用模式是通过函数声明或者函数表达式的方式定义函数，然后通过直接函数名调用的模式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a1, a2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a1 + a2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">let</span> sub = <span class="function"><span class="keyword">function</span>(<span class="params">a1, a2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a1 - a2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">sub(<span class="number">11</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、方法调用模式"><a href="#2、方法调用模式" class="headerlink" title="2、方法调用模式"></a>2、方法调用模式</h3><p>方法调用模式会优先定义一个对象obj，然后在对象内部定义值为函数的属性<code>property</code>，通过对象<code>obj.property()</code>来调用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义对象</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="comment">// 定义getName属性，值为一个函数</span></span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getName();   <span class="comment">// 通过点调用</span></span><br><span class="line">obj[<span class="string">&#x27;getName&#x27;</span>]();   <span class="comment">// 通过中括号调用</span></span><br></pre></td></tr></table></figure>
+
+<p>如果函数返回对象本身this，则可以利用链式调用的原理进行连续的函数调用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="comment">// 定义getName属性，值为一个函数</span></span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="attr">setName</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;   <span class="comment">// 在函数内部返回函数对象本身</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.setName(<span class="string">&quot;Node&quot;</span>).getName();   <span class="comment">// 链式函数调用</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、构造器调用模式"><a href="#3、构造器调用模式" class="headerlink" title="3、构造器调用模式"></a>3、构造器调用模式</h3><p>构造器调用模式会定义一个函数，在函数中定义实例属性，在原型上定义函数，然后通过new操作符生成函数实例，在通过实例调用原型上定义的函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型上定义函数</span></span><br><span class="line">Person.property.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过new操作符生成实例</span></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>);</span><br><span class="line"><span class="comment">// 通过实例调用函数</span></span><br><span class="line">person.getName()</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、call-函数、apply-函数调用模式"><a href="#4、call-函数、apply-函数调用模式" class="headerlink" title="4、call()函数、apply()函数调用模式"></a>4、call()函数、apply()函数调用模式</h3><p>通过call()函数或者apply()函数可以改变函数执行的主体，使得某些不具有特定函数的对象可以直接调用该特定函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义一个对象</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line"><span class="comment">// 通过call()或者apply()函数调用sum()函数</span></span><br><span class="line">sum.call(person, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">sum.apply(person, [<span class="number">1</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、匿名函数调用模式"><a href="#5、匿名函数调用模式" class="headerlink" title="5、匿名函数调用模式"></a>5、匿名函数调用模式</h3><p>匿名函数，就是没有函数名称的函数。匿名函数的调用有两种方式，一种是通过函数表达式调用函数，并赋值给变量，通过变量进行调用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 通过sum()函数进行匿名函数调用</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>另一种是使用小括号()将匿名函数括起来，然后在后面使用小括号()，传递对应参数进行调用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>);   <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -1775,6 +1846,277 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript-输出</title>
+    <url>/2021/03/15/javaScript-%E8%BE%93%E5%87%BA/</url>
+    <content><![CDATA[<h1 id="javaScript输出"><a href="#javaScript输出" class="headerlink" title="javaScript输出"></a>javaScript输出</h1><blockquote>
+<ul>
+<li> window.alert() 弹出警告框</li>
+<li>document.write() 写入HTML输出，在页面加载完毕后，会覆盖原来的页面内容</li>
+<li>innerHTML 写入HTML 元素</li>
+<li>console.log() 写入浏览器控制台</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="window-alert"><a href="#window-alert" class="headerlink" title="window.alert"></a>window.alert</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.alert(<span class="string">&quot;alert&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784648.png" alt="image-20210315100455012"></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux-sed：处理数据</title>
+    <url>/2021/03/04/linux-sed%EF%BC%9A%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<h1 id="Linux：sed"><a href="#Linux：sed" class="headerlink" title="Linux：sed"></a>Linux：sed</h1><blockquote>
+<p>依照脚本的指令处理、编辑文本文件，<code>一行一行</code>的更改</p>
+<p>主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]</span><br></pre></td></tr></table></figure>
+
+<p><strong>选项</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-e</code></td>
+<td>以指定的script来处理输入的文本文件。</td>
+</tr>
+<tr>
+<td align="center"><code>-f</code></td>
+<td>以指定的script文件来处理输入的文本文件</td>
+</tr>
+<tr>
+<td align="center"><code>-n</code></td>
+<td>仅显示script处理后的结果。</td>
+</tr>
+<tr>
+<td align="center"><code>-i</code></td>
+<td>直接修改读取的文件内容，而不是由屏幕输出。</td>
+</tr>
+<tr>
+<td align="center"><code>-r</code></td>
+<td>sed 的动作支持的是延伸型正则表达式的语法。（默认是基础正则表达式语法）</td>
+</tr>
+</tbody></table>
+<p><strong>动作说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">动作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>a</code></td>
+<td>新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)</td>
+</tr>
+<tr>
+<td align="center"><code>c</code></td>
+<td>取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</td>
+</tr>
+<tr>
+<td align="center"><code>d</code></td>
+<td>删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</td>
+</tr>
+<tr>
+<td align="center"><code>i</code></td>
+<td>插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</td>
+</tr>
+<tr>
+<td align="center"><code>p</code></td>
+<td>打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行</td>
+</tr>
+<tr>
+<td align="center"><code>s</code></td>
+<td>取代，可以直接进行取代的工作，通常这个 s 的动作可以搭配正规表示法！</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除passwd的4-10行</span></span><br><span class="line">cat -n passwd | sed &#x27;4,10d&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784759.png" alt="image-20210304002056235"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在第四行后面添加啊啊啊</span></span><br><span class="line">cat -n passwd | sed &#x27;4a 啊啊啊&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784762.png" alt="image-20210304002154588"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以2-5取代2-5行</span></span><br><span class="line">cat -n passwd | sed &#x27;2,5c 2-5&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784764.png" alt="image-20210304002626223"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示2-7行</span></span><br><span class="line">nl passwd | sed -n &#x27;2,7p&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784766.png" alt="image-20210304003003921"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改passwd1文件中的root为ROOT,最后的g为全部更改</span></span><br><span class="line">sed -i &#x27;s/root/ROOT/g&#x27; passwd1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784770.png" alt="image-20210304003827596"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-axios爬虫</title>
+    <url>/2021/03/28/node-axios%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<h1 id="node-axios爬虫"><a href="#node-axios爬虫" class="headerlink" title="node-axios爬虫"></a>node-axios爬虫</h1><span id="more"></span>
+
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&quot;axios&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(url: string, config?: AxiosRequestConfig)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>url：请求地址</li>
+<li>config：可选参数，对象类型的。常用参数：<ul>
+<li>responseType：请求类型</li>
+<li>headers：请求头</li>
+</ul>
+</li>
+</ul>
+<p>下载一张图片</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&quot;https://gitee.com/lishushuai/img/raw/master/20210318234209.jpg&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&quot;stream&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    resp.data.pipe(fs.createWriteStream(<span class="string">&quot;./img/1.jpg&quot;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-文件和文件夹</title>
+    <url>/2021/03/28/node-%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h1 id="node-文件和文件夹"><a href="#node-文件和文件夹" class="headerlink" title="node-文件和文件夹"></a>node-文件和文件夹</h1><span id="more"></span>
+
+<h2 id="判断文件和文件夹是否存在"><a href="#判断文件和文件夹是否存在" class="headerlink" title="判断文件和文件夹是否存在"></a>判断文件和文件夹是否存在</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (fs.existsSync(<span class="string">&#x27;文件&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;该路径已存在&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><p>异步</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fs.mkdir(path, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, callback);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>path：文件夹路径，</li>
+<li>recursive：是否递归创建，即创建多层文件夹，默认为false</li>
+<li>callback：回调函数，可以传入可能的异常以及第一个创建的目录（recursive为true）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.mkdir(<span class="string">&quot;G:/l/s/s&quot;</span>, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, <span class="function">(<span class="params">err, path</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err, path);   <span class="comment">// null G:\l</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>同步</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.mkdirSync(path, &#123; <span class="attr">recursive</span>: <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>path：文件夹路径，如果</li>
+<li>recursive：是否递归创建，即创建多层文件夹，默认为false</li>
+</ul>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-模块</title>
+    <url>/2021/03/16/node-%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<h1 id="node模块"><a href="#node模块" class="headerlink" title="node模块"></a>node模块</h1><blockquote>
+<p>在 Node.js 模块系统中，每个文件都被视为一个独立的模块。</p>
+<p>node中每个js文件都是一个模块，都可以导出（<code>exports</code>），而多个js文件之间可以导入（<code>require</code>），共同实现一个功能</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="模块的导出"><a href="#模块的导出" class="headerlink" title="模块的导出"></a>模块的导出</h2><blockquote>
+<p>在一个js文件中实现了功能，要在另一个js文件中使用，就要把对应的功能导出。而模块的导出要用到<code>Module..exports</code>，在<code>exports</code>对象上指定额外的属性</p>
+</blockquote>
+<p>例子：在一个js文件中完成了一个方法或类，想要在别的js中使用，比如定义了一个sum方法和一个Animal的类</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;animal&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>模块导出的两种方式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模块的导出方式1</span></span><br><span class="line"><span class="built_in">exports</span>.sum = sum;</span><br><span class="line"><span class="built_in">exports</span>.Animal = Animal;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模块的导出方式2</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    sum,</span><br><span class="line">    Animal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>exports</code>是<code>modele.exports</code>的引用。在文件中才有exports，交互模式下没有</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">exports</span> === <span class="built_in">module</span>.exports);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="模块的导入"><a href="#模块的导入" class="headerlink" title="模块的导入"></a>模块的导入</h2><blockquote>
+<p>模块导出后要在别的js文件中使用还要将模块导入到js文件中，要用到<code>require</code></p>
+</blockquote>
+<ul>
+<li>上面导出模块的js文件（sum.js）和需要导入的js文件在同一目录下</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**模块的导入*/</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">&#x27;./sum&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="built_in">console</span>.log(sum.sum(<span class="number">1</span>, <span class="number">22</span>));</span><br><span class="line"><span class="keyword">new</span> myNum.Animal().say()</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块中的this"><a href="#模块中的this" class="headerlink" title="模块中的this"></a>模块中的this</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在js文件中导出</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">exports</span>.a = a;</span><br><span class="line"><span class="comment">/**模块中的this */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;this&#x27;</span>, <span class="built_in">this</span>);   <span class="comment">// &#123; a: 10 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">module</span>.exports);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>说明js文件中的this指向模块导出的对象exports，在交互模式下this===global</li>
+</ul>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-简单使用</title>
+    <url>/2021/03/14/node-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="node简单使用"><a href="#node简单使用" class="headerlink" title="node简单使用"></a>node简单使用</h1><h2 id="node赋值简化"><a href="#node赋值简化" class="headerlink" title="node赋值简化"></a>node赋值简化</h2><ul>
+<li>赋值简化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="string">&quot;18&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值写法1</span></span><br><span class="line"><span class="keyword">let</span> name = OBJ.name;</span><br><span class="line"><span class="keyword">let</span> age = OBJ.age;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值写法2，等价于写法1</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = objl</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取别名，防止重新定义变量</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>: myName, age&#125; = obj</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="node函数默认值"><a href="#node函数默认值" class="headerlink" title="node函数默认值"></a>node函数默认值</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对于普通函数，直接添加默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func_0</span>(<span class="params">name=<span class="string">&quot;node&quot;</span>, age=<span class="number">18</span></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于对象类型，先给对象赋值为空，然后再赋值对象里面的内容</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;name=<span class="string">&quot;node&quot;</span>, age=<span class="number">18</span>&#125;=&#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><ul>
+<li>数组的合并</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [...arr, ...arr1];   <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>object对象合并</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;node&#x27;</span>, <span class="attr">age</span>: <span class="number">10</span>&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">sex</span>: <span class="string">&#x27;男&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 如果有同名属性，后面的会覆盖前面的</span></span><br><span class="line">&#123;...obj1, ...obj2&#125;;   <span class="comment">// &#123; name: &#x27;node&#x27;, age: 10, sex: &#x27;男&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="全局变量global"><a href="#全局变量global" class="headerlink" title="全局变量global"></a>全局变量<code>global</code></h2><ul>
+<li>Nodejs里面没有window对象，但是有<code>global</code>对象，console、setTimeout是global对象下的</li>
+<li>Nodejs里面声明的变量，不会挂载到global里面</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以向global添加成员，可以在任何地方使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">global</span>.a = <span class="number">60</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// 60</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在Nodejs中this和global不是相等的(js文件中)，this在文件中，指向的是这个模块</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">global</span>);   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -1877,298 +2219,18 @@
       </tags>
   </entry>
   <entry>
-    <title>javaScript-函数</title>
-    <url>/2021/03/18/javaScript-%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="JavaScript函数"><a href="#JavaScript函数" class="headerlink" title="JavaScript函数"></a>JavaScript函数</h1><blockquote>
-<p>在JavaScript中函数实际也是一种对象，每个函数都是Function类型的实例，能够定义不同类型的属性和方法</p>
-</blockquote>
-<span id="more"></span>
+    <title>node-箭头函数</title>
+    <url>/2021/03/14/node-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><span id="more"></span>
 
-<h2 id="一、函数的定义"><a href="#一、函数的定义" class="headerlink" title="一、函数的定义"></a>一、函数的定义</h2><blockquote>
-<p>函数的定义大致上可以分为3种，分别是函数的声明、函数表达式和Function构造函数</p>
-</blockquote>
-<h3 id="1、函数声明"><a href="#1、函数声明" class="headerlink" title="1、函数声明"></a>1、函数声明</h3><ul>
-<li>函数的声明是直接使用function关键字接一个函数名，函数名后面是接收函数的形参</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、函数表达式"><a href="#2、函数表达式" class="headerlink" title="2、函数表达式"></a>2、函数表达式</h3><ul>
-<li>函数表达式的形式类似于普通变量的初始化，只不过这个变量初始化的值时函数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、Function-构造函数"><a href="#3、Function-构造函数" class="headerlink" title="3、Function()构造函数"></a>3、Function()构造函数</h3><ul>
-<li>使用new操作符，调用<code>Function()</code>构造函数，传入对应的参数，也可以定义一个函数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;return a + b&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>其中除了最后一个参数是执行的函数体，其他参数都是函数的形参</p>
-</li>
-<li><p><code>Function()</code>构造函数每次执行时，都会解析函数主体，并创建一个新的函数对象</p>
-</li>
-<li><p><code>Function()</code>函数在A函数中执行时无法访问A函数内的局部变量，只能访问全局变量</p>
-</li>
-</ul>
-<h3 id="函数声明和函数表达式的区别"><a href="#函数声明和函数表达式的区别" class="headerlink" title="函数声明和函数表达式的区别"></a>函数声明和函数表达式的区别</h3><ul>
-<li><p>在使用函数声明时，是必须设置函数名称的，这个函数名称相当于一个变量，以后函数的调用也会通过这个变量进行。</p>
-</li>
-<li><p>而对于一个函数表达式来说，函数名称是可选的，可以定义一个匿名表达式，并赋给一个变量，然后通过变量进行函数的调用。</p>
-</li>
-<li><p>对应函数声明，存在<code>函数提升</code>，函数的调用可以在函数声明之前使用，而函数表达式不存在。</p>
-</li>
-</ul>
-<h2 id="二、函数的调用"><a href="#二、函数的调用" class="headerlink" title="二、函数的调用"></a>二、函数的调用</h2><h3 id="1、函数调用模式"><a href="#1、函数调用模式" class="headerlink" title="1、函数调用模式"></a>1、函数调用模式</h3><p>函数调用模式是通过函数声明或者函数表达式的方式定义函数，然后通过直接函数名调用的模式</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a1, a2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a1 + a2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">let</span> sub = <span class="function"><span class="keyword">function</span>(<span class="params">a1, a2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a1 - a2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">sub(<span class="number">11</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、方法调用模式"><a href="#2、方法调用模式" class="headerlink" title="2、方法调用模式"></a>2、方法调用模式</h3><p>方法调用模式会优先定义一个对象obj，然后在对象内部定义值为函数的属性<code>property</code>，通过对象<code>obj.property()</code>来调用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义对象</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="comment">// 定义getName属性，值为一个函数</span></span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getName();   <span class="comment">// 通过点调用</span></span><br><span class="line">obj[<span class="string">&#x27;getName&#x27;</span>]();   <span class="comment">// 通过中括号调用</span></span><br></pre></td></tr></table></figure>
-
-<p>如果函数返回对象本身this，则可以利用链式调用的原理进行连续的函数调用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">	<span class="comment">// 定义getName属性，值为一个函数</span></span><br><span class="line">	<span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="attr">setName</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;   <span class="comment">// 在函数内部返回函数对象本身</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.setName(<span class="string">&quot;Node&quot;</span>).getName();   <span class="comment">// 链式函数调用</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、构造器调用模式"><a href="#3、构造器调用模式" class="headerlink" title="3、构造器调用模式"></a>3、构造器调用模式</h3><p>构造器调用模式会定义一个函数，在函数中定义实例属性，在原型上定义函数，然后通过new操作符生成函数实例，在通过实例调用原型上定义的函数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型上定义函数</span></span><br><span class="line">Person.property.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过new操作符生成实例</span></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>);</span><br><span class="line"><span class="comment">// 通过实例调用函数</span></span><br><span class="line">person.getName()</span><br></pre></td></tr></table></figure>
-
-<h3 id="4、call-函数、apply-函数调用模式"><a href="#4、call-函数、apply-函数调用模式" class="headerlink" title="4、call()函数、apply()函数调用模式"></a>4、call()函数、apply()函数调用模式</h3><p>通过call()函数或者apply()函数可以改变函数执行的主体，使得某些不具有特定函数的对象可以直接调用该特定函数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义一个对象</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line"><span class="comment">// 通过call()或者apply()函数调用sum()函数</span></span><br><span class="line">sum.call(person, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">sum.apply(person, [<span class="number">1</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
-
-<h3 id="5、匿名函数调用模式"><a href="#5、匿名函数调用模式" class="headerlink" title="5、匿名函数调用模式"></a>5、匿名函数调用模式</h3><p>匿名函数，就是没有函数名称的函数。匿名函数的调用有两种方式，一种是通过函数表达式调用函数，并赋值给变量，通过变量进行调用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 通过sum()函数进行匿名函数调用</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-<p>另一种是使用小括号()将匿名函数括起来，然后在后面使用小括号()，传递对应参数进行调用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>);   <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// function func()&#123;&#125;</span></span><br><span class="line"><span class="comment">// 不带参数</span></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;func&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个参数</span></span><br><span class="line"><span class="keyword">let</span> func_1 = <span class="function"><span class="params">x1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带多个参数</span></span><br><span class="line"><span class="keyword">let</span> func_2 = <span class="function">(<span class="params">x1, x2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1, x2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值</span></span><br><span class="line"><span class="keyword">let</span> func_5 = <span class="function">() =&gt;</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 等价于func_5</span></span><br><span class="line"><span class="keyword">let</span> func_6 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>node</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>javaScript-输出</title>
-    <url>/2021/03/15/javaScript-%E8%BE%93%E5%87%BA/</url>
-    <content><![CDATA[<h1 id="javaScript输出"><a href="#javaScript输出" class="headerlink" title="javaScript输出"></a>javaScript输出</h1><blockquote>
-<ul>
-<li> window.alert() 弹出警告框</li>
-<li>document.write() 写入HTML输出，在页面加载完毕后，会覆盖原来的页面内容</li>
-<li>innerHTML 写入HTML 元素</li>
-<li>console.log() 写入浏览器控制台</li>
-</ul>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="window-alert"><a href="#window-alert" class="headerlink" title="window.alert"></a>window.alert</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.alert(<span class="string">&quot;alert&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210315100502.png" alt="image-20210315100455012"></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node-axios爬虫</title>
-    <url>/2021/03/28/node-axios%E7%88%AC%E8%99%AB/</url>
-    <content><![CDATA[<h1 id="node-axios爬虫"><a href="#node-axios爬虫" class="headerlink" title="node-axios爬虫"></a>node-axios爬虫</h1><span id="more"></span>
-
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&quot;axios&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(url: string, config?: AxiosRequestConfig)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>url：请求地址</li>
-<li>config：可选参数，对象类型的。常用参数：<ul>
-<li>responseType：请求类型</li>
-<li>headers：请求头</li>
-</ul>
-</li>
-</ul>
-<p>下载一张图片</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&quot;https://gitee.com/lishushuai/img/raw/master/20210318234209.jpg&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&quot;stream&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    resp.data.pipe(fs.createWriteStream(<span class="string">&quot;./img/1.jpg&quot;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node-文件和文件夹</title>
-    <url>/2021/03/28/node-%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h1 id="node-文件和文件夹"><a href="#node-文件和文件夹" class="headerlink" title="node-文件和文件夹"></a>node-文件和文件夹</h1><span id="more"></span>
-
-<h2 id="判断文件和文件夹是否存在"><a href="#判断文件和文件夹是否存在" class="headerlink" title="判断文件和文件夹是否存在"></a>判断文件和文件夹是否存在</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (fs.existsSync(<span class="string">&#x27;文件&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;该路径已存在&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><p>异步</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fs.mkdir(path, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, callback);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>path：文件夹路径，</li>
-<li>recursive：是否递归创建，即创建多层文件夹，默认为false</li>
-<li>callback：回调函数，可以传入可能的异常以及第一个创建的目录（recursive为true）</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.mkdir(<span class="string">&quot;G:/l/s/s&quot;</span>, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, <span class="function">(<span class="params">err, path</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err, path);   <span class="comment">// null G:\l</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>同步</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.mkdirSync(path, &#123; <span class="attr">recursive</span>: <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>path：文件夹路径，如果</li>
-<li>recursive：是否递归创建，即创建多层文件夹，默认为false</li>
-</ul>
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux-sed：处理数据</title>
-    <url>/2021/03/04/linux-sed%EF%BC%9A%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/</url>
-    <content><![CDATA[<h1 id="Linux：sed"><a href="#Linux：sed" class="headerlink" title="Linux：sed"></a>Linux：sed</h1><blockquote>
-<p>依照脚本的指令处理、编辑文本文件，<code>一行一行</code>的更改</p>
-<p>主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="语法和选项"><a href="#语法和选项" class="headerlink" title="语法和选项"></a>语法和选项</h2><p><strong>语法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]</span><br></pre></td></tr></table></figure>
-
-<p><strong>选项</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>-e</code></td>
-<td>以指定的script来处理输入的文本文件。</td>
-</tr>
-<tr>
-<td align="center"><code>-f</code></td>
-<td>以指定的script文件来处理输入的文本文件</td>
-</tr>
-<tr>
-<td align="center"><code>-n</code></td>
-<td>仅显示script处理后的结果。</td>
-</tr>
-<tr>
-<td align="center"><code>-i</code></td>
-<td>直接修改读取的文件内容，而不是由屏幕输出。</td>
-</tr>
-<tr>
-<td align="center"><code>-r</code></td>
-<td>sed 的动作支持的是延伸型正则表达式的语法。（默认是基础正则表达式语法）</td>
-</tr>
-</tbody></table>
-<p><strong>动作说明</strong>：</p>
-<table>
-<thead>
-<tr>
-<th align="center">动作</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>a</code></td>
-<td>新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)</td>
-</tr>
-<tr>
-<td align="center"><code>c</code></td>
-<td>取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</td>
-</tr>
-<tr>
-<td align="center"><code>d</code></td>
-<td>删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</td>
-</tr>
-<tr>
-<td align="center"><code>i</code></td>
-<td>插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</td>
-</tr>
-<tr>
-<td align="center"><code>p</code></td>
-<td>打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行</td>
-</tr>
-<tr>
-<td align="center"><code>s</code></td>
-<td>取代，可以直接进行取代的工作，通常这个 s 的动作可以搭配正规表示法！</td>
-</tr>
-</tbody></table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除passwd的4-10行</span></span><br><span class="line">cat -n passwd | sed &#x27;4,10d&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304002103.png" alt="image-20210304002056235"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在第四行后面添加啊啊啊</span></span><br><span class="line">cat -n passwd | sed &#x27;4a 啊啊啊&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304002154.png" alt="image-20210304002154588"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以2-5取代2-5行</span></span><br><span class="line">cat -n passwd | sed &#x27;2,5c 2-5&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304002626.png" alt="image-20210304002626223"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示2-7行</span></span><br><span class="line">nl passwd | sed -n &#x27;2,7p&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304003004.png" alt="image-20210304003003921"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改passwd1文件中的root为ROOT,最后的g为全部更改</span></span><br><span class="line">sed -i &#x27;s/root/ROOT/g&#x27; passwd1</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210304003827.png" alt="image-20210304003827596"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node-模块</title>
-    <url>/2021/03/16/node-%E6%A8%A1%E5%9D%97/</url>
-    <content><![CDATA[<h1 id="node模块"><a href="#node模块" class="headerlink" title="node模块"></a>node模块</h1><blockquote>
-<p>在 Node.js 模块系统中，每个文件都被视为一个独立的模块。</p>
-<p>node中每个js文件都是一个模块，都可以导出（<code>exports</code>），而多个js文件之间可以导入（<code>require</code>），共同实现一个功能</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="模块的导出"><a href="#模块的导出" class="headerlink" title="模块的导出"></a>模块的导出</h2><blockquote>
-<p>在一个js文件中实现了功能，要在另一个js文件中使用，就要把对应的功能导出。而模块的导出要用到<code>Module..exports</code>，在<code>exports</code>对象上指定额外的属性</p>
-</blockquote>
-<p>例子：在一个js文件中完成了一个方法或类，想要在别的js中使用，比如定义了一个sum方法和一个Animal的类</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;animal&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>模块导出的两种方式</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模块的导出方式1</span></span><br><span class="line"><span class="built_in">exports</span>.sum = sum;</span><br><span class="line"><span class="built_in">exports</span>.Animal = Animal;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模块的导出方式2</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    sum,</span><br><span class="line">    Animal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>exports</code>是<code>modele.exports</code>的引用。在文件中才有exports，交互模式下没有</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">exports</span> === <span class="built_in">module</span>.exports);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="模块的导入"><a href="#模块的导入" class="headerlink" title="模块的导入"></a>模块的导入</h2><blockquote>
-<p>模块导出后要在别的js文件中使用还要将模块导入到js文件中，要用到<code>require</code></p>
-</blockquote>
-<ul>
-<li>上面导出模块的js文件（sum.js）和需要导入的js文件在同一目录下</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**模块的导入*/</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">&#x27;./sum&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="built_in">console</span>.log(sum.sum(<span class="number">1</span>, <span class="number">22</span>));</span><br><span class="line"><span class="keyword">new</span> myNum.Animal().say()</span><br></pre></td></tr></table></figure>
-
-<h2 id="模块中的this"><a href="#模块中的this" class="headerlink" title="模块中的this"></a>模块中的this</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在js文件中导出</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">exports</span>.a = a;</span><br><span class="line"><span class="comment">/**模块中的this */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;this&#x27;</span>, <span class="built_in">this</span>);   <span class="comment">// &#123; a: 10 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">module</span>.exports);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>说明js文件中的this指向模块导出的对象exports，在交互模式下this===global</li>
-</ul>
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
         <tag>node</tag>
       </tags>
   </entry>
@@ -2196,95 +2258,33 @@
       </tags>
   </entry>
   <entry>
-    <title>node-箭头函数</title>
-    <url>/2021/03/14/node-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><span id="more"></span>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// function func()&#123;&#125;</span></span><br><span class="line"><span class="comment">// 不带参数</span></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;func&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个参数</span></span><br><span class="line"><span class="keyword">let</span> func_1 = <span class="function"><span class="params">x1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带多个参数</span></span><br><span class="line"><span class="keyword">let</span> func_2 = <span class="function">(<span class="params">x1, x2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1, x2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值</span></span><br><span class="line"><span class="keyword">let</span> func_5 = <span class="function">() =&gt;</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 等价于func_5</span></span><br><span class="line"><span class="keyword">let</span> func_6 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node-简单使用</title>
-    <url>/2021/03/14/node-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="node简单使用"><a href="#node简单使用" class="headerlink" title="node简单使用"></a>node简单使用</h1><h2 id="node赋值简化"><a href="#node赋值简化" class="headerlink" title="node赋值简化"></a>node赋值简化</h2><ul>
-<li>赋值简化</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="string">&quot;18&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值写法1</span></span><br><span class="line"><span class="keyword">let</span> name = OBJ.name;</span><br><span class="line"><span class="keyword">let</span> age = OBJ.age;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值写法2，等价于写法1</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = objl</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取别名，防止重新定义变量</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>: myName, age&#125; = obj</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="node函数默认值"><a href="#node函数默认值" class="headerlink" title="node函数默认值"></a>node函数默认值</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对于普通函数，直接添加默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func_0</span>(<span class="params">name=<span class="string">&quot;node&quot;</span>, age=<span class="number">18</span></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于对象类型，先给对象赋值为空，然后再赋值对象里面的内容</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;name=<span class="string">&quot;node&quot;</span>, age=<span class="number">18</span>&#125;=&#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><ul>
-<li>数组的合并</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [...arr, ...arr1];   <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>object对象合并</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;node&#x27;</span>, <span class="attr">age</span>: <span class="number">10</span>&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">sex</span>: <span class="string">&#x27;男&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 如果有同名属性，后面的会覆盖前面的</span></span><br><span class="line">&#123;...obj1, ...obj2&#125;;   <span class="comment">// &#123; name: &#x27;node&#x27;, age: 10, sex: &#x27;男&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="全局变量global"><a href="#全局变量global" class="headerlink" title="全局变量global"></a>全局变量<code>global</code></h2><ul>
-<li>Nodejs里面没有window对象，但是有<code>global</code>对象，console、setTimeout是global对象下的</li>
-<li>Nodejs里面声明的变量，不会挂载到global里面</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>可以向global添加成员，可以在任何地方使用</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">global</span>.a = <span class="number">60</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// 60</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在Nodejs中this和global不是相等的(js文件中)，this在文件中，指向的是这个模块</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">global</span>);   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python-京东评论.md</title>
     <url>/2021/02/22/python-%E4%BA%AC%E4%B8%9C%E8%AF%84%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="评论获取"><a href="#评论获取" class="headerlink" title="评论获取"></a>评论获取</h2><p>爬取商品：<a href="https://item.jd.com/11943853.html">https://item.jd.com/11943853.html</a></p>
 <h3 id="一、评论查找"><a href="#一、评论查找" class="headerlink" title="一、评论查找"></a>一、评论查找</h3><p>源代码查找</p>
 <p>随便复制一个评论的评论人：名字。在源代码中搜索，没有找到。</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094252.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784844.png"></p>
 <span id="more"></span>
 
 <p>那就在加载的数据中查找</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094221.png" alt="image-20200524094219681"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784842.png" alt="image-20200524094219681"></p>
 <p>在这个里面有：</p>
 <blockquote>
 <p><a href="https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1">https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
 </blockquote>
 <p>看看是不是评论：</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524094519.png" alt="image-20200524094518225"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784860.png" alt="image-20200524094518225"></p>
 <p>有评论的内容。</p>
 <h3 id="二、评论内容获取。"><a href="#二、评论内容获取。" class="headerlink" title="二、评论内容获取。"></a>二、评论内容获取。</h3><p>请求得到数据, 数据格式：</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524095853.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784851.png"></p>
 <p>使用正则，再使用json.loads把数据转化为字典类型：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">resp = requests.get(url, headers=headers)</span><br><span class="line">   <span class="keyword">if</span> resp.status_code == <span class="number">200</span>:</span><br><span class="line">       text = resp.text</span><br><span class="line">       pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;fetchJSON_comment98\((.*?)\);&#x27;</span>, re.S)</span><br><span class="line">       t_data = pattern.search(text).group(<span class="number">1</span>)</span><br><span class="line">       t_json = json.loads(t_data)</span><br><span class="line">       pprint(t_json)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20200524101010.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784872.png"></p>
 <p>评论在comments的content里面：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> comment <span class="keyword">in</span> t_json[<span class="string">&#x27;comments&#x27;</span>]:</span><br><span class="line">	<span class="built_in">print</span>(comment[<span class="string">&#x27;content&#x27;</span>])</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20200524101255131.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784876.png"></p>
 <h3 id="三、全部评论获取"><a href="#三、全部评论获取" class="headerlink" title="三、全部评论获取"></a>三、全部评论获取</h3><blockquote>
 <p><a href="https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1">https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&amp;productId=11943853&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
 </blockquote>
@@ -2304,7 +2304,7 @@
     <content><![CDATA[<h3 id="目标：爬取零点看书网"><a href="#目标：爬取零点看书网" class="headerlink" title="目标：爬取零点看书网"></a>目标：爬取零点看书网</h3><p> 一本小说</p>
 <h3 id="1、爬取小说目录地址"><a href="#1、爬取小说目录地址" class="headerlink" title="1、爬取小说目录地址"></a>1、爬取小说目录地址</h3><p>爬取小说地址：<a href="https://www.lingdiankanshu.co/258400/">https://www.lingdiankanshu.co/258400/</a></p>
 <p>查看网页源代码</p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204725455.png" alt="image-20210226204725455"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784886.png" alt="image-20210226204725455"></p>
 <p>小说<code>楔子</code>在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面</p>
 <span id="more"></span>
 
@@ -2314,15 +2314,15 @@
 <p>following-sibling :选取当前节点之后的所有同级节点 </p>
 <p>获取章节地址和章节名</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pageUrlName_list = []</span><br><span class="line">dit = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> a_list:</span><br><span class="line">    dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + a.xpath(<span class="string">&#x27;./@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    dit[<span class="string">&#x27;pageName&#x27;</span>] = a.xpath(<span class="string">&#x27;./text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list.append(dit.copy())</span><br><span class="line"><span class="built_in">print</span>(pageUrlName_list)</span><br></pre></td></tr></table></figure>
-<h3 id="2、爬取小说内容页"><a href="#2、爬取小说内容页" class="headerlink" title="2、爬取小说内容页"></a><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204831863.png" alt="image-20210226204831863">2、爬取小说内容页</h3><p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226204921501.png" alt="image-20210226204921501"></p>
+<h3 id="2、爬取小说内容页"><a href="#2、爬取小说内容页" class="headerlink" title="2、爬取小说内容页"></a><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784891.png" alt="image-20210226204831863">2、爬取小说内容页</h3><p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784894.png" alt="image-20210226204921501"></p>
 <p>小说内容在一个id等于content的div里面</p>
 <p>获取小说内容：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(content_list)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/image-20210226205024731.png" alt="image-20210226205024731"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784896.png" alt="image-20210226205024731"></p>
 <h3 id="3、整理爬取的小说"><a href="#3、整理爬取的小说" class="headerlink" title="3、整理爬取的小说"></a>3、整理爬取的小说</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content = <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210226211457.png" alt="image-20210226211457781"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784899.png" alt="image-20210226211457781"></p>
 <h3 id="4、多线程下载"><a href="#4、多线程下载" class="headerlink" title="4、多线程下载"></a>4、多线程下载</h3><p>由于小说各个章节顺序一定，可以定义一个正在保存章节的标记</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
@@ -2348,67 +2348,6 @@
       <categories>
         <category>python</category>
       </categories>
-  </entry>
-  <entry>
-    <title>工具-github+typora+PicGo图床</title>
-    <url>/2021/08/25/%E5%B7%A5%E5%85%B7-github-typora-PicGo%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="github图床"><a href="#github图床" class="headerlink" title="github图床"></a>github图床</h1><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><ol>
-<li>获取tokens</li>
-</ol>
-<ul>
-<li>Settings =&gt; <a href="https://github.com/settings/apps">Developer settings</a> =&gt; <a href="https://github.com/settings/tokens">Personal access tokens</a> =&gt; <a href="https://github.com/settings/tokens/new">New personal access token </a></li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li><p>设置Note，选择<code>repo</code>, <code>Generate token</code>生成token，复制生成的token（只显示一次）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894315.png" alt="image-20210825202513498"></p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894463.png" alt="image-20210825202741003"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894694.png" alt="image-20210825203131917"></p>
-<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><ol>
-<li>下载PicGo-Core，配置</li>
-</ol>
-<ul>
-<li>偏好设置 , 图像，PicGo-Core，下载或更新，下载完后点击验证图片上传（查看位置）</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629895244.png" alt="image-20210825204041755"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629895464.png" alt="image-20210825204422037"></p>
-<ul>
-<li>打开cmd，输入转到picgo.exe所在目录。安装<code>github-plus</code>插件</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\<span class="number">26634</span>\AppData\Roaming\Typora\picgo\win64</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">./picgo install github-plus</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>回到<code>typora</code>, 打开配置文件，设置如下</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span>: <span class="string">&quot;githubPlus&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;current&quot;</span>: <span class="string">&quot;githubPlus&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;githubPlus&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;branch&quot;</span>: <span class="string">&quot;master&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span>: <span class="string">&quot;https://cdn.jsdelivr.net/gh/用户名/仓库&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;origin&quot;</span>: <span class="string">&quot;github&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;repo&quot;</span>: <span class="string">&quot;用户名/仓库&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;保存路径/&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;上面创建的token&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;picgo-plugin-github-plus&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgo-plugin-github-plus&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;lastSync&quot;</span>: <span class="string">&quot;2021-08-25 08:40:46&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>https://cdn.jsdelivr.net/gh/用户名/仓库</code> cdn加速访问</li>
-</ul>
-<ol start="2">
-<li>上传的时候重命名</li>
-</ol>
-<ul>
-<li>在picgo所在目录下安装[rename-file](<a href="https://github.com/liuwave/picgo-plugin-rename-file">Issues · liuwave/picgo-plugin-rename-file (github.com)</a>)插件</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">./picgo install <span class="built_in">rename</span>-file</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>打开配置文件在最后添加</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;picgo-plugin-rename-file&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;&#123;y&#125;-&#123;m&#125;-&#123;d&#125;/&#123;timestamp&#125;&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;githubPlus&quot;,</span><br><span class="line">    &quot;current&quot;: &quot;githubPlus&quot;,</span><br><span class="line">    &quot;githubPlus&quot;: &#123;</span><br><span class="line">      &quot;branch&quot;: &quot;master&quot;,</span><br><span class="line">      &quot;customUrl&quot;: &quot;https://cdn.jsdelivr.net/gh/用户名/仓库&quot;,</span><br><span class="line">      &quot;origin&quot;: &quot;github&quot;,</span><br><span class="line">      &quot;repo&quot;: &quot;用户名/仓库&quot;,</span><br><span class="line">      &quot;path&quot;: &quot;img/&quot;,</span><br><span class="line">      &quot;token&quot;: &quot;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&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;</span><br><span class="line">    &quot;picgo-plugin-github-plus&quot;: true,</span><br><span class="line">    &quot;picgo-plugin-rename-file&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgo-plugin-github-plus&quot;: &#123;</span><br><span class="line">    &quot;lastSync&quot;: &quot;2021-08-25 08:44:25&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgo-plugin-rename-file&quot;: &#123;</span><br><span class="line">    &quot;format&quot;: &quot;&#123;y&#125;-&#123;m&#125;-&#123;d&#125;/&#123;timestamp&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>工具</tag>
-      </tags>
   </entry>
   <entry>
     <title>viw的使用</title>
@@ -2677,13 +2616,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/1970/01/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<p><img src="https://gitee.com/lishushuai/img/raw/master/20210307233614.png" alt="image-20210307233606826"></p>
-<p><img src="https://gitee.com/lishushuai/img/raw/master/20210307235006.png" alt="image-20210307235005672"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>算法-子数组异或查询</title>
     <url>/2021/05/12/%E7%AE%97%E6%B3%95-%E5%AD%90%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%9F%A5%E8%AF%A2/</url>
     <content><![CDATA[<h1 id="子数组异或查询"><a href="#子数组异或查询" class="headerlink" title="子数组异或查询"></a><a href="https://leetcode-cn.com/problems/xor-queries-of-a-subarray/">子数组异或查询</a></h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个正整数数组 <code>arr</code>，现给你一个对应的查询数组 <code>queries</code>，其中 <code>queries[i] = [Li, Ri]</code>。</p>
@@ -2731,10 +2663,10 @@
 <h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><blockquote>
 <p>二叉树的前序遍历，输出顺序是根节点、左子树、右子树。</p>
 </blockquote>
-<h3 id="遍历过程"><a href="#遍历过程" class="headerlink" title="遍历过程"></a>遍历过程</h3><img src="https://gitee.com/lishushuai/img/raw/master/image-20210510224549490.png" alt="image-20210510224549490" style="zoom: 50%;" />
+<h3 id="遍历过程"><a href="#遍历过程" class="headerlink" title="遍历过程"></a>遍历过程</h3><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784525.png" alt="image-20210510224549490" style="zoom: 50%;" />
 
 <p>上图是一个二叉树，其中前序遍历顺序为（1245367）</p>
-<img src="https://gitee.com/lishushuai/img/raw/master/20210510225245.png" alt="image-20210510225200875" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784533.png" alt="image-20210510225200875" style="zoom:50%;" />
 
 <ol>
 <li>先遍历根节点（1）</li>
@@ -2759,6 +2691,67 @@
 <p><em>中序遍历</em>首先遍历左子树，然后访问根结点，最后遍历右子树。</p>
 </blockquote>
 ]]></content>
+  </entry>
+  <entry>
+    <title>工具-github+typora+PicGo图床</title>
+    <url>/2021/08/25/%E5%B7%A5%E5%85%B7-github-typora-PicGo%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="github图床"><a href="#github图床" class="headerlink" title="github图床"></a>github图床</h1><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><ol>
+<li>获取tokens</li>
+</ol>
+<ul>
+<li>Settings =&gt; <a href="https://github.com/settings/apps">Developer settings</a> =&gt; <a href="https://github.com/settings/tokens">Personal access tokens</a> =&gt; <a href="https://github.com/settings/tokens/new">New personal access token </a></li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><p>设置Note，选择<code>repo</code>, <code>Generate token</code>生成token，复制生成的token（只显示一次）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894315.png" alt="image-20210825202513498"></p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894463.png" alt="image-20210825202741003"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629894694.png" alt="image-20210825203131917"></p>
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><ol>
+<li>下载PicGo-Core，配置</li>
+</ol>
+<ul>
+<li>偏好设置 , 图像，PicGo-Core，下载或更新，下载完后点击验证图片上传（查看位置）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629895244.png" alt="image-20210825204041755"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-08-25/1629895464.png" alt="image-20210825204422037"></p>
+<ul>
+<li>打开cmd，输入转到picgo.exe所在目录。安装<code>github-plus</code>插件</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\<span class="number">26634</span>\AppData\Roaming\Typora\picgo\win64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">./picgo install github-plus</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回到<code>typora</code>, 打开配置文件，设置如下</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span>: <span class="string">&quot;githubPlus&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;current&quot;</span>: <span class="string">&quot;githubPlus&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;githubPlus&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;branch&quot;</span>: <span class="string">&quot;master&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span>: <span class="string">&quot;https://cdn.jsdelivr.net/gh/用户名/仓库&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;origin&quot;</span>: <span class="string">&quot;github&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;repo&quot;</span>: <span class="string">&quot;用户名/仓库&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;保存路径/&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;上面创建的token&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;picgo-plugin-github-plus&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgo-plugin-github-plus&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;lastSync&quot;</span>: <span class="string">&quot;2021-08-25 08:40:46&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>https://cdn.jsdelivr.net/gh/用户名/仓库</code> cdn加速访问</li>
+</ul>
+<ol start="2">
+<li>上传的时候重命名</li>
+</ol>
+<ul>
+<li>在picgo所在目录下安装[rename-file](<a href="https://github.com/liuwave/picgo-plugin-rename-file">Issues · liuwave/picgo-plugin-rename-file (github.com)</a>)插件</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">./picgo install <span class="built_in">rename</span>-file</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打开配置文件在最后添加</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;picgo-plugin-rename-file&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;&#123;y&#125;-&#123;m&#125;-&#123;d&#125;/&#123;timestamp&#125;&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;githubPlus&quot;,</span><br><span class="line">    &quot;current&quot;: &quot;githubPlus&quot;,</span><br><span class="line">    &quot;githubPlus&quot;: &#123;</span><br><span class="line">      &quot;branch&quot;: &quot;master&quot;,</span><br><span class="line">      &quot;customUrl&quot;: &quot;https://cdn.jsdelivr.net/gh/用户名/仓库&quot;,</span><br><span class="line">      &quot;origin&quot;: &quot;github&quot;,</span><br><span class="line">      &quot;repo&quot;: &quot;用户名/仓库&quot;,</span><br><span class="line">      &quot;path&quot;: &quot;img/&quot;,</span><br><span class="line">      &quot;token&quot;: &quot;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&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;</span><br><span class="line">    &quot;picgo-plugin-github-plus&quot;: true,</span><br><span class="line">    &quot;picgo-plugin-rename-file&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgo-plugin-github-plus&quot;: &#123;</span><br><span class="line">    &quot;lastSync&quot;: &quot;2021-08-25 08:44:25&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgo-plugin-rename-file&quot;: &#123;</span><br><span class="line">    &quot;format&quot;: &quot;&#123;y&#125;-&#123;m&#125;-&#123;d&#125;/&#123;timestamp&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>工具</tag>
+      </tags>
   </entry>
   <entry>
     <title>数学建模-线性</title>
@@ -2786,7 +2779,7 @@
 <ul>
 <li>例一</li>
 </ul>
-<p>$$<br>max z = 2x_1 + 3x_2 - 5x_3\<br>s.t.<br>\begin{cases}<br>x_1+ x_2 + x_3 = 7\<br>2x_1 - 5x_2 + x_3 \geq 10\<br>x_1 + 3x_2 + x_3 \leq 12\<br>x_1, x_2, x_3 \geq 0<br>\end{cases}<br>$$</p>
+<p>$$<br>max z = 2x_1 + 3x_2 - 5x_3\newline<br>s.t.<br>\begin{cases}<br>x_1+ x_2 + x_3 = 7\newline<br>2x_1 - 5x_2 + x_3 \geq 10\newline<br>x_1 + 3x_2 + x_3 \leq 12\newline<br>x_1, x_2, x_3 \geq 0<br>\end{cases}<br>$$</p>
 <ol>
 <li>max 化为 min</li>
 </ol>
@@ -2795,7 +2788,7 @@
 <ol start="2">
 <li>把大于等于化为小于等于</li>
 </ol>
-<p>$$<br>-2x_1 + 5x_2 - x_3 \leq -10\<br>\begin{cases}<br> -2x_1 + 5x_2 - x_3 \leq -10\<br> x_1 + 3x_2 + x_3 \leq 12<br>\end{cases}<br>$$</p>
+<p>$$<br>-2x_1 + 5x_2 - x_3 \leq -10<br>\begin{cases}<br> -2x_1 + 5x_2 - x_3 \leq -10\newline<br> x_1 + 3x_2 + x_3 \leq 12<br>\end{cases}<br>$$</p>
 <p>得到 <code>A_ub = [[-2, 5, -1], [1, 3, 1]], b_ub = [-10, 12]</code></p>
 <ol start="3">
 <li>找到等于号的式子</li>
@@ -2809,7 +2802,7 @@
 <ul>
 <li>例二</li>
 </ul>
-<p>$$<br>max z = 3x_1 + 2x_2\<br>\begin{cases}<br>2x_1 + 3x_2 \leq 14\<br>2x_1 + x_2 \leq 9\<br>x_1 \leq 3, x_2 \leq 2\<br>x_1, x_2 \geq 0<br>\end{cases}<br>$$</p>
+<p>$$<br>max z = 3x_1 + 2x_2\<br>\begin{cases}<br>2x_1 + 3x_2 \leq 14\newline<br>2x_1 + x_2 \leq 9\newline<br>x_1 \leq 3, x_2 \leq 2\newline<br>x_1, x_2 \geq 0<br>\end{cases}<br>$$</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = np.array([-<span class="number">3</span>, -<span class="number">2</span>])</span><br><span class="line">a_ub = np.array([[<span class="number">2</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">1</span>]])</span><br><span class="line">b_ub = np.array([<span class="number">14</span>, <span class="number">9</span>])</span><br><span class="line">x_1 = (<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">x_2 = (<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(optimize.linprog(c, a_ub, b_ub, bounds=(x_1, x_2)))</span><br></pre></td></tr></table></figure>
 
 <h2 id="建模例子"><a href="#建模例子" class="headerlink" title="建模例子"></a>建模例子</h2><p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img//img/20210713075230.png" alt="image-20210713075229920"></p>
