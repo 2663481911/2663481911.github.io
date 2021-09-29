@@ -93,6 +93,44 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript-数组</title>
+    <url>/2021/03/15/JavaScript-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="JavaScript数组"><a href="#JavaScript数组" class="headerlink" title="JavaScript数组"></a>JavaScript数组</h1><h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><span id="more"></span>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建数组的两种方式</span></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定数组长度为2</span></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建指定元素的数组，两种方式</span></span><br><span class="line"><span class="keyword">let</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> arr4 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<!-- more -->
+
+<h2 id="访问数组元素"><a href="#访问数组元素" class="headerlink" title="访问数组元素"></a>访问数组元素</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过索引访问数组元素</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>]    <span class="comment">// 1</span></span><br><span class="line">arr[<span class="number">1</span>];   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">value, index, array</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value, index);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 1, 0</span></span><br><span class="line"><span class="comment">// 2, 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="操作数组的基本方法"><a href="#操作数组的基本方法" class="headerlink" title="操作数组的基本方法"></a>操作数组的基本方法</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数组长度</span></span><br><span class="line"><span class="keyword">let</span> len = arr.length</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组后面添加多个数据</span></span><br><span class="line">arr.push(<span class="number">3</span>, <span class="number">4</span>);   <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组前面添加多个数据</span></span><br><span class="line">arr.unshift(<span class="number">5</span>, <span class="number">6</span>);   <span class="comment">// [5, 6, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组中删除第一个元素并返回它</span></span><br><span class="line"><span class="keyword">let</span> arr_1 = arr.shift();   <span class="comment">// [6, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组中删除元素，并在必要时插入新元素，返回已删除的元素。</span></span><br><span class="line"><span class="comment">// 从第几个位置开始删除几个数据，添加什么数据</span></span><br><span class="line"><span class="comment">// 从第三个位置开始删除0个数据，添加数据 7,8</span></span><br><span class="line">arr.splice(<span class="number">3</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">8</span>);   <span class="comment">// [6, 1, 2, 7, 8, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除数组末尾的元素</span></span><br><span class="line">arr.pop()   <span class="comment">// [ 6, 1, 2, 7, 8, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="判断元素是否存在"><a href="#判断元素是否存在" class="headerlink" title="判断元素是否存在"></a>判断元素是否存在</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.includes(<span class="number">2</span>));   <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回数组中第一个匹配值的索引，如果不存在，则返回-1。</span></span><br><span class="line">arr.indexOf(<span class="number">2</span>)   <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">if</span>(arr.indexOf(<span class="number">2</span>) != -<span class="number">1</span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><h3 id="find和findIndex"><a href="#find和findIndex" class="headerlink" title="find和findIndex"></a>find和findIndex</h3><blockquote>
+<p>find：方法返回回调函数的返回值是turn的元素值，之后不再运行，没有就返回undefined</p>
+<p>findIndex：和find差不多，只是的是返回索引</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> res = array.find(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="number">1</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(res);   <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res1 = array.find(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="number">5</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(res1);   <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="排序：sort"><a href="#排序：sort" class="headerlink" title="排序：sort"></a>排序：sort</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>];</span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a - b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">// [ 2, 3, 4, 11 ]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回调函数返回a - b升序，b - a 降序；如果省略，元素将按ASCII字符顺序升序排序。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux alias: 设置指令的别名</title>
     <url>/2021/02/26/Linux-alias-%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%AB%E5%90%8D/</url>
     <content><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><blockquote>
@@ -127,42 +165,6 @@
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript-数组</title>
-    <url>/2021/03/15/JavaScript-%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1 id="JavaScript数组"><a href="#JavaScript数组" class="headerlink" title="JavaScript数组"></a>JavaScript数组</h1><h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建数组的两种方式</span></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定数组长度为2</span></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建指定元素的数组，两种方式</span></span><br><span class="line"><span class="keyword">let</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> arr4 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="访问数组元素"><a href="#访问数组元素" class="headerlink" title="访问数组元素"></a>访问数组元素</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过索引访问数组元素</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>]    <span class="comment">// 1</span></span><br><span class="line">arr[<span class="number">1</span>];   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">value, index, array</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value, index);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 1, 0</span></span><br><span class="line"><span class="comment">// 2, 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="操作数组的基本方法"><a href="#操作数组的基本方法" class="headerlink" title="操作数组的基本方法"></a>操作数组的基本方法</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数组长度</span></span><br><span class="line"><span class="keyword">let</span> len = arr.length</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组后面添加多个数据</span></span><br><span class="line">arr.push(<span class="number">3</span>, <span class="number">4</span>);   <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组前面添加多个数据</span></span><br><span class="line">arr.unshift(<span class="number">5</span>, <span class="number">6</span>);   <span class="comment">// [5, 6, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组中删除第一个元素并返回它</span></span><br><span class="line"><span class="keyword">let</span> arr_1 = arr.shift();   <span class="comment">// [6, 1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数组中删除元素，并在必要时插入新元素，返回已删除的元素。</span></span><br><span class="line"><span class="comment">// 从第几个位置开始删除几个数据，添加什么数据</span></span><br><span class="line"><span class="comment">// 从第三个位置开始删除0个数据，添加数据 7,8</span></span><br><span class="line">arr.splice(<span class="number">3</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">8</span>);   <span class="comment">// [6, 1, 2, 7, 8, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除数组末尾的元素</span></span><br><span class="line">arr.pop()   <span class="comment">// [ 6, 1, 2, 7, 8, 3 ]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="判断元素是否存在"><a href="#判断元素是否存在" class="headerlink" title="判断元素是否存在"></a>判断元素是否存在</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.includes(<span class="number">2</span>));   <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回数组中第一个匹配值的索引，如果不存在，则返回-1。</span></span><br><span class="line">arr.indexOf(<span class="number">2</span>)   <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">if</span>(arr.indexOf(<span class="number">2</span>) != -<span class="number">1</span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><h3 id="find和findIndex"><a href="#find和findIndex" class="headerlink" title="find和findIndex"></a>find和findIndex</h3><blockquote>
-<p>find：方法返回回调函数的返回值是turn的元素值，之后不再运行，没有就返回undefined</p>
-<p>findIndex：和find差不多，只是的是返回索引</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> res = array.find(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="number">1</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(res);   <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res1 = array.find(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="number">5</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(res1);   <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="排序：sort"><a href="#排序：sort" class="headerlink" title="排序：sort"></a>排序：sort</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>];</span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a - b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">// [ 2, 3, 4, 11 ]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>回调函数返回a - b升序，b - a 降序；如果省略，元素将按ASCII字符顺序升序排序。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -298,6 +300,10 @@
 </tr>
 </thead>
 <tbody><tr>
+<td><code>.*</code></td>
+<td>匹配任意多个字符</td>
+</tr>
+<tr>
 <td><code>^$</code></td>
 <td>空行</td>
 </tr>
@@ -490,46 +496,17 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux-tee</title>
-    <url>/2021/02/27/Linux-tee/</url>
-    <content><![CDATA[<h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote>
-<p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p>
-<p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p>
-</blockquote>
-<span id="more"></span>
+    <title>Linux-shell脚本的使用</title>
+    <url>/2021/09/29/Linux-shell%E8%84%9A%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="shell脚本的使用"><a href="#shell脚本的使用" class="headerlink" title="shell脚本的使用"></a>shell脚本的使用</h1><span id="more"></span>
 
-<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
-<li>命令：tee [选项] 文件</li>
-<li>选项</li>
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><ul>
+<li><p>双引号允许shell解释字符串中出现的特殊字符。</p>
+</li>
+<li><p>单引号不会对其做任何解释。</p>
+</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-a</code></td>
-<td>追加，默认覆盖保存</td>
-</tr>
-</tbody></table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
-<li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将<strong>echo</strong>输出写入文件t中（追加保存）</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784803.png" alt="image-20210227143112062"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-29/1632906696.png" alt="image-20210929171134665"></p>
 ]]></content>
       <categories>
         <category>linux</category>
@@ -606,9 +583,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux-ubuntu磁盘</title>
-    <url>/2021/09/26/Linux-ubuntu%E7%A3%81%E7%9B%98/</url>
-    <content><![CDATA[<h1 id="Linux之ubuntu磁盘"><a href="#Linux之ubuntu磁盘" class="headerlink" title="Linux之ubuntu磁盘"></a>Linux之ubuntu磁盘</h1><span id="more"></span>
+    <title>Linux-kubuntu使用</title>
+    <url>/2021/09/26/Linux-ubuntu%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Linux之kubuntu使用"><a href="#Linux之kubuntu使用" class="headerlink" title="Linux之kubuntu使用"></a>Linux之kubuntu使用</h1><h2 id="自动挂载磁盘"><a href="#自动挂载磁盘" class="headerlink" title="自动挂载磁盘"></a>自动挂载磁盘</h2><span id="more"></span>
 
 <ul>
 <li>查看硬盘信息</li>
@@ -635,6 +612,73 @@
 <p>加入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 看着查看的信息填</span> </span><br><span class="line">UUID=2D97AD940A9AD661 /media/lss/文档 ntfs defaults 0 1</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>检查，验证配置是否正确，配置不正确可能会导致系统无法正常启动。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mount -a</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="grub美化"><a href="#grub美化" class="headerlink" title="grub美化"></a>grub美化</h2><ol>
+<li><p><a href="https://www.gnome-look.org/browse?cat=109&ord=latest">主题</a>下载，下载后解压，执行里面的<code>install.sh</code>安装</p>
+</li>
+<li><p>换字体</p>
+</li>
+</ol>
+<ul>
+<li>生成pf2格式字体</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  -o 用来制定输出的文件，文件名一般以 pf2 为后缀， -s 用来指定字体的大小， -n 用来制定字体的名字。</span></span><br><span class="line">grub-mkfont [字体文件名] -s [字号] -o ./unicode.pf2</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-tee</title>
+    <url>/2021/02/27/Linux-tee/</url>
+    <content><![CDATA[<h1 id="Linux-tee"><a href="#Linux-tee" class="headerlink" title="Linux tee"></a>Linux tee</h1><blockquote>
+<p>tee命令用于读取标准输入的数据，并将其内容输出成文件。</p>
+<p>tee指令会从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存成文件。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="命令和选项"><a href="#命令和选项" class="headerlink" title="命令和选项"></a>命令和选项</h2><ul>
+<li>命令：tee [选项] 文件</li>
+<li>选项</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code></td>
+<td>追加，默认覆盖保存</td>
+</tr>
+</tbody></table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>将用户输入的数据保存到文件t中，执行命令后，等待用户输入</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tee t</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（覆盖保存）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee t</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<strong>echo</strong>输出写入文件t中（追加保存）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world | tee -a t</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784803.png" alt="image-20210227143112062"></p>
 ]]></content>
       <categories>
         <category>linux</category>
@@ -729,13 +773,16 @@
 <li><strong>安装插件</strong></li>
 </ol>
 <ul>
-<li><a href="https://github.com/zsh-users/zsh-syntax-highlighting"><strong>zsh-autosuggestions</strong></a>: 记录你的历史输入</li>
+<li><a href="https://github.com/zsh-users/zsh-syntax-highlighting"><strong>zsh-autosuggestions</strong></a>: 记录你的历史输入，当你输入时根据输入内容提示。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/.oh-my-zsh/plugins</span><br><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 找到plugins 添加 zsh-autosuggestions</span></span><br><span class="line">plugins=( </span><br><span class="line">    # other plugins...</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li></li>
+<li>autojump: 根据你的历史记录，快速跳转</li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-29/1632887098.png" alt="image-20210929114456664"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/joelthelion/autojump.git</span><br><span class="line">cd autojump</span><br><span class="line">python ./install.py</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装完成后按照提示在 .zshrc 配置文件中添加内容</span> </span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>linux</category>
@@ -747,7 +794,9 @@
   <entry>
     <title>Linux-基本使用</title>
     <url>/2021/09/16/Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="linux-基本使用"><a href="#linux-基本使用" class="headerlink" title="linux 基本使用"></a>linux 基本使用</h1><h2 id="apt的使用"><a href="#apt的使用" class="headerlink" title="apt的使用"></a>apt的使用</h2><ul>
+    <content><![CDATA[<h1 id="linux-基本使用"><a href="#linux-基本使用" class="headerlink" title="linux 基本使用"></a>linux 基本使用</h1><h2 id="apt的使用"><a href="#apt的使用" class="headerlink" title="apt的使用"></a>apt的使用</h2><span id="more"></span>
+
+<ul>
 <li>安装软件</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install 【软件名】</span><br></pre></td></tr></table></figure>
@@ -852,427 +901,6 @@
       <tags>
         <tag>linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Linux-权限</title>
-    <url>/2021/02/22/Linux-%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
-<li><p>r：代表可读，查看</p>
-</li>
-<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
-</li>
-<li><p>x：可执行</p>
-<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
-<li><p>r：可以读取，ls查看目录内容</p>
-</li>
-<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
-</li>
-<li><p>x：可执行，可以cd进入改目录</p>
-</li>
-</ul>
-<p>例子：</p>
-<ul>
-<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
-<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><ul>
-<li><p>基本说明：</p>
-<blockquote>
-<p>通过chmod指令，可以修改文件或目录的权限</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="通过-、-、-变更权限"><a href="#通过-、-、-变更权限" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h3><p><code>说明</code>u：使用者，g：所有组，o：其他用户，a：所有用户</p>
-<ul>
-<li><p>命令一：</p>
-<blockquote>
-<p>chmod u=rwx,g=rx,o=x 文件或目录名</p>
-<ul>
-<li>设定文件或目录的使用者权限为rwx，组的权限为r-x，其他人权限为–x</li>
-</ul>
-</blockquote>
-</li>
-<li><p>命令二：</p>
-<blockquote>
-<p>chmod o+w 文件或目录名</p>
-<ul>
-<li>添加权限，给其他添加权限w（写）</li>
-</ul>
-</blockquote>
-</li>
-<li><p>命令三：</p>
-<blockquote>
-<p>chmod a-x 文件或目录名</p>
-<ul>
-<li>除去权限，所有用户除去权限x（执行）</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h3 id="通过数字变更权限"><a href="#通过数字变更权限" class="headerlink" title="通过数字变更权限"></a>通过数字变更权限</h3><p><code>说明</code>r：4、w：2、x：1，则rwx = 4+2+1=7</p>
-<blockquote>
-<p>命令：chmod 555</p>
-<ul>
-<li>赋予r-xr-xr-x的权限</li>
-</ul>
-</blockquote>
-<ul>
-<li>chmod u=rwx,g=rx,o=x相当于chmod 751</li>
-</ul>
-<h2 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h2><blockquote>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>a</code></td>
-<td>让文件或目录仅供附加用途。可以附加内容到文件中，但是不能编辑文件中的现有信息，也不能删除文件</td>
-</tr>
-<tr>
-<td><code>b</code></td>
-<td>不更新文件或目录的最后存取时间。</td>
-</tr>
-<tr>
-<td><code>c</code></td>
-<td>这个属性设置之后，将会自动的将此文件“压缩”，在读取的时候将会自动解压缩，</td>
-</tr>
-<tr>
-<td><code>d</code></td>
-<td>但是在储存的时候，将会先进行压缩后再储存当 dump 程序被执行的时候，设置 d 属性将可使该文件（或目录）不会被 dump 备份</td>
-</tr>
-<tr>
-<td><code>i</code></td>
-<td>不得任意更动文件或目录，文件“不能被删除、改名、设置链接也无法写入或新增数据！”</td>
-</tr>
-<tr>
-<td><code>s</code></td>
-<td>保密性删除文件或目录。当文件设置了 s 属性时，如果这个文件被删除，他将会被完全的移除出这个硬盘空间， 所以如果误删了，完全无法救回来了.</td>
-</tr>
-<tr>
-<td><code>S</code></td>
-<td>一般文件是非同步写入磁盘的，如果加上 S 这个属性时， 当你进行任何文件的修改，该更动会“同步”写入磁盘中。</td>
-</tr>
-<tr>
-<td><code>u</code></td>
-<td>与 s 相反的，当使用 u 来设置文件时，如果该文件被删除了，则数据内容其实还存在磁盘中，可以使用来救援该文件</td>
-</tr>
-</tbody></table>
-</blockquote>
-<h3 id="设置隐藏属性（chattr）"><a href="#设置隐藏属性（chattr）" class="headerlink" title="设置隐藏属性（chattr）"></a>设置隐藏属性（chattr）</h3><ul>
-<li><p>+ ：增加某一个特殊参数，其他原本存在参数则不动。 </p>
-</li>
-<li><p>- ：移除某一个特殊参数，其他原本存在参数则不动。 </p>
-</li>
-<li><p>= ：设置一定，且仅有后面接的参数 </p>
-</li>
-</ul>
-<h3 id="查看隐藏属性（lsattr）"><a href="#查看隐藏属性（lsattr）" class="headerlink" title="查看隐藏属性（lsattr）"></a>查看隐藏属性（lsattr）</h3><h2 id="文件特殊权限：-SUID、SGID、SBIT"><a href="#文件特殊权限：-SUID、SGID、SBIT" class="headerlink" title="文件特殊权限： SUID、SGID、SBIT"></a>文件特殊权限： SUID、SGID、SBIT</h2><h3 id="SUID（Set-UID-）"><a href="#SUID（Set-UID-）" class="headerlink" title="SUID（Set UID ）"></a>SUID（Set UID ）</h3><blockquote>
-<p>当 s 标志在文件拥有者的 x 项目为 SUID</p>
-</blockquote>
-<p>我们先来看看这个</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> l /usr/bin/passwd</span></span><br><span class="line">--rwsr-xr-x 1 root root 67K 5月  28  2020 /usr/bin/passwd</span><br><span class="line"><span class="meta">$</span><span class="bash"> l /etc/shadow</span></span><br><span class="line">-rw-r----- 1 root shadow 972 2月  13 14:24 /etc/shadow</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>/etc/shadow：用于存储 Linux 系统中用户的密码信息</p>
-<p>可以看到/etc/shadow文件仅有root可读且仅有root可以强制写入而已，但是我们可不可以更改自己账号的密码呢，明显是可以的，这就是SUID的作用</p>
-<ul>
-<li><p>SUID 权限仅对<code>二进制程序</code>有效</p>
-</li>
-<li><p>执行者对于该程序需要<code>具有 x 的可执行权限</code></p>
-</li>
-<li><p>本权限仅在<code>执行该程序的过程中有效 </code></p>
-</li>
-<li><p><code>执行者将具有该程序拥有者 （owner） 的权限</code>（上面拥有root的权限）</p>
-</li>
-</ul>
-</blockquote>
-<h3 id="SGID（Set-GID）"><a href="#SGID（Set-GID）" class="headerlink" title="SGID（Set GID）"></a>SGID（Set GID）</h3><blockquote>
-<p>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则称为 Set GID</p>
-<ul>
-<li><p>SGID 对<code>二进制程序</code>有用</p>
-</li>
-<li><p>程序执行者对于该程序来说，需<code>具备 x 的权限</code></p>
-</li>
-<li><p>执行者在<code>执行的过程中将会获得该程序群组的支持</code></p>
-</li>
-</ul>
-</blockquote>
-<h3 id="SBIT（Sticky-Bit-）"><a href="#SBIT（Sticky-Bit-）" class="headerlink" title="SBIT（Sticky Bit ）"></a>SBIT（Sticky Bit ）</h3><blockquote>
-<p>针对目录有效</p>
-<p>SBIT 对于目录的作用 是：</p>
-<ul>
-<li>当<code>使用者对于此目录具有 w, x 权限</code>，亦即具有写入的权限时，<code>使用者在该目录下创建文件或目录时，仅有自己与 root 才有权力删除该文件</code></li>
-</ul>
-</blockquote>
-<h3 id="SUID-SGID-SBIT-权限设置"><a href="#SUID-SGID-SBIT-权限设置" class="headerlink" title="SUID/SGID/SBIT 权限设置"></a>SUID/SGID/SBIT 权限设置</h3><h4 id="通过-、-、-变更权限-1"><a href="#通过-、-、-变更权限-1" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h4><ul>
-<li>和上面的修改rwx权限一样，SUID 为 u+s ，而 SGID 为 g+s ， SBIT 则是 o+t</li>
-</ul>
-<h4 id="使用数字更改"><a href="#使用数字更改" class="headerlink" title="使用数字更改"></a>使用数字更改</h4><ul>
-<li><p>4 为 SUID </p>
-</li>
-<li><p>2 为 SGID </p>
-</li>
-<li><p>1 为 SBIT </p>
-</li>
-</ul>
-<p>假设要将一个文件权限改为“-rwsr-xr-x”时，由于 s 在使用者权限中，所以是 SUID ，因此， 在原先的 755 之前还要加上 4 ，也就是：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 4755 filename </span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>一、让使用者能进入某目录成为“可工作目录”的基本权限，例如 cd 等变换工作目录的指令： </p>
-<ul>
-<li><p>目录所需权限：使用者对这个目录至少需要具有 x 的权限 </p>
-</li>
-<li><p>额外需求：如果使用者想要在这个目录内利用 ls 查阅文件名，则使用者对此目录还需要 r 的权限。 </p>
-</li>
-</ul>
-<p>二、使用者在某个目录内读取一个文件的基本权限，例如 cat, more, less等等 </p>
-<ul>
-<li><p>目录所需权限：使用者对这个目录至少需要具有 x 权限； </p>
-</li>
-<li><p>文件所需权限：使用者对文件至少需要具有 r 的权限才行！ </p>
-</li>
-</ul>
-<p>三、让使用者可以修改一个文件的基本权限，例如 nano 或 vi 编辑器等； </p>
-<ul>
-<li><p>目录所需权限：使用者在该文件所在的目录至少要有 x 权限； </p>
-</li>
-<li><p>文件所需权限：使用者对该文件至少要有 r, w 权限 </p>
-</li>
-</ul>
-<p>四、让一个使用者可以创建一个文件的基本权限为何？ </p>
-<ul>
-<li>目录所需权限：使用者在该目录要具有 w,x 的权限，重点在 w 啦！ </li>
-</ul>
-<p>五、让使用者进入某目录并执行该目录下的某个指令之基本权限为何？ </p>
-<ul>
-<li><p>目录所需权限：使用者在该目录至少要有 x 的权限； </p>
-</li>
-<li><p>文件所需权限：使用者在该文件至少需要有 x 的权限</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux-环境变量.md</title>
-    <url>/2021/02/24/Linux-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h1 id="linux环境变量"><a href="#linux环境变量" class="headerlink" title="linux环境变量"></a>linux环境变量</h1><ul>
-<li>export ：显示所有的环境变量</li>
-<li>echo $PATH：命令输出当前的PATH环境变量的值</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
-<li><p>临时变量，当前终端有效，窗口关闭后无效</p>
-<ul>
-<li>在终端输入</li>
-</ul>
-<blockquote>
-<p>export PATH=软件位置/bin:$PATH或export PATH=$PATH:软件位置bin</p>
-</blockquote>
-</li>
-<li><p>当前用户有效（终端bash）</p>
-<ul>
-<li>vim ~/.bashrc</li>
-</ul>
-<blockquote>
-<p>通过修改用户目录下的~/.bashrc文件进行配置：在最后一行加上export PATH=$PATH:软件位置/bin</p>
-</blockquote>
-<ul>
-<li>source ~/.bashrc</li>
-</ul>
-<p>注意：source ~/.bashrc后才生效，对当前用户永久有效</p>
-</li>
-<li><p>对所有用户有效（终端bash）</p>
-<ul>
-<li>vim /etc/bashrc</li>
-</ul>
-<blockquote>
-<p>方法是修改系统配置，需要管理员权限（如root）或者对该文件的写入权限, 在最后添加：</p>
-<p>export PATH=$PATH:软件位置/bin</p>
-</blockquote>
-<ul>
-<li>source /etc/bashrc</li>
-</ul>
-</li>
-</ol>
-<h2 id="配置anaconda"><a href="#配置anaconda" class="headerlink" title="配置anaconda"></a>配置anaconda</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">export PATH=$PATH:你的anaconda位置/bin</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="添加多个"><a href="#添加多个" class="headerlink" title="添加多个"></a>添加多个</h2><p>添加anaconda和java环境变量</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在最后添加</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>生效</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>注意: $PATH  代表前面添加的PATH，没有$PATH前面的会失效，在这里最后没有$PATH则anaconda不起作用</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>picGo的gitee图床</title>
-    <url>/2021/02/22/PicGo%E7%9A%84gitee%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="PicGo添加gitee图床"><a href="#PicGo添加gitee图床" class="headerlink" title="PicGo添加gitee图床"></a>PicGo添加gitee图床</h1><blockquote>
-<p>PicGo默认是没有gitee图床的，如果要使用gitee图床就要添加插件，而gitee插件的使用要用到node</p>
-</blockquote>
-<ul>
-<li><p>安装node，添加环境变量</p>
-</li>
-<li><p>添加gitee插件：打开PicGo的插件设置搜索gitee安装</p>
-</li>
-<li><p>重启PicGo会看到图床设置里多了个gitee</p>
-</li>
-<li><p>设置gitee图床</p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784833.png" alt="image-20210222204029618"></p>
-<ul>
-<li>一个地址说明上面的参数：<a href="https://gitee.com/lishushuai/img">https://gitee.com/lishushuai/img</a> <ul>
-<li>owner：lishushuai</li>
-<li>repo：img</li>
-<li>path：</li>
-<li>token：可以在<a href="https://gitee.com/profile/personal_access_tokens%E7%94%9F%E6%88%90">https://gitee.com/profile/personal_access_tokens生成</a></li>
-<li>message：</li>
-</ul>
-</li>
-</ul>
-<p>​    </p>
-]]></content>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vim-实用技巧</title>
-    <url>/2021/05/07/Vim-%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h1 id="Vim-实用技巧"><a href="#Vim-实用技巧" class="headerlink" title="Vim-实用技巧"></a>Vim-实用技巧</h1><h2 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h2><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>g~</code></td>
-<td align="center">反转大小写</td>
-</tr>
-<tr>
-<td align="center"><code>gU</code></td>
-<td align="center">转换为大写</td>
-</tr>
-<tr>
-<td align="center"><code>gu</code></td>
-<td align="center">转换为小写</td>
-</tr>
-<tr>
-<td align="center"><code>guu</code></td>
-<td align="center">转换当前行小写</td>
-</tr>
-<tr>
-<td align="center"><code>gUU</code></td>
-<td align="center">转换当前行为大写</td>
-</tr>
-</tbody></table>
-<span id="more"></span>
-
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
-<li>gcc 注释当前行</li>
-<li>gcap 注释当前段</li>
-<li>gcG 注释当前行到结尾的内容</li>
-</ul>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><ul>
-<li>插入模式下</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">&lt;<code>C - h</code>&gt;</td>
-<td align="center">删除前一个字符（同退格键）</td>
-</tr>
-<tr>
-<td align="center">&lt;<code>C - w</code>&gt;</td>
-<td align="center">删除前一个单词</td>
-</tr>
-<tr>
-<td align="center">&lt;<code>C - u</code>&gt;</td>
-<td align="center">删除到行首</td>
-</tr>
-</tbody></table>
-<h2 id="插入模式返回普通模式"><a href="#插入模式返回普通模式" class="headerlink" title="插入模式返回普通模式"></a>插入模式返回普通模式</h2><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>esc</code></td>
-<td align="center">返回普通模式</td>
-</tr>
-<tr>
-<td align="center">&lt;<code>C - [</code>&gt;</td>
-<td align="center">返回普通模式</td>
-</tr>
-<tr>
-<td align="center">&lt;<code>C - o</code>&gt;</td>
-<td align="center">返回普通模式执行一次命令后回到插入模式</td>
-</tr>
-</tbody></table>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>u</code></td>
-<td align="center">替换当前字符（后面跟替换的字符）</td>
-</tr>
-<tr>
-<td align="center"><code>U</code></td>
-<td align="center">进入替换模式</td>
-</tr>
-</tbody></table>
-<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><ul>
-<li>gv 选择上次可视模式选择的文本范围</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>Linux-文件和文件夹操作.md</title>
@@ -1532,21 +1160,436 @@
       </tags>
   </entry>
   <entry>
-    <title>css-帧动画</title>
-    <url>/2021/04/14/css-%E5%B8%A7%E5%8A%A8%E7%94%BB/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
+    <title>Linux-权限</title>
+    <url>/2021/02/22/Linux-%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h1 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h1><h2 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h2><span id="more"></span>
+
+<h3 id="作用到文件"><a href="#作用到文件" class="headerlink" title="作用到文件"></a>作用到文件</h3><ul>
+<li><p>r：代表可读，查看</p>
+</li>
+<li><p>w：可写；可以修改，但是不代表可以删除文件，删除文件袋前提是对该文件所在地目录有写权限，才能删除文件</p>
+</li>
+<li><p>x：可执行</p>
+<h3 id="作用到目录"><a href="#作用到目录" class="headerlink" title="作用到目录"></a>作用到目录</h3></li>
+<li><p>r：可以读取，ls查看目录内容</p>
+</li>
+<li><p>w：可写，可以修改，对目录内创建、删除、重命名目录</p>
+</li>
+<li><p>x：可执行，可以cd进入改目录</p>
+</li>
+</ul>
+<p>例子：</p>
+<ul>
+<li>drwxr-xr-x的1-3位为rwx代表可读可写可执行</li>
+<li>drwxr-xr-x的4-6位为r-x代表可读不可写可执行</li>
+</ul>
+<!-- more -->
+
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><ul>
+<li><p>基本说明：</p>
+<blockquote>
+<p>通过chmod指令，可以修改文件或目录的权限</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过-、-、-变更权限"><a href="#通过-、-、-变更权限" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h3><p><code>说明</code>u：使用者，g：所有组，o：其他用户，a：所有用户</p>
+<ul>
+<li><p>命令一：</p>
+<blockquote>
+<p>chmod u=rwx,g=rx,o=x 文件或目录名</p>
+<ul>
+<li>设定文件或目录的使用者权限为rwx，组的权限为r-x，其他人权限为–x</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令二：</p>
+<blockquote>
+<p>chmod o+w 文件或目录名</p>
+<ul>
+<li>添加权限，给其他添加权限w（写）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>命令三：</p>
+<blockquote>
+<p>chmod a-x 文件或目录名</p>
+<ul>
+<li>除去权限，所有用户除去权限x（执行）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过数字变更权限"><a href="#通过数字变更权限" class="headerlink" title="通过数字变更权限"></a>通过数字变更权限</h3><p><code>说明</code>r：4、w：2、x：1，则rwx = 4+2+1=7</p>
+<blockquote>
+<p>命令：chmod 555</p>
+<ul>
+<li>赋予r-xr-xr-x的权限</li>
+</ul>
+</blockquote>
+<ul>
+<li>chmod u=rwx,g=rx,o=x相当于chmod 751</li>
+</ul>
+<h2 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h2><blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>a</code></td>
+<td>让文件或目录仅供附加用途。可以附加内容到文件中，但是不能编辑文件中的现有信息，也不能删除文件</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>不更新文件或目录的最后存取时间。</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>这个属性设置之后，将会自动的将此文件“压缩”，在读取的时候将会自动解压缩，</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>但是在储存的时候，将会先进行压缩后再储存当 dump 程序被执行的时候，设置 d 属性将可使该文件（或目录）不会被 dump 备份</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>不得任意更动文件或目录，文件“不能被删除、改名、设置链接也无法写入或新增数据！”</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>保密性删除文件或目录。当文件设置了 s 属性时，如果这个文件被删除，他将会被完全的移除出这个硬盘空间， 所以如果误删了，完全无法救回来了.</td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td>一般文件是非同步写入磁盘的，如果加上 S 这个属性时， 当你进行任何文件的修改，该更动会“同步”写入磁盘中。</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>与 s 相反的，当使用 u 来设置文件时，如果该文件被删除了，则数据内容其实还存在磁盘中，可以使用来救援该文件</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="设置隐藏属性（chattr）"><a href="#设置隐藏属性（chattr）" class="headerlink" title="设置隐藏属性（chattr）"></a>设置隐藏属性（chattr）</h3><ul>
+<li><p>+ ：增加某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>- ：移除某一个特殊参数，其他原本存在参数则不动。 </p>
+</li>
+<li><p>= ：设置一定，且仅有后面接的参数 </p>
+</li>
+</ul>
+<h3 id="查看隐藏属性（lsattr）"><a href="#查看隐藏属性（lsattr）" class="headerlink" title="查看隐藏属性（lsattr）"></a>查看隐藏属性（lsattr）</h3><h2 id="文件特殊权限：-SUID、SGID、SBIT"><a href="#文件特殊权限：-SUID、SGID、SBIT" class="headerlink" title="文件特殊权限： SUID、SGID、SBIT"></a>文件特殊权限： SUID、SGID、SBIT</h2><h3 id="SUID（Set-UID-）"><a href="#SUID（Set-UID-）" class="headerlink" title="SUID（Set UID ）"></a>SUID（Set UID ）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID</p>
+</blockquote>
+<p>我们先来看看这个</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> l /usr/bin/passwd</span></span><br><span class="line">--rwsr-xr-x 1 root root 67K 5月  28  2020 /usr/bin/passwd</span><br><span class="line"><span class="meta">$</span><span class="bash"> l /etc/shadow</span></span><br><span class="line">-rw-r----- 1 root shadow 972 2月  13 14:24 /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>/etc/shadow：用于存储 Linux 系统中用户的密码信息</p>
+<p>可以看到/etc/shadow文件仅有root可读且仅有root可以强制写入而已，但是我们可不可以更改自己账号的密码呢，明显是可以的，这就是SUID的作用</p>
+<ul>
+<li><p>SUID 权限仅对<code>二进制程序</code>有效</p>
+</li>
+<li><p>执行者对于该程序需要<code>具有 x 的可执行权限</code></p>
+</li>
+<li><p>本权限仅在<code>执行该程序的过程中有效 </code></p>
+</li>
+<li><p><code>执行者将具有该程序拥有者 （owner） 的权限</code>（上面拥有root的权限）</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SGID（Set-GID）"><a href="#SGID（Set-GID）" class="headerlink" title="SGID（Set GID）"></a>SGID（Set GID）</h3><blockquote>
+<p>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则称为 Set GID</p>
+<ul>
+<li><p>SGID 对<code>二进制程序</code>有用</p>
+</li>
+<li><p>程序执行者对于该程序来说，需<code>具备 x 的权限</code></p>
+</li>
+<li><p>执行者在<code>执行的过程中将会获得该程序群组的支持</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="SBIT（Sticky-Bit-）"><a href="#SBIT（Sticky-Bit-）" class="headerlink" title="SBIT（Sticky Bit ）"></a>SBIT（Sticky Bit ）</h3><blockquote>
+<p>针对目录有效</p>
+<p>SBIT 对于目录的作用 是：</p>
+<ul>
+<li>当<code>使用者对于此目录具有 w, x 权限</code>，亦即具有写入的权限时，<code>使用者在该目录下创建文件或目录时，仅有自己与 root 才有权力删除该文件</code></li>
+</ul>
+</blockquote>
+<h3 id="SUID-SGID-SBIT-权限设置"><a href="#SUID-SGID-SBIT-权限设置" class="headerlink" title="SUID/SGID/SBIT 权限设置"></a>SUID/SGID/SBIT 权限设置</h3><h4 id="通过-、-、-变更权限-1"><a href="#通过-、-、-变更权限-1" class="headerlink" title="通过+、-、= 变更权限"></a>通过+、-、= 变更权限</h4><ul>
+<li>和上面的修改rwx权限一样，SUID 为 u+s ，而 SGID 为 g+s ， SBIT 则是 o+t</li>
+</ul>
+<h4 id="使用数字更改"><a href="#使用数字更改" class="headerlink" title="使用数字更改"></a>使用数字更改</h4><ul>
+<li><p>4 为 SUID </p>
+</li>
+<li><p>2 为 SGID </p>
+</li>
+<li><p>1 为 SBIT </p>
+</li>
+</ul>
+<p>假设要将一个文件权限改为“-rwsr-xr-x”时，由于 s 在使用者权限中，所以是 SUID ，因此， 在原先的 755 之前还要加上 4 ，也就是：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 4755 filename </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>一、让使用者能进入某目录成为“可工作目录”的基本权限，例如 cd 等变换工作目录的指令： </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 的权限 </p>
+</li>
+<li><p>额外需求：如果使用者想要在这个目录内利用 ls 查阅文件名，则使用者对此目录还需要 r 的权限。 </p>
+</li>
+</ul>
+<p>二、使用者在某个目录内读取一个文件的基本权限，例如 cat, more, less等等 </p>
+<ul>
+<li><p>目录所需权限：使用者对这个目录至少需要具有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对文件至少需要具有 r 的权限才行！ </p>
+</li>
+</ul>
+<p>三、让使用者可以修改一个文件的基本权限，例如 nano 或 vi 编辑器等； </p>
+<ul>
+<li><p>目录所需权限：使用者在该文件所在的目录至少要有 x 权限； </p>
+</li>
+<li><p>文件所需权限：使用者对该文件至少要有 r, w 权限 </p>
+</li>
+</ul>
+<p>四、让一个使用者可以创建一个文件的基本权限为何？ </p>
+<ul>
+<li>目录所需权限：使用者在该目录要具有 w,x 的权限，重点在 w 啦！ </li>
+</ul>
+<p>五、让使用者进入某目录并执行该目录下的某个指令之基本权限为何？ </p>
+<ul>
+<li><p>目录所需权限：使用者在该目录至少要有 x 的权限； </p>
+</li>
+<li><p>文件所需权限：使用者在该文件至少需要有 x 的权限</p>
+</li>
+</ul>
+]]></content>
       <categories>
-        <category>css</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>css</tag>
-        <tag>html</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vim-实用技巧</title>
+    <url>/2021/05/07/Vim-%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="Vim-实用技巧"><a href="#Vim-实用技巧" class="headerlink" title="Vim-实用技巧"></a>Vim-实用技巧</h1><h2 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h2><span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>g~</code></td>
+<td align="center">反转大小写</td>
+</tr>
+<tr>
+<td align="center"><code>gU</code></td>
+<td align="center">转换为大写</td>
+</tr>
+<tr>
+<td align="center"><code>gu</code></td>
+<td align="center">转换为小写</td>
+</tr>
+<tr>
+<td align="center"><code>guu</code></td>
+<td align="center">转换当前行小写</td>
+</tr>
+<tr>
+<td align="center"><code>gUU</code></td>
+<td align="center">转换当前行为大写</td>
+</tr>
+</tbody></table>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
+<li>gcc 注释当前行</li>
+<li>gcap 注释当前段</li>
+<li>gcG 注释当前行到结尾的内容</li>
+</ul>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><ul>
+<li>插入模式下</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;<code>C - h</code>&gt;</td>
+<td align="center">删除前一个字符（同退格键）</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - w</code>&gt;</td>
+<td align="center">删除前一个单词</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - u</code>&gt;</td>
+<td align="center">删除到行首</td>
+</tr>
+</tbody></table>
+<h2 id="插入模式返回普通模式"><a href="#插入模式返回普通模式" class="headerlink" title="插入模式返回普通模式"></a>插入模式返回普通模式</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>esc</code></td>
+<td align="center">返回普通模式</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - [</code>&gt;</td>
+<td align="center">返回普通模式</td>
+</tr>
+<tr>
+<td align="center">&lt;<code>C - o</code>&gt;</td>
+<td align="center">返回普通模式执行一次命令后回到插入模式</td>
+</tr>
+</tbody></table>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>u</code></td>
+<td align="center">替换当前字符（后面跟替换的字符）</td>
+</tr>
+<tr>
+<td align="center"><code>U</code></td>
+<td align="center">进入替换模式</td>
+</tr>
+</tbody></table>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><ul>
+<li>gv 选择上次可视模式选择的文本范围</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>picGo的gitee图床</title>
+    <url>/2021/02/22/PicGo%E7%9A%84gitee%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="PicGo添加gitee图床"><a href="#PicGo添加gitee图床" class="headerlink" title="PicGo添加gitee图床"></a>PicGo添加gitee图床</h1><blockquote>
+<p>PicGo默认是没有gitee图床的，如果要使用gitee图床就要添加插件，而gitee插件的使用要用到node</p>
+</blockquote>
+<span id="more"></span>
+
+<ul>
+<li><p>安装node，添加环境变量</p>
+</li>
+<li><p>添加gitee插件：打开PicGo的插件设置搜索gitee安装</p>
+</li>
+<li><p>重启PicGo会看到图床设置里多了个gitee</p>
+</li>
+<li><p>设置gitee图床</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784833.png" alt="image-20210222204029618"></p>
+<ul>
+<li>一个地址说明上面的参数：<a href="https://gitee.com/lishushuai/img">https://gitee.com/lishushuai/img</a> <ul>
+<li>owner：lishushuai</li>
+<li>repo：img</li>
+<li>path：</li>
+<li>token：可以在<a href="https://gitee.com/profile/personal_access_tokens%E7%94%9F%E6%88%90">https://gitee.com/profile/personal_access_tokens生成</a></li>
+<li>message：</li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+]]></content>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux-环境变量.md</title>
+    <url>/2021/02/24/Linux-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h1 id="linux环境变量"><a href="#linux环境变量" class="headerlink" title="linux环境变量"></a>linux环境变量</h1><ul>
+<li>export ：显示所有的环境变量</li>
+<li>echo $PATH：命令输出当前的PATH环境变量的值</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
+<li><p>临时变量，当前终端有效，窗口关闭后无效</p>
+<ul>
+<li>在终端输入</li>
+</ul>
+<blockquote>
+<p>export PATH=软件位置/bin:$PATH或export PATH=$PATH:软件位置bin</p>
+</blockquote>
+</li>
+<li><p>当前用户有效（终端bash）</p>
+<ul>
+<li>vim ~/.bashrc</li>
+</ul>
+<blockquote>
+<p>通过修改用户目录下的~/.bashrc文件进行配置：在最后一行加上export PATH=$PATH:软件位置/bin</p>
+</blockquote>
+<ul>
+<li>source ~/.bashrc</li>
+</ul>
+<p>注意：source ~/.bashrc后才生效，对当前用户永久有效</p>
+</li>
+<li><p>对所有用户有效（终端bash）</p>
+<ul>
+<li>vim /etc/bashrc</li>
+</ul>
+<blockquote>
+<p>方法是修改系统配置，需要管理员权限（如root）或者对该文件的写入权限, 在最后添加：</p>
+<p>export PATH=$PATH:软件位置/bin</p>
+</blockquote>
+<ul>
+<li>source /etc/bashrc</li>
+</ul>
+</li>
+</ol>
+<h2 id="配置anaconda"><a href="#配置anaconda" class="headerlink" title="配置anaconda"></a>配置anaconda</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">export PATH=$PATH:你的anaconda位置/bin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加多个"><a href="#添加多个" class="headerlink" title="添加多个"></a>添加多个</h2><p>添加anaconda和java环境变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在最后添加</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:anaconda位置/bin</span><br><span class="line">JAVA_HOME=java位置</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生效</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>注意: $PATH  代表前面添加的PATH，没有$PATH前面的会失效，在这里最后没有$PATH则anaconda不起作用</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
     <title>build.gradle文件.md</title>
     <url>/2021/02/22/build.gradle%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="bulid-gradle文件"><a href="#bulid-gradle文件" class="headerlink" title="bulid.gradle文件"></a>bulid.gradle文件</h2><h3 id="最外层的bulid-gradle文件"><a href="#最外层的bulid-gradle文件" class="headerlink" title="最外层的bulid.gradle文件"></a>最外层的bulid.gradle文件</h3><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">&quot;1.3.72&quot;</span></span><br><span class="line">    repositories &#123;</span><br><span class="line">        <span class="comment">// 代码仓库，声明后可以使用其中的依赖库</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// 声明gradle插件，用于构建Android项目</span></span><br><span class="line">        classpath <span class="string">&quot;com.android.tools.build:gradle:4.0.1&quot;</span></span><br><span class="line">        <span class="comment">// kotlin插件，表明当前项目是由kotlin进行开发的</span></span><br><span class="line">        classpath <span class="string">&quot;org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="bulid-gradle文件"><a href="#bulid-gradle文件" class="headerlink" title="bulid.gradle文件"></a>bulid.gradle文件</h2><h3 id="最外层的bulid-gradle文件"><a href="#最外层的bulid-gradle文件" class="headerlink" title="最外层的bulid.gradle文件"></a>最外层的bulid.gradle文件</h3><span id="more"></span>
+
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">&quot;1.3.72&quot;</span></span><br><span class="line">    repositories &#123;</span><br><span class="line">        <span class="comment">// 代码仓库，声明后可以使用其中的依赖库</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// 声明gradle插件，用于构建Android项目</span></span><br><span class="line">        classpath <span class="string">&quot;com.android.tools.build:gradle:4.0.1&quot;</span></span><br><span class="line">        <span class="comment">// kotlin插件，表明当前项目是由kotlin进行开发的</span></span><br><span class="line">        classpath <span class="string">&quot;org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="app目录下的bulid-gradle文件"><a href="#app目录下的bulid-gradle文件" class="headerlink" title="app目录下的bulid.gradle文件"></a>app目录下的bulid.gradle文件</h3><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;com.android.application&#x27;</span>   <span class="comment">// 表示这是一个应用程序模块</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;kotlin-android&#x27;</span>   <span class="comment">// 使用kotlin开发android项目</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;kotlin-android-extensions&#x27;</span>    <span class="comment">// kotlin扩展功能</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">29</span>    <span class="comment">// 项目编译的版本，这里是Android 10.0系统的SDK编译</span></span><br><span class="line">    buildToolsVersion <span class="string">&quot;30.0.1&quot;</span>    <span class="comment">// 项目构建工具的版本</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        <span class="comment">// 每个应用的唯一标识，不能重复。默认是包名</span></span><br><span class="line">        applicationId <span class="string">&quot;com.example.myapplication&quot;</span>   </span><br><span class="line">        minSdkVersion <span class="number">21</span>    <span class="comment">// 项目最低兼容的Android版本，这里是5.0</span></span><br><span class="line">        targetSdkVersion <span class="number">29</span></span><br><span class="line">        versionCode <span class="number">1</span>    <span class="comment">// 指定项目的版本号</span></span><br><span class="line">        versionName <span class="string">&quot;1.0&quot;</span>    <span class="comment">// 指定项目的版本名</span></span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner <span class="string">&quot;androidx.test.runner.AndroidJUnitRunner&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            </span><br><span class="line">            minifyEnabled <span class="literal">false</span>   <span class="comment">// 是否对项目的代码进行混淆</span></span><br><span class="line">            <span class="comment">// 混淆时的规则文件</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">&#x27;proguard-android-optimize.txt&#x27;</span>), <span class="string">&#x27;proguard-rules.pro&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定当前项目的依赖关系</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">// 本地依赖声明，表示将libs目录下的所有.jar后缀的文件添加到项目的构建路径中。</span></span><br><span class="line">    implementation fileTree(<span class="attr">dir:</span> <span class="string">&quot;libs&quot;</span>, <span class="attr">include:</span> [<span class="string">&quot;*.jar&quot;</span>])</span><br><span class="line">    <span class="comment">// 远程依赖声明</span></span><br><span class="line">    implementation <span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version&quot;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.core:core-ktx:1.3.1&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.appcompat:appcompat:1.2.0&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.constraintlayout:constraintlayout:1.1.3&#x27;</span></span><br><span class="line">    testImplementation <span class="string">&#x27;junit:junit:4.12&#x27;</span></span><br><span class="line">    androidTestImplementation <span class="string">&#x27;androidx.test.ext:junit:1.1.1&#x27;</span></span><br><span class="line">    androidTestImplementation <span class="string">&#x27;androidx.test.espresso:espresso-core:3.2.0&#x27;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1563,56 +1606,15 @@
       </categories>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/1970/01/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>github不能访问</title>
-    <url>/2021/02/22/github%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/</url>
-    <content><![CDATA[<h1 id="github不能访问"><a href="#github不能访问" class="headerlink" title="github不能访问"></a>github不能访问</h1><ul>
-<li>修改hosts文件</li>
-</ul>
-<blockquote>
-<p><strong>Hosts</strong>是一个没有扩展名的系统文件]，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。</p>
-<p>需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问。</p>
-</blockquote>
-<span id="more"></span>
-
-<ul>
-<li>windows下hosts文件路径：C:\windows\system32\drivers\etc\</li>
-<li>linux下路径：/etc/</li>
-</ul>
-<p>在hosts文件里添加</p>
-<blockquote>
-<p>ip地址 github.com</p>
-</blockquote>
-<p>github IP地址查询：<a href="https://site.ip138.com/github.com/">https://site.ip138.com/github.com/</a> 查询到的ip地址什么就填什么</p>
-<p>上面的可以是</p>
-<blockquote>
-<p>52.74.223.119 github.com</p>
-</blockquote>
-<ul>
-<li>github上图片不显示同样，图片前缀：raw.githubusercontent.com</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip地址 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
-
-]]></content>
+    <title>css-帧动画</title>
+    <url>/2021/04/14/css-%E5%B8%A7%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
       <tags>
-        <tag>github</tag>
+        <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -1686,11 +1688,48 @@
       </tags>
   </entry>
   <entry>
+    <title>github不能访问</title>
+    <url>/2021/02/22/github%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/</url>
+    <content><![CDATA[<h1 id="github不能访问"><a href="#github不能访问" class="headerlink" title="github不能访问"></a>github不能访问</h1><ul>
+<li>修改hosts文件</li>
+</ul>
+<blockquote>
+<p><strong>Hosts</strong>是一个没有扩展名的系统文件]，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。</p>
+<p>需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问。</p>
+</blockquote>
+<span id="more"></span>
+
+<ul>
+<li>windows下hosts文件路径：C:\windows\system32\drivers\etc\</li>
+<li>linux下路径：/etc/</li>
+</ul>
+<p>在hosts文件里添加</p>
+<blockquote>
+<p>ip地址 github.com</p>
+</blockquote>
+<p>github IP地址查询：<a href="https://site.ip138.com/github.com/">https://site.ip138.com/github.com/</a> 查询到的ip地址什么就填什么</p>
+<p>上面的可以是</p>
+<blockquote>
+<p>52.74.223.119 github.com</p>
+</blockquote>
+<ul>
+<li>github上图片不显示同样，图片前缀：raw.githubusercontent.com</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip地址 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo和gitee建立自己的博客</title>
     <url>/2021/02/22/hexo%E5%92%8Cgitee%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="使用hexo和gitee建立博客"><a href="#使用hexo和gitee建立博客" class="headerlink" title="使用hexo和gitee建立博客"></a>使用hexo和gitee建立博客</h1><blockquote>
 <p>使用Hexo 建立网站，然后把网站部署到gitee中</p>
 </blockquote>
+<span id="more"></span>
+
 <h2 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h2><ol>
 <li>新建一个仓库，仓库名和gitee名字一样（不一样也行，只是后面要配置多一点），其他默认，比如：<a href="https://gitee.com/lishushuai/lishushuai">https://gitee.com/lishushuai/lishushuai</a></li>
 </ol>
@@ -1698,7 +1737,7 @@
 <ol start="2">
 <li>创建好仓库后在仓库的<strong>服务</strong> –》 Gitee Pages下可以部署自己的博客</li>
 </ol>
-<span id="more"></span>
+<!-- more -->
 
 <h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><ul>
 <li><p>生成 sshkey:</p>
@@ -1785,6 +1824,11 @@
       </tags>
   </entry>
   <entry>
+    <title>http状态码</title>
+    <url>/2021/03/30/http%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+  </entry>
+  <entry>
     <title>javaScript-call()、apply()、bind()函数的使用</title>
     <url>/2021/03/20/javaScript-call%E3%80%81apply%E3%80%81bind%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="javaScript-call、apply、bind函数的使用"><a href="#javaScript-call、apply、bind函数的使用" class="headerlink" title="javaScript-call、apply、bind函数的使用"></a>javaScript-call、apply、bind函数的使用</h1><blockquote>
@@ -1830,11 +1874,6 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>http状态码</title>
-    <url>/2021/03/30/http%E7%8A%B6%E6%80%81%E7%A0%81/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
   </entry>
   <entry>
     <title>javaScript-json</title>
@@ -2028,6 +2067,21 @@
       </tags>
   </entry>
   <entry>
+    <title>javaScript-正则表达式</title>
+    <url>/2021/03/30/javaScript-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="javaScript正则表达式"><a href="#javaScript正则表达式" class="headerlink" title="javaScript正则表达式"></a>javaScript正则表达式</h1><span id="more"></span>
+
+<h2 id="正则表达式的创建"><a href="#正则表达式的创建" class="headerlink" title="正则表达式的创建"></a>正则表达式的创建</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/test/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二，</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;test&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>javaScript-对象</title>
     <url>/2021/03/18/javaScript-%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h1 id="javaScript对象"><a href="#javaScript对象" class="headerlink" title="javaScript对象"></a>javaScript对象</h1><blockquote>
@@ -2117,21 +2171,6 @@
 <h3 id="7-基于动态原型模式"><a href="#7-基于动态原型模式" class="headerlink" title="7.基于动态原型模式"></a>7.基于动态原型模式</h3><p>将原型对象放在构造函数内部，通过变量控制，只在第一次生成实例的时候进行原型的设置。</p>
 <p>相当于懒汉模式，只在生成实例是设置原型对象，但是功能与构造函数和原型混合模式相同。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, address</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.address = address;</span><br><span class="line">    <span class="comment">// 如果Person对象中_initalized为undefined，则表明还没有为Person的原型添加函数</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> Person._initalized === <span class="string">&quot;undefined&quot;</span>)&#123;</span><br><span class="line">        Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">        &#125;</span><br><span class="line">        Person._initalized = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">&#x27;node1&#x27;</span>, <span class="number">11</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">&#x27;node&#x27;</span>, <span class="number">18</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;100000&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName === person1.getName);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>javaScript-正则表达式</title>
-    <url>/2021/03/30/javaScript-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="javaScript正则表达式"><a href="#javaScript正则表达式" class="headerlink" title="javaScript正则表达式"></a>javaScript正则表达式</h1><span id="more"></span>
-
-<h2 id="正则表达式的创建"><a href="#正则表达式的创建" class="headerlink" title="正则表达式的创建"></a>正则表达式的创建</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/test/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二，</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;test&quot;</span>); </span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -2274,6 +2313,34 @@
       </tags>
   </entry>
   <entry>
+    <title>node-axios爬虫</title>
+    <url>/2021/03/28/node-axios%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<h1 id="node-axios爬虫"><a href="#node-axios爬虫" class="headerlink" title="node-axios爬虫"></a>node-axios爬虫</h1><span id="more"></span>
+
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&quot;axios&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(url: string, config?: AxiosRequestConfig)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>url：请求地址</li>
+<li>config：可选参数，对象类型的。常用参数：<ul>
+<li>responseType：请求类型</li>
+<li>headers：请求头</li>
+</ul>
+</li>
+</ul>
+<p>下载一张图片</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&quot;https://gitee.com/lishushuai/img/raw/master/20210318234209.jpg&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&quot;stream&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    resp.data.pipe(fs.createWriteStream(<span class="string">&quot;./img/1.jpg&quot;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node-npm源</title>
     <url>/2021/09/26/node-npm%E6%BA%90/</url>
     <content><![CDATA[<h1 id="npm源"><a href="#npm源" class="headerlink" title="npm源"></a>npm源</h1><span id="more"></span>
@@ -2297,34 +2364,6 @@
 <li>临时使用</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install express</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node-axios爬虫</title>
-    <url>/2021/03/28/node-axios%E7%88%AC%E8%99%AB/</url>
-    <content><![CDATA[<h1 id="node-axios爬虫"><a href="#node-axios爬虫" class="headerlink" title="node-axios爬虫"></a>node-axios爬虫</h1><span id="more"></span>
-
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&quot;axios&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(url: string, config?: AxiosRequestConfig)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>url：请求地址</li>
-<li>config：可选参数，对象类型的。常用参数：<ul>
-<li>responseType：请求类型</li>
-<li>headers：请求头</li>
-</ul>
-</li>
-</ul>
-<p>下载一张图片</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&quot;https://gitee.com/lishushuai/img/raw/master/20210318234209.jpg&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&quot;stream&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    resp.data.pipe(fs.createWriteStream(<span class="string">&quot;./img/1.jpg&quot;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -2457,6 +2496,22 @@
       </tags>
   </entry>
   <entry>
+    <title>node-箭头函数</title>
+    <url>/2021/03/14/node-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// function func()&#123;&#125;</span></span><br><span class="line"><span class="comment">// 不带参数</span></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;func&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个参数</span></span><br><span class="line"><span class="keyword">let</span> func_1 = <span class="function"><span class="params">x1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带多个参数</span></span><br><span class="line"><span class="keyword">let</span> func_2 = <span class="function">(<span class="params">x1, x2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1, x2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值</span></span><br><span class="line"><span class="keyword">let</span> func_5 = <span class="function">() =&gt;</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 等价于func_5</span></span><br><span class="line"><span class="keyword">let</span> func_6 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node-类</title>
     <url>/2021/03/17/node-%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="node-类"><a href="#node-类" class="headerlink" title="node-类"></a>node-类</h1><span id="more"></span>
@@ -2476,22 +2531,6 @@
         <category>node</category>
       </categories>
       <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node-箭头函数</title>
-    <url>/2021/03/14/node-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><span id="more"></span>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// function func()&#123;&#125;</span></span><br><span class="line"><span class="comment">// 不带参数</span></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;func&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个参数</span></span><br><span class="line"><span class="keyword">let</span> func_1 = <span class="function"><span class="params">x1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带多个参数</span></span><br><span class="line"><span class="keyword">let</span> func_2 = <span class="function">(<span class="params">x1, x2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x1, x2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值</span></span><br><span class="line"><span class="keyword">let</span> func_5 = <span class="function">() =&gt;</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 等价于func_5</span></span><br><span class="line"><span class="keyword">let</span> func_6 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">999</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
         <tag>node</tag>
       </tags>
   </entry>
@@ -2535,57 +2574,6 @@
       <tags>
         <tag>scrapy</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>python-小说爬虫.md</title>
-    <url>/2021/02/22/python-%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/</url>
-    <content><![CDATA[<h3 id="目标：爬取零点看书网"><a href="#目标：爬取零点看书网" class="headerlink" title="目标：爬取零点看书网"></a>目标：爬取零点看书网</h3><p> 一本小说</p>
-<h3 id="1、爬取小说目录地址"><a href="#1、爬取小说目录地址" class="headerlink" title="1、爬取小说目录地址"></a>1、爬取小说目录地址</h3><p>爬取小说地址：<a href="https://www.lingdiankanshu.co/258400/">https://www.lingdiankanshu.co/258400/</a></p>
-<p>查看网页源代码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784886.png" alt="image-20210226204725455"></p>
-<p>小说<code>楔子</code>在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面</p>
-<span id="more"></span>
-
-<p>用xpath来获取</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;list&quot;]/dl/dt[2]/following-sibling::dd/a&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>following-sibling :选取当前节点之后的所有同级节点 </p>
-<p>获取章节地址和章节名</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pageUrlName_list = []</span><br><span class="line">dit = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> a_list:</span><br><span class="line">    dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + a.xpath(<span class="string">&#x27;./@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    dit[<span class="string">&#x27;pageName&#x27;</span>] = a.xpath(<span class="string">&#x27;./text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list.append(dit.copy())</span><br><span class="line"><span class="built_in">print</span>(pageUrlName_list)</span><br></pre></td></tr></table></figure>
-<h3 id="2、爬取小说内容页"><a href="#2、爬取小说内容页" class="headerlink" title="2、爬取小说内容页"></a><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784891.png" alt="image-20210226204831863">2、爬取小说内容页</h3><p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784894.png" alt="image-20210226204921501"></p>
-<p>小说内容在一个id等于content的div里面</p>
-<p>获取小说内容：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(content_list)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784896.png" alt="image-20210226205024731"></p>
-<h3 id="3、整理爬取的小说"><a href="#3、整理爬取的小说" class="headerlink" title="3、整理爬取的小说"></a>3、整理爬取的小说</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content = <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784899.png" alt="image-20210226211457781"></p>
-<h3 id="4、多线程下载"><a href="#4、多线程下载" class="headerlink" title="4、多线程下载"></a>4、多线程下载</h3><p>由于小说各个章节顺序一定，可以定义一个正在保存章节的标记</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>把章节地址扔进队列中，用的时候取出来</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line">q = Queue()</span><br><span class="line"><span class="comment"># i记录章节顺序</span></span><br><span class="line"><span class="keyword">for</span> i, page <span class="keyword">in</span> <span class="built_in">enumerate</span>(pageUrlName_list):</span><br><span class="line">	q.put([i, page])</span><br></pre></td></tr></table></figure>
-
-<p>当队列不为空时：从队列中取出一个元素</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    i, page_url_name = q.get()</span><br></pre></td></tr></table></figure>
-
-<p>判断当前爬取的章节是否和保存标记的章节数一样</p>
-<p>不一样：等待</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> i &gt; index:</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<p>一样：保存当前章节，用来保存标记的章节数加一</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> index == i:</span><br><span class="line">    fw.write(content)</span><br><span class="line">    index += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>开始多线程：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    t = Thread(target=down_txt, args=[q, fw])</span><br><span class="line">    t.start()</span><br><span class="line">    ts.append(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> ts:</span><br><span class="line">    t.join()</span><br></pre></td></tr></table></figure>
-
-<h3 id="5、完整代码："><a href="#5、完整代码：" class="headerlink" title="5、完整代码："></a>5、完整代码：</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 Edg/81.0.416.72&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_pageUrlName</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;获取各章节地址和章节名&#x27;&#x27;&#x27;</span></span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    html = etree.HTML(resp.text)</span><br><span class="line">    dd_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;list&quot;]/dl/dt[2]/following-sibling::dd&#x27;</span>)</span><br><span class="line">    <span class="comment"># 获取小说名</span></span><br><span class="line">    title = html.xpath(<span class="string">&#x27;//h1/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list = []</span><br><span class="line">    dit = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> dd <span class="keyword">in</span> dd_list:</span><br><span class="line"></span><br><span class="line">        dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + dd.xpath(<span class="string">&#x27;./a/@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        dit[<span class="string">&#x27;pageName&#x27;</span>] = dd.xpath(<span class="string">&#x27;./a/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        pageUrlName_list.append(dit.copy())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(pageUrlName_list)</span></span><br><span class="line">    <span class="keyword">return</span> pageUrlName_list, title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">page_url</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;获取内容&#x27;&#x27;&#x27;</span></span><br><span class="line">    resp = requests.get(page_url, headers=headers)</span><br><span class="line">    html = etree.HTML(resp.text)</span><br><span class="line">    content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line">    <span class="comment"># print(&#x27;\r\n&#x27;.join(content_list[:-1]))</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">down_txt</span>(<span class="params">q, fw</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;保存小说&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">global</span> index</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        i, page_url_name = q.get()</span><br><span class="line">        <span class="comment"># print(page_url_name, i)</span></span><br><span class="line">        page_url = page_url_name[<span class="string">&#x27;pageUrl&#x27;</span>]</span><br><span class="line">        page_name = page_url_name[<span class="string">&#x27;pageName&#x27;</span>]</span><br><span class="line">        content = page_name + get_content(page_url)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;爬取--&gt;&#x27;</span>, page_name)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 判断当前章节是否和标记的章节数一样</span></span><br><span class="line">        <span class="keyword">while</span> i &gt; index:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == i:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;保存--&gt;&#x27;</span>, page_name)</span><br><span class="line">            fw.write(content)</span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    url = <span class="string">&#x27;https://www.lingdiankanshu.co/467479/&#x27;</span></span><br><span class="line">    pageUrl_list, title = get_pageUrlName(url)</span><br><span class="line">    <span class="comment"># print(pageUrl_list)</span></span><br><span class="line">    </span><br><span class="line">    q = Queue()</span><br><span class="line">    <span class="keyword">for</span> i, page_url_name <span class="keyword">in</span> <span class="built_in">enumerate</span>(pageUrl_list):</span><br><span class="line">        q.put([i, page_url_name])</span><br><span class="line"></span><br><span class="line">    index = <span class="number">0</span>   <span class="comment"># 记录保存章节数</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;title&#125;</span>.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> fw:</span><br><span class="line"></span><br><span class="line">        ts = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            t = Thread(target=down_txt, args=[q, fw])</span><br><span class="line">            t.start()</span><br><span class="line">            ts.append(t)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> ts:</span><br><span class="line">            t.join()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
   </entry>
   <entry>
     <title>viw的使用</title>
@@ -2854,6 +2842,57 @@
       </tags>
   </entry>
   <entry>
+    <title>python-小说爬虫.md</title>
+    <url>/2021/02/22/python-%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<h3 id="目标：爬取零点看书网"><a href="#目标：爬取零点看书网" class="headerlink" title="目标：爬取零点看书网"></a>目标：爬取零点看书网</h3><p> 一本小说</p>
+<h3 id="1、爬取小说目录地址"><a href="#1、爬取小说目录地址" class="headerlink" title="1、爬取小说目录地址"></a>1、爬取小说目录地址</h3><p>爬取小说地址：<a href="https://www.lingdiankanshu.co/258400/">https://www.lingdiankanshu.co/258400/</a></p>
+<p>查看网页源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784886.png" alt="image-20210226204725455"></p>
+<p>小说<code>楔子</code>在一个id等于list的div下的dl下第二个dt的同级标签dd的a标签里面</p>
+<span id="more"></span>
+
+<p>用xpath来获取</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;list&quot;]/dl/dt[2]/following-sibling::dd/a&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>following-sibling :选取当前节点之后的所有同级节点 </p>
+<p>获取章节地址和章节名</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pageUrlName_list = []</span><br><span class="line">dit = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> a_list:</span><br><span class="line">    dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + a.xpath(<span class="string">&#x27;./@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    dit[<span class="string">&#x27;pageName&#x27;</span>] = a.xpath(<span class="string">&#x27;./text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list.append(dit.copy())</span><br><span class="line"><span class="built_in">print</span>(pageUrlName_list)</span><br></pre></td></tr></table></figure>
+<h3 id="2、爬取小说内容页"><a href="#2、爬取小说内容页" class="headerlink" title="2、爬取小说内容页"></a><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784891.png" alt="image-20210226204831863">2、爬取小说内容页</h3><p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784894.png" alt="image-20210226204921501"></p>
+<p>小说内容在一个id等于content的div里面</p>
+<p>获取小说内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(content_list)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784896.png" alt="image-20210226205024731"></p>
+<h3 id="3、整理爬取的小说"><a href="#3、整理爬取的小说" class="headerlink" title="3、整理爬取的小说"></a>3、整理爬取的小说</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">content = <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/2663481911/picGo_img/img/2021-09-16/1631784899.png" alt="image-20210226211457781"></p>
+<h3 id="4、多线程下载"><a href="#4、多线程下载" class="headerlink" title="4、多线程下载"></a>4、多线程下载</h3><p>由于小说各个章节顺序一定，可以定义一个正在保存章节的标记</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>把章节地址扔进队列中，用的时候取出来</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line">q = Queue()</span><br><span class="line"><span class="comment"># i记录章节顺序</span></span><br><span class="line"><span class="keyword">for</span> i, page <span class="keyword">in</span> <span class="built_in">enumerate</span>(pageUrlName_list):</span><br><span class="line">	q.put([i, page])</span><br></pre></td></tr></table></figure>
+
+<p>当队列不为空时：从队列中取出一个元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    i, page_url_name = q.get()</span><br></pre></td></tr></table></figure>
+
+<p>判断当前爬取的章节是否和保存标记的章节数一样</p>
+<p>不一样：等待</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> i &gt; index:</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>一样：保存当前章节，用来保存标记的章节数加一</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> index == i:</span><br><span class="line">    fw.write(content)</span><br><span class="line">    index += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>开始多线程：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    t = Thread(target=down_txt, args=[q, fw])</span><br><span class="line">    t.start()</span><br><span class="line">    ts.append(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> ts:</span><br><span class="line">    t.join()</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、完整代码："><a href="#5、完整代码：" class="headerlink" title="5、完整代码："></a>5、完整代码：</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 Edg/81.0.416.72&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_pageUrlName</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;获取各章节地址和章节名&#x27;&#x27;&#x27;</span></span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    html = etree.HTML(resp.text)</span><br><span class="line">    dd_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;list&quot;]/dl/dt[2]/following-sibling::dd&#x27;</span>)</span><br><span class="line">    <span class="comment"># 获取小说名</span></span><br><span class="line">    title = html.xpath(<span class="string">&#x27;//h1/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    pageUrlName_list = []</span><br><span class="line">    dit = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> dd <span class="keyword">in</span> dd_list:</span><br><span class="line"></span><br><span class="line">        dit[<span class="string">&#x27;pageUrl&#x27;</span>] = url + dd.xpath(<span class="string">&#x27;./a/@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        dit[<span class="string">&#x27;pageName&#x27;</span>] = dd.xpath(<span class="string">&#x27;./a/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        pageUrlName_list.append(dit.copy())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(pageUrlName_list)</span></span><br><span class="line">    <span class="keyword">return</span> pageUrlName_list, title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">page_url</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;获取内容&#x27;&#x27;&#x27;</span></span><br><span class="line">    resp = requests.get(page_url, headers=headers)</span><br><span class="line">    html = etree.HTML(resp.text)</span><br><span class="line">    content_list = html.xpath(<span class="string">&#x27;//div[@id=&quot;content&quot;]/text()&#x27;</span>)</span><br><span class="line">    <span class="comment"># print(&#x27;\r\n&#x27;.join(content_list[:-1]))</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;\r\n&#x27;</span>.join(content_list[:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">down_txt</span>(<span class="params">q, fw</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;保存小说&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">global</span> index</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        i, page_url_name = q.get()</span><br><span class="line">        <span class="comment"># print(page_url_name, i)</span></span><br><span class="line">        page_url = page_url_name[<span class="string">&#x27;pageUrl&#x27;</span>]</span><br><span class="line">        page_name = page_url_name[<span class="string">&#x27;pageName&#x27;</span>]</span><br><span class="line">        content = page_name + get_content(page_url)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;爬取--&gt;&#x27;</span>, page_name)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 判断当前章节是否和标记的章节数一样</span></span><br><span class="line">        <span class="keyword">while</span> i &gt; index:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == i:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;保存--&gt;&#x27;</span>, page_name)</span><br><span class="line">            fw.write(content)</span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    url = <span class="string">&#x27;https://www.lingdiankanshu.co/467479/&#x27;</span></span><br><span class="line">    pageUrl_list, title = get_pageUrlName(url)</span><br><span class="line">    <span class="comment"># print(pageUrl_list)</span></span><br><span class="line">    </span><br><span class="line">    q = Queue()</span><br><span class="line">    <span class="keyword">for</span> i, page_url_name <span class="keyword">in</span> <span class="built_in">enumerate</span>(pageUrl_list):</span><br><span class="line">        q.put([i, page_url_name])</span><br><span class="line"></span><br><span class="line">    index = <span class="number">0</span>   <span class="comment"># 记录保存章节数</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;title&#125;</span>.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> fw:</span><br><span class="line"></span><br><span class="line">        ts = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            t = Thread(target=down_txt, args=[q, fw])</span><br><span class="line">            t.start()</span><br><span class="line">            ts.append(t)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> ts:</span><br><span class="line">            t.join()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+  </entry>
+  <entry>
     <title>工具-github+typora+PicGo图床</title>
     <url>/2021/08/25/%E5%B7%A5%E5%85%B7-github-typora-PicGo%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h1 id="github图床"><a href="#github图床" class="headerlink" title="github图床"></a>github图床</h1><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><ol>
@@ -3013,7 +3052,9 @@
   <entry>
     <title>算法-子数组异或查询</title>
     <url>/2021/05/12/%E7%AE%97%E6%B3%95-%E5%AD%90%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%9F%A5%E8%AF%A2/</url>
-    <content><![CDATA[<h1 id="子数组异或查询"><a href="#子数组异或查询" class="headerlink" title="子数组异或查询"></a><a href="https://leetcode-cn.com/problems/xor-queries-of-a-subarray/">子数组异或查询</a></h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个正整数数组 <code>arr</code>，现给你一个对应的查询数组 <code>queries</code>，其中 <code>queries[i] = [Li, Ri]</code>。</p>
+    <content><![CDATA[<h1 id="子数组异或查询"><a href="#子数组异或查询" class="headerlink" title="子数组异或查询"></a><a href="https://leetcode-cn.com/problems/xor-queries-of-a-subarray/">子数组异或查询</a></h1><span id="more"></span>
+
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个正整数数组 <code>arr</code>，现给你一个对应的查询数组 <code>queries</code>，其中 <code>queries[i] = [Li, Ri]</code>。</p>
 <p>对于每个查询<code> i</code>，请你计算从<code>Li</code>到<code> Ri</code> 的 <code>XOR </code>值（即 <code>arr[Li] xor arr[Li+1] xor ... xor arr[Ri]</code>）作为本次查询的结果。</p>
 <p>并返回一个包含给定查询<code> queries</code> 所有结果的数组。</p>
 <ul>
